@@ -1,14 +1,13 @@
 class PhrsController < ApplicationController
 	before_action :signed_in_user
-  before_action :correct_user, only: [:index, :show, :destroy]
+  before_action :correct_user, only: [:index, :show, :destroy, :edit]
   
   def index
   	@phrs = User.phrs.paginate(page: params[:page])
   end
 
   def show
-    @phr = User.phr.find(params[:id])
-    redirect_to @phr
+    @phr = current_user.phrs.find(params[:id])
   end
 
   def create
@@ -25,6 +24,19 @@ class PhrsController < ApplicationController
 
   def new
     @phr = current_user.phrs.build
+  end
+
+  def edit
+  end
+
+  def update
+    @phr = current_user.phrs.find(params[:id])
+    if @phr.update_attributes(phr_params)
+      flash[:success] = "PHR updated"
+      redirect_to @phr
+    else
+      render 'edit'
+    end
   end
 
   def destroy

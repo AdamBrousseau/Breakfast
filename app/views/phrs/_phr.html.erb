@@ -1,5 +1,5 @@
 <li>
-  <span class="first_name"><%= link_to (phr.first_name + ' ' + phr.last_name), phr, method: :show %></span>
+  <span class="first_name"><%= link_to (phr.first_name + ' ' + phr.last_name), phr %></span>
   <span class="timestamp">
     Created <%= phr.created_at %>.
     Last updated <%= time_ago_in_words(phr.updated_at) %> ago.

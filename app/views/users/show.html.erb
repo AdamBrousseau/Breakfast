@@ -6,19 +6,20 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <div>
+    </section>
+    <section>  
       	<%= link_to "New PHR", createphr_path, class: "btn btn-large btn-primary" %>
-      </div>
     </section>
   </aside>
   <div class="span8">
+  	<h3>PHRs</h3>
     <% if @user.phrs.any? %>
-      <h3>PHRs</h3>
-            	
       <ol class="phrs">
         <%= render @phrs %>
       </ol>
       <%= will_paginate @phrs %>
+      <% else %>
+      You have no PHRs
     <% end %>
   </div>
 </div>

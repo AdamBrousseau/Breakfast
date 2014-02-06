@@ -12,6 +12,8 @@ WebPHR::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   match '/createphr', to: 'phrs#new',            via: 'get'
+  #match '/editphr', to: 'phrs#edit',            via: 'get'
+  
 
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
