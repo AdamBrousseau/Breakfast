@@ -1,0 +1,26 @@
+<!--<%= f.text_area :first_name, placeholder: "Create new PHR..." %>-->
+<p>
+	<%= f.label :first_name %><br>
+	<%= f.text_field :first_name %>
+</p>
+<p>
+	<%= f.label :last_name %><br>
+	<%= f.text_field :last_name %>
+</p>
+<p>
+	<%= f.label :gender %><br>
+	<%= f.select :gender, ['Male','Female'] %>
+
+</p>
+<p>
+	<%= f.label :date_of_birth %><br>
+	<%= f.date_select :date_of_birth, :start_year => 1900, :end_year => Time.now.year%>
+</p>
+<p>
+	<%= f.label :health_card_no %><br>
+	<%= f.text_field :health_card_no %>
+</p>
+<p>
+	<%= f.label :blood_type %><br>
+	<%= f.select :blood_type, ['A+', 'A-','B+','B-','AB+','AB-','O+','O-'] %>
+</p>
