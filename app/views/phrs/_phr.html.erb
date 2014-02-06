@@ -1,0 +1,8 @@
+<li>
+  <span class="first_name"><%= phr.first_name %></span>
+  <span class="timestamp">
+    Created <%= phr.created_at %>.
+    Last updated <%= time_ago_in_words(phr.updated_at) %> ago.
+    <%= link_to "Delete", phr, method: :delete, data: { confirm: "Are you sure you want to delete this PHR?" } %>
+  </span>
+</li>
