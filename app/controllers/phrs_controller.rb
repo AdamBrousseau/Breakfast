@@ -42,8 +42,7 @@ class PhrsController < ApplicationController
   def destroy
     @phr.destroy
     flash[:success] = "PHR deleted."
-    redirect_back_or @phr 
-
+    redirect_to(current_user)
   end
 
   private
