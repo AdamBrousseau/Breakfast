@@ -26,5 +26,4 @@ class AilmentsController < ApplicationController
 											:end_date,
 											:ailment_description)
 		end
-
 end
