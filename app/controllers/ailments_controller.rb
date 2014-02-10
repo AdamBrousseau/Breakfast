@@ -6,12 +6,25 @@ class AilmentsController < ApplicationController
 	
 	def create
 		@phr = Phr.find(params[:phr_id])
-		@ailment = @phr.ailments.create(params[:ailment].permit(:ailment_name, :begin_date, :end_date, :ailment_description))
-		redirect_to phr_path(@phr)
+		@ailment = @phr.ailments.create(ailment_params)
+
+		if @ailment.save
+	    	flash[:success] = "Ailment Created!"
+    		redirect_to phr_path(@phr)
+    	else
+      		render 'new'
+   		end
 	end
 
 	def edit
 	end
-	
+
+	private
+		def ailment_params
+			params.require(:ailment).permit(:ailment_name,
+											:begin_date,
+											:end_date,
+											:ailment_description)
+		end
 
 end

@@ -6,6 +6,7 @@ WebPHR::Application.routes.draw do
   resources :phrs do
 	 resources :immunizations
    resources :ailments
+   resources :medications
   end
  
   root  'static_pages#home'
