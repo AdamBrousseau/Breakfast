@@ -1,6 +1,7 @@
 class Phr < ActiveRecord::Base
 	belongs_to :user
 	has_many :immunizations
+	has_many :ailments
 	
 	default_scope -> { order('created_at DESC') }
 	before_save { self.blood_type = blood_type.downcase }

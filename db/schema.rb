@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212010531) do
+ActiveRecord::Schema.define(version: 20140212010532) do
+
+  create_table "ailments", force: true do |t|
+    t.string   "ailment_name"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.string   "ailment_description"
+    t.integer  "phr_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
 
   create_table "immunizations", force: true do |t|
     t.string   "immunization"

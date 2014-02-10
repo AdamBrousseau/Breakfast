@@ -4,7 +4,8 @@ WebPHR::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   
   resources :phrs do
-	resources :immunizations
+	 resources :immunizations
+   resources :ailments
   end
  
   root  'static_pages#home'

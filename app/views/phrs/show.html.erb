@@ -15,15 +15,16 @@
   
   <section>
   <div class="span8">
-    <h3>Ailments</h3>
-    <% if nil #@phrs.ailments.any? %>
+  <h3>Ailments</h3>
+      <% if nil #@phrs.ailments.any? %>
       <ol class="ailments">
         <%= render @ailments %>
       </ol>
       <%= will_paginate @ailments %>
       <% else %>
-      You have no Ailments
+      <%= render "ailment_table" %>
     <% end %>
+     <%= link_to 'Add an Ailment', phr_ailments_path(@phr) %>
   </div>
   
   <div class="span8">
