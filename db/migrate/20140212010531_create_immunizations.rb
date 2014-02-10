@@ -10,5 +10,4 @@ class CreateImmunizations < ActiveRecord::Migration
     end
   end
   
-  add_index :immunizations, :phr_id
 end
