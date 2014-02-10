@@ -1,5 +1,6 @@
 class Phr < ActiveRecord::Base
 	belongs_to :user
+	has_many :eyes, dependent: :destroy
 	default_scope -> { order('created_at DESC') }
 	before_save { self.blood_type = blood_type.downcase }
 	validates :first_name, presence: true, length: { maximum: 50 }
