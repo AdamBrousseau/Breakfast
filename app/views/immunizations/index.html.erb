@@ -1,0 +1,10 @@
+<% provide(:title, @phr.first_name) %>
+
+<h2>Immunizations</h2>
+<%= render @phr.immunizations %>
+
+<h2>Add an Immunization:</h2>
+
+ 
+<%= link_to 'Back', @phr %>
+| <%= link_to 'Edit', edit_phr_path(@phr) %>

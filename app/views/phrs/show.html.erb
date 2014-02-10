@@ -8,7 +8,7 @@
       <h4>Gender:</h4> <%= @phr.gender %>
       <h4>Date of Birth:</h4> <%= @phr.date_of_birth.strftime('%B %-d, %Y') %>
       <h4>Health Card Number:</h4> <%= @phr.health_card_no.upcase %>
-      <h4>Bloof Type:</h4> <%= @phr.blood_type.upcase %>
+      <h4>Blood Type:</h4> <%= @phr.blood_type.upcase %>
       <p><%= link_to "Edit", edit_phr_path %></p>
     </section>
   </aside>
@@ -87,7 +87,7 @@
   </div>
   
   <div class="span8">
-    <h3>Immunization Records</h3>
+    <h3><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h3>
     <% if nil #@phrs.immunizations.any? %>
       <ol class="immunizations">
         <%= render @immunizations %>
