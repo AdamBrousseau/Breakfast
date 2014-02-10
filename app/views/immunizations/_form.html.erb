@@ -1,0 +1,17 @@
+<%= form_for([@phr, @phr.immunizations.build]) do |f| %>
+  <p>
+    <%= f.label :immunization %><br />
+    <%= f.text_field :immunization %>
+  </p>
+  <p>
+	<%= f.label :date %><br>
+	<%= f.date_select :date, :start_year => 1900, :end_year => Time.now.year + 100%>
+  </p>
+  <p>
+	<%= f.label :expiry %><br>
+	<%= f.date_select :expiry, :start_year => 1900, :end_year => Time.now.year + 100%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

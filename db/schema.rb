@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205225422) do
+ActiveRecord::Schema.define(version: 20140212010535) do
+
+  create_table "ailments", force: true do |t|
+    t.string   "ailment_name"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.string   "ailment_description"
+    t.integer  "phr_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
+
+  create_table "immunizations", force: true do |t|
+    t.string   "immunization"
+    t.date     "date"
+    t.date     "expiry"
+    t.integer  "phr_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "immunizations", ["phr_id"], name: "index_immunizations_on_phr_id"
+
+  create_table "medications", force: true do |t|
+    t.string   "medication"
+    t.string   "drug"
+    t.datetime "begin_date"
+    t.integer  "duration"
+    t.float    "dosage"
+    t.integer  "frequency"
+    t.string   "ailment"
+    t.string   "prescribing_doctor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "phrs", force: true do |t|
     t.string   "first_name"

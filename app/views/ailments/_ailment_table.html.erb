@@ -1,0 +1,10 @@
+<% @phr.ailments.each do |a| %>
+	<tr>
+		<td><%= a.ailment_name %></td>
+		<td><%= a.begin_date %></td>
+		<td><%= a.end_date %></td>
+		<td><%= a.ailment_description %></td>
+		| <%= link_to 'Edit', phr_ailments_path(@phr) %>
+	</tr>
+	<br>
+<%end%>
