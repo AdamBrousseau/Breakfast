@@ -1,0 +1,18 @@
+  <p>
+    <strong>Immunization:</strong>
+    <%= immunization.immunization %>
+  </p>
+ 
+  <p>
+    <strong>Date:</strong>
+    <%= immunization.date %>
+  </p>
+  
+   <p>
+    <strong>Expiry Date:</strong>
+    <%= immunization.expiry %>
+  </p>
+  
+  <%= link_to 'Remove Immunization', [immunization.phr, immunization],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>

@@ -2,7 +2,12 @@ WebPHR::Application.routes.draw do
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :phrs
+  
+  resources :phrs do
+	 resources :immunizations
+   resources :ailments
+   resources :medications
+  end
  
   root  'static_pages#home'
  
