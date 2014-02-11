@@ -40,7 +40,7 @@ class EyesController < ApplicationController
     @eye = Eye.find(params[:id])
     if @eye.update_attributes(eye_params)
       flash[:success] = "Record updated"
-      redirect_to(phr_eyes_path(@eye.phr, @eye))
+      redirect_to(phr_eye_path(@eye.phr, @eye))
     else
       render 'edit'
     end
