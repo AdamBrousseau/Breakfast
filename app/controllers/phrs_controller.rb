@@ -3,7 +3,7 @@ class PhrsController < ApplicationController
   before_action :correct_user, only: [:index, :show, :destroy, :edit]
   
   def index
-  	@phrs = User.phrs.paginate(page: params[:page])
+  	#@phrs = User.phrs.paginate(page: params[:page], per_page: 3)
   end
 
   def show
@@ -40,8 +40,11 @@ class PhrsController < ApplicationController
   end
 
   def destroy
-    @phr.destroy
-    flash[:success] = "PHR deleted."
+    if @phr.update_attribute(:deleted, true)
+      flash[:success] = "PHR deleted."
+    else
+      
+    end
     redirect_to(current_user)
   end
 

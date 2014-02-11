@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207063523) do
+ActiveRecord::Schema.define(version: 20140212010537) do
+
+  create_table "ailments", force: true do |t|
+    t.string   "ailment_name"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.string   "ailment_description"
+    t.integer  "phr_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
 
   create_table "eyes", force: true do |t|
     t.integer  "phr_id"
@@ -45,23 +57,12 @@ ActiveRecord::Schema.define(version: 20140207063523) do
     t.string   "cont_os_colour"
     t.string   "cont_os_brand"
     t.string   "comment"
-    t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-end
-    add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
-
-  create_table "ailments", force: true do |t|
-    t.string   "ailment_name"
-    t.date     "begin_date"
-    t.date     "end_date"
-    t.string   "ailment_description"
-    t.integer  "phr_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "deleted",        default: false
   end
 
-  add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
+  add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
 
   create_table "immunizations", force: true do |t|
     t.string   "immunization"
@@ -97,6 +98,7 @@ end
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "deleted",        default: false
   end
 
   add_index "phrs", ["user_id"], name: "index_phrs_on_user_id"

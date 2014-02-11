@@ -1,0 +1,23 @@
+<% provide(:title, "Optometrist Records") %>
+<div class="row">
+  <%= render 'shared/phr_info' %>
+  
+  <section>
+  <div class="span8">
+  <h3>Optometrist Records</h3>
+  <%= link_to "New Record", new_phr_eye_path, class: "btn btn-small btn-primary" %>
+
+
+    <% if @phr.eyes.where(:deleted => false).any? %>
+      <ol class="eyes">
+      	<%= render @eyes %>
+               <% #will_paginate @eyes %>
+      </ol>
+      <% else %>
+      You have no Optometrist Records
+    <% end %>
+  </div>
+  </section>
+
+  <%= link_to 'Back', @phr %>
+</div>

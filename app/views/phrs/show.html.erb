@@ -1,17 +1,6 @@
-<% provide(:title, @phr.first_name) %>
+<% provide(:title, @phr.first_name + " " + @phr.last_name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h3>
-        <%= @phr.first_name %> <%= @phr.last_name %>        
-      </h3>
-      <h4>Gender:</h4> <%= @phr.gender %>
-      <h4>Date of Birth:</h4> <%= @phr.date_of_birth.strftime('%B %-d, %Y') %>
-      <h4>Health Card Number:</h4> <%= @phr.health_card_no.upcase %>
-      <h4>Blood Type:</h4> <%= @phr.blood_type.upcase %>
-      <p><%= link_to "Edit", edit_phr_path %></p>
-    </section>
-  </aside>
+  <%= render 'shared/phr_info' %>
   
   <section>
   <div class="span8">
@@ -67,17 +56,9 @@
   </div>
   
   <div class="span8">
-    <h3>Optometrist Records</h3>
-    <% if nil #@phrs.eyes.any? %>
-      <ol class="eyes">
-        <%= render @eyes %>
-      </ol>
-      <%= will_paginate @eyes %>
-      <% else %>
-      You have no Optometrist Records
-    <% end %>
+    <h3><%= link_to 'Optometrist Records' , phr_eyes_path(@phr) %></h3>
   </div>
-  
+
   <div class="span8">
     <h3><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h3>
     <% if nil #@phrs.immunizations.any? %>

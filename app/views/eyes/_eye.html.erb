@@ -1,0 +1,10 @@
+<% unless eye.deleted %>
+	<li>
+	  <span class="date"><%= link_to eye.date, [eye.phr, eye] %></span>
+	  <span class="timestamp">
+	    Created <%= eye.created_at %>.
+	    Last updated <%= time_ago_in_words(eye.updated_at) %> ago.
+	    <%= link_to "Delete", [eye.phr, eye], method: :delete, data: { confirm: "Are you sure you want to delete this Optometrist Record?" } , title: eye.date %>
+	  </span>
+	</li>
+<% end %>

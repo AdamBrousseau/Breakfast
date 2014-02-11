@@ -1,0 +1,18 @@
+<% provide(:title, 'Edit Optometrist Record') %>
+<%= form_for([@phr, @eye]) do |f| %>
+<%= render 'shared/phr_info', f: f %>
+  <div class="row">
+      <h1>Update Optometrist Record</h1>
+      <%= render 'shared/error_messages', object: f.object %>
+     
+        <div class="span6 offset3">
+          <%= render 'eye_form', f: f %>
+        
+          <%= f.submit "Save Changes" %>
+        </div>
+
+
+  </div>
+  <%= link_to 'Back', phr_eyes_path %>
+<% end %>
+</div>

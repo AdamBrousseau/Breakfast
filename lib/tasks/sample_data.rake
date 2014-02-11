@@ -6,7 +6,7 @@ namespace :db do
                  password: "foobar",
                  password_confirmation: "foobar",
                  admin: true)
-    5.times do |n|
+    2.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@webphr.org"
       password  = "password"
@@ -15,9 +15,9 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
       cur_user = User.last
-      4.times do
-        first_name = Faker::Name.name
-        last_name = Faker::Name.name
+      5.times do
+        first_name = Faker::Name.first_name
+        last_name = Faker::Name.last_name
         date_of_birth = DateTime.new(rand(1900..2013), rand(1..12), rand(1..28))
         #date_of_birth = rand(1..1391661731)
         gender = (rand(0..1) == 1) ? 'Male' : 'Female'
@@ -30,6 +30,11 @@ namespace :db do
                           gender: gender,
                           blood_type: blood_type,
                           health_card_no: health_card_no)
+        cur_phr = Phr.first
+        5.times do
+          date = DateTime.new(rand(1900..2013), rand(1..12), rand(1..28))
+          cur_phr.eyes.create!(date: date)
+        end
       end
     end
   end
