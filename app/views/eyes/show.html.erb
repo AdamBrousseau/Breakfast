@@ -1,9 +1,12 @@
 <% provide(:title, "Optometrist Record " + @eye.date.strftime('%B %-d, %Y')) %>
+<%= render 'shared/phr_info' %>
 <section>
+	<div class="span6">
     <h3>
       <%= @eye.date %>
     </h3>
     
     <p><%= link_to "Edit", edit_phr_eye_path(@phr, @eye) %></p>
     <%= link_to 'Back', phr_eyes_path(@phr) %>
+</div>
   </section>
