@@ -17,6 +17,8 @@
 
 # Ignore other unneeded files.
 database.yml
+Gemfile
+Gemfile.lock
 doc/
 *.swp
 *~
