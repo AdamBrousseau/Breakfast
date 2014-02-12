@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	has_many :phrs, dependent: :destroy
+	has_many :contacts, dependent: :destroy
 	before_save { email.downcase! }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }

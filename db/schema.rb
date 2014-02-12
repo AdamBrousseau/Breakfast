@@ -22,8 +22,19 @@ ActiveRecord::Schema.define(version: 20140212010537) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
   add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "email"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+    add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "eyes", force: true do |t|
     t.integer  "phr_id"
@@ -87,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140212010537) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "phrs", force: true do |t|
     t.string   "first_name"
