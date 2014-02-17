@@ -4,11 +4,11 @@
   
   <section>
   <div class="span8">
-  <h3><%= link_to 'Ailments' , phr_ailments_path(@phr) %></h3>
+  <h4><%= link_to 'Ailments' , phr_ailments_path(@phr) %></h4>
   </div>
   
   <div class="span8">
-    <h3>Allergies</h3>
+    <h4>Allergies</h4>
     <% if nil #@phrs.allergys.any? %>
       <ol class="allergys">
         <%= render @allergys %>
@@ -20,7 +20,7 @@
   </div>
   
   <div class="span8">
-    <h3>Appointments</h3>
+    <h4>Appointments</h4>
     <% if nil #@phrs.appointments.any? %>
       <ol class="appointments">
         <%= render @appointments %>
@@ -32,7 +32,7 @@
   </div>
   
   <div class="span8">
-    <h3>Dental Records</h3>
+    <h4>Dental Records</h4>
     <% if nil #@phrs.dentals.any? %>
       <ol class="dentals">
         <%= render @dentals %>
@@ -44,7 +44,7 @@
   </div>
   
   <div class="span8">
-    <h3>Diabetes</h3>
+    <h4>Diabetes</h4>
     <% if nil #@phrs.diabetes.any? %>
       <ol class="diabetes">
         <%= render @diabetes %>
@@ -56,11 +56,11 @@
   </div>
   
   <div class="span8">
-    <h3><%= link_to 'Optometrist Records' , phr_eyes_path(@phr) %></h3>
+    <h4><%= link_to 'Optometrist Records' , phr_eyes_path(@phr) %></h4>
   </div>
 
   <div class="span8">
-    <h3><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h3>
+    <h4><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h4>
     <% if nil #@phrs.immunizations.any? %>
       <ol class="immunizations">
         <%= render @immunizations %>
@@ -72,7 +72,7 @@
   </div>
   
   <div class="span8">
-    <h3>Medication</h3>
+    <h4>Medication</h4>
     <% if nil #@phrs.medications.any? %>
       <ol class="medications">
         <%= render @medications %>
@@ -84,7 +84,7 @@
   </div>
   
   <div class="span8">
-    <h3>Surgery Records</h3>
+    <h4>Surgery Records</h4>
     <% if nil #@phrs.surgerys.any? %>
       <ol class="surgerys">
         <%= render @surgerys %>
@@ -96,7 +96,7 @@
   </div>
   
   <div class="span8">
-    <h3>Test Results</h3>
+    <h4>Test Results</h4>
     <% if nil #@phrs.tests.any? %>
       <ol class="tests">
         <%= render @tests %>

@@ -1,15 +1,14 @@
 <% provide(:title, 'New PHR') %>
-<h1>Create New PHR</h1>
-
+<h2>New Personal Health Record</h2>
+<hr>
 <div class="row">
     <%= form_for(@phr) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= render 'shared/user_info', f: f %>
+      
       	<div class="span6 offset3">
       		<%= render 'phr_form', f: f %>
       	
-      		<%= f.submit "Create PHR", class: "btn btn-large btn-primary" %>
+      		<%= f.submit "Create PHR", class: "btn btn-small btn-secondary" %>
       	</div>
     <% end %>
-  </div>
 </div>
