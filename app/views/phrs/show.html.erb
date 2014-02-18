@@ -8,15 +8,7 @@
   </div>
   
   <div class="span8">
-    <h3>Allergies</h3>
-    <% if nil #@phrs.allergys.any? %>
-      <ol class="allergys">
-        <%= render @allergys %>
-      </ol>
-      <%= will_paginate @allergys %>
-      <% else %>
-      You have no Allergies
-    <% end %>
+  <h3><%= link_to 'Allergies' , phr_allergies_path(@phr) %></h3>
   </div>
   
   <div class="span8">

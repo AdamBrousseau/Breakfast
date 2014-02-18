@@ -1,9 +1,11 @@
 WebPHR::Application.routes.draw do
   
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :phrs do
 	 resources :immunizations
+   resources :allergies
    resources :ailments
    resources :medications
    resources :eyes
