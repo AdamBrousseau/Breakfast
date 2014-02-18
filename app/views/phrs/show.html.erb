@@ -16,17 +16,9 @@
   </div>
   
   <div class="span8">
-    <h3>Dental Records</h3>
-    <% if nil #@phrs.dentals.any? %>
-      <ol class="dentals">
-        <%= render @dentals %>
-      </ol>
-      <%= will_paginate @dentals %>
-      <% else %>
-      You have no Dental Records
-    <% end %>
+  <h3><%= link_to 'Dental Records' , phr_dentals_path(@phr) %></h3>
   </div>
-  
+ 
   <div class="span8">
     <h3>Diabetes</h3>
     <% if nil #@phrs.diabetes.any? %>

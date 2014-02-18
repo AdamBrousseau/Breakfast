@@ -1,0 +1,8 @@
+<% @phr.dentals.each do |a| %>
+	<tr>
+		<td><%= a.dentists %></td>
+		<td><%= a.last_cleaning %></td>
+		| <%= link_to 'Edit', edit_phr_path(@phr) %>
+	</tr>
+	<br>
+<%end%>
