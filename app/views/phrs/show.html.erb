@@ -12,15 +12,7 @@
   </div>
   
   <div class="span8">
-    <h3>Appointments</h3>
-    <% if nil #@phrs.appointments.any? %>
-      <ol class="appointments">
-        <%= render @appointments %>
-      </ol>
-      <%= will_paginate @appointments %>
-      <% else %>
-      You have no Appointments
-    <% end %>
+  <h3><%= link_to 'Appointments' , phr_appointments_path(@phr) %></h3>
   </div>
   
   <div class="span8">
