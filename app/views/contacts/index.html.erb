@@ -1,26 +1,39 @@
-<h1>Phonebook</h1>
- 
+<h2>Phonebook</h2>
+<hr>
 <% if @contacts.any? %> 
-  <table>
+
+  <table align="center">
     <tr>
-      <th>Name</th>
-      <th>Primary Phone</th>
-      <th></th>
+      <td height = "30"><%= link_to '+ New Contact', new_contact_path, class: "btn btn-small btn-secondary"%></td>
+      <td width = "150"></td>
+      <td width = "150"></td>
+      <td width = "25"></td>
+    </tr>
+  </table>
+
+  <table align="center">
+    <tr>
+      <th height = "35" width = "150" style="text-align:left;"}>Name</th>
+      <th width = "125" style="text-align:left;">Primary Phone</th>
+      <th width = "100"></th>
       <th></th>
     </tr>
    
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.name %></td>
+        <td height = "35"><%= contact.name %></td>
         <td><%= contact.phone1 %></td>
-        <td><%= link_to 'View Contact', contact %></td>
-        <td><%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View Contact', contact, class: "btn btn-small btn-secondary" %></td>
+        <td><%= link_to 'Delete', contact_path(contact), class: "btn btn-small btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </table>
-<% end %>  
+<% end %> 
 
-
-
-<%= link_to 'Create New Contact', new_contact_path %>
-
+<% if !@contacts.any? %>
+  <table align="center">
+    <tr>
+      <td height = "30"><%= link_to '+ New Contact', new_contact_path, class: "btn btn-small btn-secondary"%></td>
+    </tr>
+  </table> 
+<% end %>

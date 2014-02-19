@@ -18,8 +18,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
-  height: 100%;
+  height: 85%;
 }
 
 section {
@@ -51,12 +50,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
+  color: grey;
+}
+
+h4 {
+  color: grey;
 }
 
 p {
@@ -71,14 +74,14 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: grey;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: $gray;
     text-decoration: none;
   }
 }
@@ -135,13 +138,34 @@ p {
   }
 }
 
+/* page-wrap */
+
+.page-wrap {
+  margin-top: 60px;
+  min-height: 100%;
+  margin-bottom: -40px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
 /* footer */
 
 footer {
+  //position: fixed;
+  //background: $grayLighter;
   margin-top: 45px;
   padding-top: 5px;
+  padding-bottom: 3px;
+  //overflow: visible;
+  width: 100%;
   border-top: 1px solid $grayMediumLight;
-  bottom: 0;
+  bottom: 0px;
+  height: 40px;
+  //z-index: 99;
+
   color: $grayLight;
   a {
     color: $gray;
@@ -158,6 +182,7 @@ footer {
     li {
       float: left;
       margin-left: 10px;
+      margin-right: 40px;
     }
   }
 }

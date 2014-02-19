@@ -1,7 +1,7 @@
 <% provide(:title, 'New Optometrist Record') %>
-<%= render 'shared/phr_info' %>
-<section>
+
 <%= form_for([@phr, @phr.eyes.build]) do |f| %>
+<%= render 'shared/phr_info' %>
   <div class="row">
 
 
@@ -19,4 +19,3 @@
   <%= link_to 'Back', phr_eyes_path %>
 <% end %>
 </div>
-</section>
