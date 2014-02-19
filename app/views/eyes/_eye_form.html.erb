@@ -1,6 +1,6 @@
   <p>
     <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.date_select :date, :start_year => 1900, :end_year => Time.now.year %>
   </p>
   <p>
     Eyeglass Prescription
@@ -21,17 +21,17 @@
           <th rowspan="1">OD</th>
           <td><%= f.text_field :glass_od_sph %></td>
           <td><%= f.text_field :glass_od_cyl %></td>
-          <td><%= f.text_field :glass_od_axis %></td>
+          <td><%= f.select :glass_od_axis, (1..180) %></td>
           <td><%= f.text_field :glass_od_prism %></td>
-          <td><%= f.text_field :glass_od_base %></td>
+          <td><%= f.select :glass_od_base, ['N/A','UP','DOWN','IN','OUT'] %></td>
         </tr>
         <tr>
           <th rowspan="1">OS</th>
           <td><%= f.text_field :glass_os_sph %></td>
           <td><%= f.text_field :glass_os_cyl %></td>
-          <td><%= f.text_field :glass_os_axis %></td>
+          <td><%= f.select :glass_os_axis, (1..180) %></td>
           <td><%= f.text_field :glass_os_prism %></td>
-          <td><%= f.text_field :glass_os_base %></td>
+          <td><%= f.select :glass_os_base, ['N/A','UP','DOWN','IN','OUT'] %></td>
         </tr>
         <tr>
           <th rowspan="2">Add</th>
@@ -85,8 +85,8 @@
         </tr>
         <tr>
           <th rowspan="1">Axis</th>
-          <td><%= f.text_field :cont_od_axis %></td>
-          <td><%= f.text_field :cont_os_axis %></td>
+          <td><%= f.select :cont_od_axis , (1..180)%></td>
+          <td><%= f.select :cont_os_axis , (1..180)%></td>
         </tr>
         <tr>
           <th rowspan="1">Add</th>

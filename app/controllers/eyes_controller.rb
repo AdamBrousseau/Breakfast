@@ -14,7 +14,6 @@ class EyesController < ApplicationController
 	end
 	
 	def create
-		flash[:success] = "CREATE"
 		@phr = Phr.find(params[:phr_id])
 		@eye = @phr.eyes.create(eye_params)
 
