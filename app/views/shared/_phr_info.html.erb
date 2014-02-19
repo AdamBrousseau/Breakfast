@@ -3,10 +3,12 @@
     <h3>
       <%= @phr.first_name %> <%= @phr.last_name %>        
     </h3>
+  <hr width="75%">
     <h4>Gender:</h4> <%= @phr.gender %>
     <h4>Date of Birth:</h4> <%= @phr.date_of_birth.strftime('%B %-d, %Y') %>
     <h4>Health Card Number:</h4> <%= @phr.health_card_no.upcase %>
     <h4>Blood Type:</h4> <%= @phr.blood_type.upcase %>
-    <p><%= link_to "Edit", edit_phr_path(@phr) %></p>
+    <p></p>
+    <p><%= link_to "Edit", edit_phr_path(@phr), class: "btn btn-small btn-secondary" %></p>
   </section>
 </aside>

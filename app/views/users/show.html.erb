@@ -2,24 +2,24 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
+      <h3>
         <%= gravatar_for @user %>
         <%= @user.name %>
-      </h1>
+      </h3>
     </section>
     <section>  
-      	<%= link_to "New PHR", createphr_path, class: "btn btn-large btn-primary" %>
+      	<%= link_to "New PHR", createphr_path, class: "btn btn-large btn-secondary" %>
     </section>
   </aside>
   <div class="span8">
-  	<h3>PHRs</h3>
+  	<h2 style="text-align:left;">Personal Health Records</h2>
     <% if @user.phrs.where(:deleted => false).any? %>
       <ol class="phrs">
         <%= render @phrs.where(:deleted => false) %>
       </ol>
       <%= will_paginate @phrs.where(:deleted => false) %>
       <% else %>
-      You have no PHRs
+      You have not created any Personal Health Records yet.
     <% end %>
   </div>
 </div>

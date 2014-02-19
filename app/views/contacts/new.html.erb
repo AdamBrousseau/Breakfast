@@ -1,5 +1,5 @@
-<h1>Add New Contact</h1>
-
+<h2>Add New Contact</h2>
+<hr>
 <%= form_for :contact, url: contacts_path do |f| %>
 	
 	<% if @contact.errors.any? %>
@@ -20,12 +20,12 @@
 	</p>
 
 	<p>
-	<%= f.label :phone1 %><br>
+	<%= f.label :phone1, 'Primary Phone' %><br>
 	<%= f.text_field :phone1 %>
 	</p>
 
 	<p>
-	<%= f.label :phone2 %><br>
+	<%= f.label :phone2, 'Secondary Phone' %><br>
 	<%= f.text_field :phone2 %>
 	</p>
 
@@ -38,11 +38,13 @@
 	<%= f.label :description %><br>
 	<%= f.text_area :description %>
 	</p>
-
-	<p>
-	<%= f.submit %>
-	</p>
+	
+	<table align="center">
+  		<tr>
+    		<td height = "30"><%= f.submit 'Save Contact', class: "btn btn-small btn-secondary" %></td>
+		</tr>
+	</table>
 
 <% end %>
 
-<%= link_to 'Back', contacts_path %>
+<%= link_to 'Back', contacts_path, class: "btn btn-small btn-secondary" %>

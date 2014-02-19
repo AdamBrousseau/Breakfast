@@ -1,11 +1,14 @@
 <% provide(:title, 'New Optometrist Record') %>
+
 <%= form_for([@phr, @phr.eyes.build]) do |f| %>
-<%= render 'shared/phr_info', f: f %>
+<%= render 'shared/phr_info' %>
   <div class="row">
+
+
       <h1>Create New Optometrist Record</h1>
       <%= render 'shared/error_messages', object: f.object %>
      
-        <div class="span6 offset3">
+        <div class="span6">
           <%= render 'eye_form', f: f %>
         
           <%= f.submit "Create Record" %>
