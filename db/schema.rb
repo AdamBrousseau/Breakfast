@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 20140218202640) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",        default: false
+    t.string   "comment2"
+    t.string   "doctor"
   end
 
   add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
