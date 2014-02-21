@@ -1,0 +1,15 @@
+<%= form_for([@phr, @phr.allergies.build]) do |f| %>
+  <p>
+    <%= f.label :allergy_name %>
+    <%= f.text_field :allergy_name %>
+  </p>    
+  <p>
+    <%= f.label :allergy_description %>
+    <%= f.text_area :allergy_description %>
+  </p>
+  <p>
+  <%= f.submit %>
+  </p>
+
+
+<% end %>
