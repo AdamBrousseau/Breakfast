@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212010537) do
+ActiveRecord::Schema.define(version: 20140218202640) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -25,6 +25,23 @@ ActiveRecord::Schema.define(version: 20140212010537) do
 
   add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
 
+  create_table "allergies", force: true do |t|
+    t.string   "allergy_name"
+    t.string   "allergy_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "phr_id"
+  end
+
+  create_table "appointments", force: true do |t|
+    t.string   "doctor"
+    t.string   "reason"
+    t.string   "results"
+    t.integer  "phr_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contacts", force: true do |t|
     t.string   "name"
     t.string   "phone1"
@@ -37,6 +54,14 @@ ActiveRecord::Schema.define(version: 20140212010537) do
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
+
+  create_table "dentals", force: true do |t|
+    t.string   "dentist"
+    t.date     "last_cleaning"
+    t.integer  "phr_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "eyes", force: true do |t|
     t.integer  "phr_id"
@@ -73,6 +98,8 @@ ActiveRecord::Schema.define(version: 20140212010537) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",        default: false
+    t.string   "comment2"
+    t.string   "doctor"
   end
 
   add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"

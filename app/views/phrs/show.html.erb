@@ -8,51 +8,19 @@
   </div>
   
   <div class="span8">
-    <h4>Allergies</h4>
-    <% if nil #@phrs.allergys.any? %>
-      <ol class="allergys">
-        <%= render @allergys %>
-      </ol>
-      <%= will_paginate @allergys %>
-      <% else %>
-      You have no Allergies
-    <% end %>
+  <h4><%= link_to 'Allergies' , phr_allergies_path(@phr) %></h4>
   </div>
   
   <div class="span8">
-    <h4>Appointments</h4>
-    <% if nil #@phrs.appointments.any? %>
-      <ol class="appointments">
-        <%= render @appointments %>
-      </ol>
-      <%= will_paginate @appointments %>
-      <% else %>
-      You have no Appointments
-    <% end %>
+  <h4><%= link_to 'Appointments' , phr_appointments_path(@phr) %></h4>
   </div>
   
   <div class="span8">
-    <h4>Dental Records</h4>
-    <% if nil #@phrs.dentals.any? %>
-      <ol class="dentals">
-        <%= render @dentals %>
-      </ol>
-      <%= will_paginate @dentals %>
-      <% else %>
-      You have no Dental Records
-    <% end %>
+  <h4><%= link_to 'Dental Records' , phr_dentals_path(@phr) %></h4>
   </div>
-  
+ 
   <div class="span8">
     <h4>Diabetes</h4>
-    <% if nil #@phrs.diabetes.any? %>
-      <ol class="diabetes">
-        <%= render @diabetes %>
-      </ol>
-      <%= will_paginate @diabetes %>
-      <% else %>
-      You have no Diabetes
-    <% end %>
   </div>
   
   <div class="span8">
@@ -61,50 +29,18 @@
 
   <div class="span8">
     <h4><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h4>
-    <% if nil #@phrs.immunizations.any? %>
-      <ol class="immunizations">
-        <%= render @immunizations %>
-      </ol>
-      <%= will_paginate @immunizations %>
-      <% else %>
-      You have no Immunization Records
-    <% end %>
   </div>
   
   <div class="span8">
     <h4>Medication</h4>
-    <% if nil #@phrs.medications.any? %>
-      <ol class="medications">
-        <%= render @medications %>
-      </ol>
-      <%= will_paginate @medications %>
-      <% else %>
-      You have no Medications
-    <% end %>
   </div>
   
   <div class="span8">
     <h4>Surgery Records</h4>
-    <% if nil #@phrs.surgerys.any? %>
-      <ol class="surgerys">
-        <%= render @surgerys %>
-      </ol>
-      <%= will_paginate @surgerys %>
-      <% else %>
-      You have no Surgery Records
-    <% end %>
   </div>
   
   <div class="span8">
     <h4>Test Results</h4>
-    <% if nil #@phrs.tests.any? %>
-      <ol class="tests">
-        <%= render @tests %>
-      </ol>
-      <%= will_paginate @tests %>
-      <% else %>
-      You have no Test Results
-    <% end %>
   </div>
   </section>
 </div>
