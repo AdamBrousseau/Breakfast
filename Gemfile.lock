@@ -65,6 +65,8 @@ GEM
     ffi (1.9.3)
     ffi (1.9.3-x86-mingw32)
     formatador (0.2.4)
+    fullcalendar_engine (1.0.3)
+      rails (>= 4.0.0)
     guard (2.3.0)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -219,6 +221,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
+  fullcalendar_engine (= 1.0.3)
   guard-rspec (= 2.5.0)
   guard-spork
   jbuilder (~> 1.2)
