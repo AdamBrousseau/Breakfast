@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'fullcalendar_engine', '1.0.3'
 
+gem "paperclip"
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
