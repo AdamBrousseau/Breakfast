@@ -8,7 +8,8 @@
       	<div class="span6 offset3">
       		<%= render 'phr_form', f: f %>
       	
-      		<%= f.submit "Create PHR", class: "btn btn-small btn-secondary" %>
+      		<%= f.submit "Create PHR", class: "btn btn-small btn-secondary" %><br/><br/>
+      		<%= link_to 'Cancel', current_user %>
       	</div>
     <% end %>
 </div>

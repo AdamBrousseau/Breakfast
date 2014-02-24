@@ -2,17 +2,16 @@
 
 <div class="row">
   <%= render 'shared/phr_info' %>
-  
   <section>
   <div class="span8">
-  <h3>Optometrist Records</h3>
+  <h3>Optometrist Records
   <%= link_to "New Record", new_phr_eye_path, class: "btn btn-small btn-secondary" %>
-
+</h3>
 
     <% if @phr.eyes.where(:deleted => false).any? %>
       <ol class="eyes">
-      	<%= render @eyes %>
-               <% #will_paginate @eyes %>
+      	<%= render @eyes.where(:deleted => false) %>
+        <%= will_paginate @eyes.where(:deleted => false) %>
       </ol>
       <% else %>
       You have no Optometrist Records
