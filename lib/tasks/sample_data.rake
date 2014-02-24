@@ -32,6 +32,7 @@ namespace :db do
         cur_phr = Phr.first
         5.times do
           date = DateTime.new(rand(1900..2013), rand(1..12), rand(1..28))
+          doctor  = "Dr. " + Faker::Name.name
           glass_od_base = (rand(0..1) == 1) ? 'UP' : 'DOWN'
           glass_os_base = (rand(0..1) == 1) ? 'IN' : 'OUT'
           glass_od_axis = (rand(1..180))
@@ -39,6 +40,7 @@ namespace :db do
           cont_od_axis = (rand(1..180))
           cont_os_axis = (rand(1..180))
           cur_phr.eyes.create!(date: date,
+                                doctor: doctor,
                                 glass_od_base: glass_od_base,
                                 glass_os_base: glass_os_base,
                                 glass_od_axis: glass_od_axis,

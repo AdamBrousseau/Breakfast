@@ -9,11 +9,11 @@
         <div class="span6">
           <%= render 'eye_form', f: f %>
         
-          <%= f.submit "Save Changes" %>
+          <%= f.submit "Save Changes" %><br/>
+          <%= link_to 'Cancel', phr_eye_path %>
         </div>
 
 
   </div>
-  <%= link_to 'Back', phr_eyes_path %>
 <% end %>
 </div>

@@ -62,6 +62,7 @@ class EyesController < ApplicationController
 		def eye_params
 			params.require(:eye).permit(:phr_id,
 										:date,
+										:doctor,
 										:glass_od_sph,
 										:glass_od_cyl,
 										:glass_od_axis,
@@ -90,7 +91,8 @@ class EyesController < ApplicationController
 										:cont_os_add,
 										:cont_os_colour,
 										:cont_os_brand,
-										:comment)
+										:comment,
+										:comment2)
 		end
 
 		# Before filters
