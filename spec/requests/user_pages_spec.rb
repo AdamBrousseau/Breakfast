@@ -16,6 +16,12 @@ describe "User pages" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+      describe "after submission" do
+        before { click_button submit }
+
+        it { should have_title('Sign up') }
+        it { should have_content('error') }
+      end
 
       describe "after submission" do
         before { click_button submit }
@@ -52,8 +58,12 @@ describe "User pages" do
   let(:user) { FactoryGirl.create(:user) }
   let!(:p1) { FactoryGirl.create(:phr, user: user) }
   let!(:p2) { FactoryGirl.create(:phr, user: user) }
+  #before {10.times { FactoryGirl.create(:phr, user: user) } }
 
-  before { visit user_path(user) }
+  before(:each) do
+    sign_in user
+    visit user_path(user)
+  end
 
   it { should have_content(user.name) }
   it { should have_title(user.name) }
@@ -63,6 +73,19 @@ describe "User pages" do
     it { should have_content(p1.first_name) }
     it { should have_content(p2.first_name) }
   end
+
+  #describe "pagination" do
+    
+    #after {Phr.delete_all }
+
+  #  it { should have_selector('div.pagination') }
+
+  #  it "should list each phr" do
+  #    user.phrs.paginate(page: 1).each do |phr|
+  #      expect(page).to have_selector('span.first_name', text: phr.first_name)
+  #    end
+  #  end
+  #end
 end
 
 
@@ -77,9 +100,9 @@ end
 
 
     describe "page" do
-      it { should have_content("Update your profile") }
-      it { should have_title("Edit user") }
-      it { should have_link('change', href: 'http://gravatar.com/emails') }
+      it { should have_content("Update Your Profile") }
+      it { should have_title("Edit Profile") }
+      it { should have_link('Change Gravatar', href: 'http://gravatar.com/emails') }
     end
 
     describe "with invalid information" do

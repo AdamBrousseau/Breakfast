@@ -10,8 +10,8 @@
 
     <% if @phr.eyes.where(:deleted => false).any? %>
       <ol class="eyes">
-      	<%= render @eyes %>
-               <% #will_paginate @eyes %>
+      	<%= render @eyes.where(:deleted => false) %>
+        <%= will_paginate @eyes.where(:deleted => false) %>
       </ol>
       <% else %>
       You have no Optometrist Records

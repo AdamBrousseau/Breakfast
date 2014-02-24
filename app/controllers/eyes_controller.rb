@@ -4,8 +4,8 @@ class EyesController < ApplicationController
 
 	def index
 		@phr = Phr.find(params[:phr_id])
-		#@eyes = @phr.eyes.paginate(page: params[:page], per_page: 5)
-		@eyes = @phr.eyes.all
+		@eyes = @phr.eyes.paginate(page: params[:page], per_page: 5)
+		#@eyes = @phr.eyes.all
 	end
 
 	def new
@@ -15,11 +15,11 @@ class EyesController < ApplicationController
 	
 	def create
 		@phr = Phr.find(params[:phr_id])
-		@eye = @phr.eyes.create(eye_params)
+		@eye = @phr.eyes.build(eye_params)
 
 		if @eye.save
 	    	flash[:success] = "Optometrist Record Created"
-    		redirect_to(phr_eyes_path(@phr, @eye))
+    		redirect_to(phr_eye_path(@eye.phr, @eye))
     	else
     		render 'new'
    		end
