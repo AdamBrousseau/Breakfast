@@ -1,0 +1,26 @@
+<% provide(:title, "Test Results") %>
+
+<div class="row">
+  <%= render 'shared/phr_info' %>
+  
+  <section>
+  <div class="span8">
+  <h2 style="text-align:left;">Test Results</h2>
+  <hr>
+  <%= link_to "+New Test Result", new_phr_test_path, class: "btn btn-small btn-secondary" %>
+  <br>
+  <br>
+
+    <% if @phr.tests.where(:deleted => false).any? %>
+      <ol class="eyes">
+      	<%= render @tests.where(:deleted => false) %>
+        <%= will_paginate @tests.where(:deleted => false) %>
+      </ol>
+      <% else %>
+      You have no Test Results
+    <% end %>
+  </div>
+  </section>
+
+  <%= link_to 'Back', @phr %>
+</div>

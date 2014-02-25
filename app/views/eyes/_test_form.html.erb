@@ -1,0 +1,19 @@
+<p>
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+</p>
+
+<p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date, :start_year => 1900, :end_year => Time.now.year %>
+</p>
+
+<p>
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+</p>
+
+<p>
+    <%= f.label :test %><br />
+    <%= f.file_field :test %>
+</p>
