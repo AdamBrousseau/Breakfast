@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140225011440) do
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleted",             default: false
   end
 
   add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
