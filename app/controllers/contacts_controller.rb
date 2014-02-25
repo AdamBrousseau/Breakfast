@@ -4,8 +4,8 @@ class ContactsController < ApplicationController
 
 	
 	def index
-		#@contacts = current_user.contacts.paginate(page: params[:page], per_page: 10)
-		@contacts = current_user.contacts.all
+		@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+		#@contacts = current_user.contacts.all
 	end
 
 	def show
