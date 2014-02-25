@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218202640) do
+ActiveRecord::Schema.define(version: 20140225011440) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 20140218202640) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",        default: false
+    t.string   "comment2"
+    t.string   "doctor"
   end
 
   add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
@@ -140,6 +142,23 @@ ActiveRecord::Schema.define(version: 20140218202640) do
   end
 
   add_index "phrs", ["user_id"], name: "index_phrs_on_user_id"
+
+  create_table "tests", force: true do |t|
+    t.string   "name"
+    t.datetime "date"
+    t.text     "comments"
+    t.integer  "phr_id"
+    t.string   "test_file_name"
+    t.string   "test_content_type"
+    t.integer  "test_file_size"
+    t.datetime "test_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "deleted",           default: false
+    t.string   "doctor"
+  end
+
+  add_index "tests", ["phr_id", "date"], name: "index_tests_on_phr_id_and_date"
 
   create_table "users", force: true do |t|
     t.string   "name"

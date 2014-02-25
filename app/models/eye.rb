@@ -3,6 +3,7 @@ class Eye < ActiveRecord::Base
 	default_scope -> { order('date DESC') }
 	
 	validates :date, presence: true
+	validates :doctor, presence: true
 
 	VALID_BASE_REGEX = /\A^(UP|DOWN|IN|OUT|N\/A)$\z/i
 	validates :glass_od_base, format: { with: VALID_BASE_REGEX}

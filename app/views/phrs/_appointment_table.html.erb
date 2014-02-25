@@ -1,9 +1,0 @@
-<% @phr.appointments.each do |a| %>
-	<tr>
-		<td><%= a.doctor %></td>
-		<td><%= a.reason %></td>
-		<td><%= a.results %></td>
-		| <%= link_to 'Edit', edit_phr_path(@phr) %>
-	</tr>
-	<br>
-<%end%>

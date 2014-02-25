@@ -21,6 +21,7 @@ describe Phr do
   it { should respond_to(:health_card_no) }
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
+  it { should respond_to(:deleted) }
   its(:user) { should eq user }
 
   it { should be_valid }
