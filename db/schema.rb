@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223010512) do
+ActiveRecord::Schema.define(version: 20140225011440) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 20140223010512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",           default: false
+    t.string   "doctor"
   end
 
   add_index "tests", ["phr_id", "date"], name: "index_tests_on_phr_id_and_date"
