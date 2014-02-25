@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218202640) do
+ActiveRecord::Schema.define(version: 20140224195532) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140218202640) do
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleted",             default: false
   end
 
   add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"

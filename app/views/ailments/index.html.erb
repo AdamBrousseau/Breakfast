@@ -1,18 +1,27 @@
-<% provide(:title, @phr.first_name) %>
+<% provide(:title, "Ailment Records") %>
 
 
 <div class ="row">
+	<%= render 'shared/phr_info' %>
+	<section>
+		<div class="span8">
+			<h2 style = "text-align: left;">Ailments</h2>
+			<hr>
+			<%= link_to "+New Record", new_phr_ailment_path, class: "btn btn-small btn-secondary" %>
+			<br>
+			<br>
+			<% if @phr.ailments.where(:deleted => false).any? %>
+			<ol class ="ailments">
+				<%= render @ailments.where(:deleted => false) %>
+				<%= will_paginate @ailments.where(:deleted => false) %>
+				</ol>
 
-<div class="span6 offset3">
-	<h2>Ailments</h2>
-   	<%= render "ailment_table" %><br>
+			<% else %>
+				You have no Ailment records
+			<% end %>
 
-
-    <h2>Add an Ailment</h2>	
-
-   	<%= render "form" %>
-
+		   	
+		</div>
+	</section>
 	<%= link_to 'Back', @phr %>
-
-	</div>
 </div>

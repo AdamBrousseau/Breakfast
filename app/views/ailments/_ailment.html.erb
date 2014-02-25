@@ -1,0 +1,11 @@
+<% unless ailment.deleted %>
+
+	<li>
+	<span class="ailment_name"><%= link_to ailment.ailment_name, [ailment.phr, ailment]%></span><br>
+	<span class="timestamp">
+		Created <%= ailment.created_at %><br>
+		Last updated <%= time_ago_in_words(ailment.updated_at) %> ago.
+	</li>
+
+
+<% end %>

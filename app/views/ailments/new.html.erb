@@ -1,0 +1,18 @@
+<%= provide(:title, 'New Ailment Record') %>
+
+<%= form_for([@phr, @phr.ailments.build]) do |f| %>
+<%= render 'shared/phr_info' %>
+	<div class="row">
+		<h1>Create New Ailment Record</h1>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<div class="span6">
+			<%= render 'form', f: f %>
+			<%= link_to 'Cancel', phr_ailments_path %>
+		</div>
+		</div>
+<% end %>
+		
+
+
+

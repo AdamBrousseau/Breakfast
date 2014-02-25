@@ -1,0 +1,23 @@
+<% provide(:title, "Ailment Record: " + @ailment.ailment_name) %>
+<%= render 'shared/phr_info' %>
+<section>
+	<div class="span6">
+
+
+	<h1>Ailment Record</h1>
+
+	<h4><%= @ailment.ailment_name %></h4>
+	<table>
+		<tr>
+		<th rowspan ="2">Start Date</th>
+		<th rowspwn ="2">End Date</th>
+		<th rowspan ="2">Description</th>
+		<td><%= @ailment.begin_date %></td>
+		<td><%= @ailment.end_date %></td>
+		<td><%= @ailment.ailment_description %></td>
+		</tr>
+		
+
+</section>
+
+
