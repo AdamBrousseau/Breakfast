@@ -1,20 +1,5 @@
 WebPHR::Application.routes.draw do
   
-
-  get "tests/index"
-  get "tests/new"
-  get "tests/create"
-  get "tests/show"
-  get "tests/edit"
-  get "tests/update"
-  get "tests/destroy"
-  get "test_results/index"
-  get "test_results/new"
-  get "test_results/create"
-  get "test_results/show"
-  get "test_results/edit"
-  get "test_results/update"
-  get "test_results/destroy"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :phrs do
