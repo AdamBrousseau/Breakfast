@@ -1,1 +1,15 @@
-<% provide(:title, "Edit Ailment") %>
+<% provide(:title, "Edit Ailment Record") %>
+
+<%= form_for([@phr, @ailment]) do |f| %>
+<%= render 'shared/phr_info' %>
+	<div class='row'>
+		<h2>Edit Ailment Record</h2>
+		<%= render 'shared/error_messages', object: f.object %>
+
+			<div class="span6">
+				<%= render 'form', f: f %>
+				<%= link_to 'Cancel', phr_ailment_path %>
+			</div>
+	</div>
+<% end %>
+

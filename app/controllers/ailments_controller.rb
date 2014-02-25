@@ -16,7 +16,7 @@ class AilmentsController < ApplicationController
 
 		if @ailment.save
 	    	flash[:success] = "Ailment Created!"
-    		redirect_to phr_path(@ailment.phr, @ailment)
+    		redirect_to phr_ailment_path(@ailment.phr, @ailment)
     	else
       		render 'new'
    		end
@@ -28,6 +28,18 @@ class AilmentsController < ApplicationController
 	end
 
 	def edit
+		@phr = Phr.find(params[:phr_id])
+		@ailment = Ailment.find(params[:id])
+	end
+
+	def update
+		@ailment = Ailment.find(params[:id])
+		if @ailment.update_attributes(ailment_params)
+			flash[:success] = "Record updated"
+			redirect_to(phr_ailment_path(@ailment.phr, @ailment))
+		else
+			reder 'edit'
+		end
 	end
 
 	private
