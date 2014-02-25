@@ -4,7 +4,15 @@ class ContactsController < ApplicationController
 
 	
 	def index
-		@contacts = current_user.contacts.all
+		if params[:search]
+    		@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5).find(:all, :conditions => ['name Like ?', "%#{params[:search]}%"])
+    		if !@contacts.any?
+    			flash[:failure] = "Contact Not Found"
+    			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+    		end
+  		else
+  			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+  		end
 	end
 
 	def show

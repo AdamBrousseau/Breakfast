@@ -9,5 +9,5 @@ class Contact < ActiveRecord::Base
 	validates :email, length: {maximum: 100}, format: { with: EMAIL_REGEX }
 	validates :description, length: { maximum: 512 }
 	validates :user_id, presence: true
-
+	
 end

@@ -1,6 +1,5 @@
 WebPHR::Application.routes.draw do
   
-
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :phrs do
@@ -11,6 +10,7 @@ WebPHR::Application.routes.draw do
    resources :dentals
    resources :medications
    resources :eyes
+   resources :tests
   end
   resources :contacts
  
