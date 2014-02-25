@@ -1,0 +1,24 @@
+<p>
+    <%= f.label :name, 'Test Type (eg. Blood Test, X-Ray, etc.):' %>
+    <%= f.text_area :name %>
+</p>
+
+<p>
+	<%= f.label :doctor, 'Test Requested by (Doctor):' %>
+    <%= f.text_area :doctor %>
+</p>
+
+<p>
+    <%= f.label :date, 'Date Tested On:' %>
+    <%= f.date_select :date, :start_year => 1900, :end_year => Time.now.year %>
+</p>
+
+<p>
+    <%= f.label :comments, 'Additional Comments:' %>
+    <%= f.text_area :comments %>
+</p>
+
+<p>
+    <%= f.label :test, 'Upload photo or scan of your test (file with extension PNG or JPG or JPEG only):' %>
+    <%= f.file_field :test %>
+</p>
