@@ -18,9 +18,9 @@ namespace :db do
       cur_user = User.last
       # Create Contacts
       10.times do
-        name = Faker::Name.name
         first_name = Faker::Name.first_name
         last_name = Faker::Name.last_name
+        name = first_name + " " + last_name
         email = first_name+"."+last_name+"@webphr.org"
         phone = Faker::PhoneNumber.phone_number
         cur_user.contacts.create!(name: name,
