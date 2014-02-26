@@ -1,18 +1,7 @@
-  <p>
-    <strong>Immunization:</strong>
-    <%= immunization.immunization %>
-  </p>
- 
-  <p>
-    <strong>Date:</strong>
-    <%= immunization.date %>
-  </p>
-  
-   <p>
-    <strong>Expiry Date:</strong>
-    <%= immunization.expiry %>
-  </p>
-  
-  <%= link_to 'Remove Immunization', [immunization.phr, immunization],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+<tr>
+  <td><%= immunization.immunization %></td>
+  <td><%= immunization.date %></td>
+  <td><%= immunization.expiry %></td>
+  <td><%= link_to 'Edit', [immunization.phr, immunization], method: :update %></td> 
+  <td><%= link_to 'Delete', [immunization.phr, immunization], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
