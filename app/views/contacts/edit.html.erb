@@ -1,5 +1,7 @@
+<% provide(:title, 'Edit Contact') %>
 <h2>Editing contact</h2>
 <hr>
+<aside class="span6 offset3">
 <%= form_for :contact, url: contact_path(@contact), method: :patch do |f| %>
   <% if @contact.errors.any? %>
   <div id="error_explanation">
@@ -39,9 +41,10 @@
   </p>
 
   <p>
-  <%= f.submit 'Save Contact', class: "btn btn-small btn-secondary" %>
+  <%= f.submit 'Save Contact' %>
+  <br>
+  <%= link_to 'Cancel', contacts_path %>
   </p>
   
 <% end %>
-
-<%= link_to 'Back', contacts_path, class: "btn btn-small btn-secondary" %>
+</aside>

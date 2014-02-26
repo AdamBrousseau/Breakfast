@@ -114,9 +114,10 @@
     <%= @eye.comment2 %>
   </p>
 
-    <p><%= link_to "Edit", edit_phr_eye_path(@phr, @eye) %></p>
+    <p><%= link_to "Edit", edit_phr_eye_path(@phr, @eye), class: "btn btn-small btn-secondary" %>
+    <%= link_to 'Back', phr_eyes_path(@phr), class: "btn btn-small btn-secondary" %></p>
 </div>
     
 
   </section>
-  <%= link_to 'Back', phr_eyes_path(@phr) %>
+  

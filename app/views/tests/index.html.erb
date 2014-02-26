@@ -17,10 +17,11 @@
         <%= will_paginate @tests.where(:deleted => false) %>
       </ol>
       <% else %>
-      You have no Test Results
+      You have no Test Results<br><br>
     <% end %>
+    <%= link_to 'Back', @phr, class: "btn btn-small btn-secondary" %>
   </div>
   </section>
 
-  <%= link_to 'Back', @phr %>
+  
 </div>
