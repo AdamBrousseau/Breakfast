@@ -1,5 +1,7 @@
+<% provide(:title, 'New Contact') %>
 <h2>Add New Contact</h2>
 <hr>
+<aside class="span6 offset3">
 <%= form_for :contact, url: contacts_path do |f| %>
 	
 	<% if @contact.errors.any? %>
@@ -39,12 +41,7 @@
 	<%= f.text_area :description %>
 	</p>
 	
-	<table align="center">
-  		<tr>
-    		<td height = "30"><%= f.submit 'Save Contact', class: "btn btn-small btn-secondary" %></td>
-		</tr>
-	</table>
-
+	<%= f.submit 'Save Contact' %><br>
+	<%= link_to 'Cancel', contacts_path %>
 <% end %>
-
-<%= link_to 'Back', contacts_path, class: "btn btn-small btn-secondary" %>
+</aside>

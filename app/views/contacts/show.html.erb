@@ -1,6 +1,7 @@
-<h2 style="text-align:left;"><%= @contact.name %> </h2>
+<% provide(:title, @contact.name) %>
+<h2 style="text-align:center;"><%= @contact.name %> </h2>
 <hr>
- 
+<aside class="span6 offset3"> 
 <p>
   <strong>Primary Phone:</strong>
   <%= @contact.phone1 %>
@@ -24,3 +25,4 @@
 <%= link_to 'Edit Contact', edit_contact_path(@contact), class: "btn btn-small btn-secondary" %>
 
 <%= link_to 'Back', contacts_path, class: "btn btn-small btn-secondary" %>
+</aside>

@@ -4,20 +4,20 @@
   <%= render 'shared/phr_info' %>
   <section>
   <div class="span8">
-  <h3>Optometrist Records
-  <%= link_to "New Record", new_phr_eye_path, class: "btn btn-small btn-secondary" %>
-</h3>
-
+  <h2 style="text-align:left;">Optometrist Records</h2>
+  <hr>
+  <%= link_to "+New Record", new_phr_eye_path, class: "btn btn-small btn-secondary" %>
+  <br>
+  <br>
     <% if @phr.eyes.where(:deleted => false).any? %>
       <ol class="eyes">
       	<%= render @eyes.where(:deleted => false) %>
         <%= will_paginate @eyes.where(:deleted => false) %>
       </ol>
       <% else %>
-      You have no Optometrist Records
+      You have no Optometrist Records<br><br>
     <% end %>
+    <%= link_to 'Back', @phr, class: "btn btn-small btn-secondary"%>
   </div>
-  </section>
-
-  <%= link_to 'Back', @phr %>
+  </section>  
 </div>

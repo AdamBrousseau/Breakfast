@@ -1,10 +1,18 @@
 <% provide(:title, @phr.first_name) %>
 
 <h2>Immunizations</h2>
-<%= render @phr.immunizations %>
-
+<table class="table table-striped table-bordered table-condensed">
+	<tr>
+		<th>Immunization</th>
+		<th>Date</th>
+		<th>Expiry Date</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<%= render @phr.immunizations %>
+</table>
 <h2>Add an Immunization:</h2>
-
+<%= render 'form' %>
  
 <%= link_to 'Back', @phr %>
 | <%= link_to 'Edit', edit_phr_path(@phr) %>

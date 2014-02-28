@@ -1,15 +1,18 @@
+<% provide(:title, 'Phonebook') %>
 <h2>Phonebook</h2>
 <hr>
-
 <% if @contacts.any? %> 
 
   <table align="center">
     <tr>
-      <td style="text-align:left;"><%= link_to '+ New Contact', new_contact_path, class: "btn btn-small btn-secondary"%></td>
+      <td style="text-align:left;"><%= link_to '+New Contact', new_contact_path, class: "btn btn-small btn-secondary"%></td>
       <td width = "50"></td>
-      <td width = "280" style="text-align:right;"><%= form_tag(contacts_path, :method => "get", id: "search-form") do %><%= text_field_tag :search, params[:search], placeholder: "Search Contacts", class: "input-medium search-query" %>
-      <%= submit_tag "Search", :name => nil, class: "btn btn-small btn-info" %></td>
-      <% end %>
+      <td width = "280" style="text-align:right;">
+        <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Contacts", class: "input-medium search-query" %>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-small btn-info" %>
+        <% end %>
+      </td>      
     </tr>
   </table>
 
@@ -26,12 +29,11 @@
         <td height = "35"><%= contact.name %></td>
         <td><%= contact.phone1 %></td>
         <td><%= link_to 'View Contact', contact, class: "btn btn-small btn-secondary" %></td>
-        <td><%= link_to 'Delete', contact_path(contact), class: "btn btn-small btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+        <td><%= link_to 'Delete', contact_path(contact), class: "btn btn-small btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    
   </table>
-  <table align="center">
+  <table class="span6 offset3">
     <td><%= will_paginate(@contacts) %></td>
   </table>
 <% end %> 
@@ -39,7 +41,7 @@
 <% if !@contacts.any? %>
   <table align="center">
     <tr>
-      <td height = "30"><%= link_to '+ New Contact', new_contact_path, class: "btn btn-small btn-secondary"%></td>
+      <td height = "30"><%= link_to '+New Contact', new_contact_path, class: "btn btn-small btn-secondary"%></td>
     </tr>
   </table> 
 <% end %>
