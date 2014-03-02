@@ -7,7 +7,9 @@
       <%= render 'shared/error_messages', object: f.object %>
       <%= render 'phr_form', f: f  %>
       
-      <%= f.submit "Save changes", class: "btn btn-small btn-secondary" %>
+      <%= f.submit "Save changes" %>
+      <br>
+      <%= link_to 'Cancel', phr_path %>
     <% end %>
   </div>
 </div>
