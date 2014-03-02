@@ -12,6 +12,15 @@ class ContactsController < ApplicationController
     		end
   		else
   			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+  			respond_to do |format|
+	     		format.html
+	     		format.pdf do
+	        		pdf = ContactPdf.new(current_user.contacts)
+	        		send_data pdf.render, filename: "contact.pdf",
+	                              		type: "application/pdf",
+	                              		disposition: "inline"
+				end
+			end
   		end
 	end
 
