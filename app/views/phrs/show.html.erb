@@ -14,13 +14,17 @@
   <div class="span8">
   <h4><%= link_to 'Appointments' , phr_appointments_path(@phr) %></h4>
   </div>
+
+  <div class="span8">
+  <h4><%= link_to 'Blood Pressure Records' , phr_bps_path(@phr) %></h4>
+  </div>
   
   <div class="span8">
   <h4><%= link_to 'Dental Records' , phr_dentals_path(@phr) %></h4>
   </div>
  
   <div class="span8">
-    <h4>Diabetes</h4>
+    <h4>Diabetes Records</h4>
   </div>
   
   <div class="span8">
@@ -42,7 +46,10 @@
   <div class="span8">
     <h4><%= link_to 'Test Results' , phr_tests_path(@phr) %></h4>
   </div>
-  <%= link_to 'Back', current_user, class: "btn btn-small btn-secondary" %>
+
+  <div class="span8">
+    <%= link_to 'Back', current_user, class: "btn btn-small btn-secondary" %>
+  </div>
   </section>
 </div>
 

@@ -11,6 +11,7 @@ WebPHR::Application.routes.draw do
    resources :medications
    resources :eyes
    resources :tests
+   resources :bps
   end
   resources :contacts
  
