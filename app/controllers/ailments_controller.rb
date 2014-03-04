@@ -42,6 +42,18 @@ class AilmentsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@phr = Phr.find(params[:phr_id])
+		@ailments = @phr.ailments.all
+		@ailment = @phr.ailments.find(params[:id])
+		if @ailment.update_attribute(:deleted, true)
+			flash[:success] = "Record Deleted"
+		else
+
+		end
+		redirect_to(phr_ailments_path)
+	end
+
 	private
 		def ailment_params
 			params.require(:ailment).permit(:ailment_name,
