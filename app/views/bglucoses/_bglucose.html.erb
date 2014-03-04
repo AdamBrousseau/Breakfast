@@ -1,0 +1,8 @@
+
+	<li>
+	  <span class="date"><%= link_to bglucose.date.strftime('%B %-d, %Y'), [bglucose.phr, bglucose] %> - <%= bglucose.btype %></span><br/>
+	  <span class="timestamp">
+	    Last updated <%= time_ago_in_words(bglucose.updated_at) %> ago.
+	    <%= link_to "Delete", [bglucose.phr, bglucose], method: :delete, data: { confirm: "Are you sure you want to delete this Optometrist Record?" } , title: bglucose.date %>
+	  </span>
+	</li>
