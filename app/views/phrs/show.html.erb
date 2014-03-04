@@ -4,15 +4,19 @@
   
   <section>
   <div class="span8">
-  <h4><%= link_to 'Ailments' , phr_ailments_path(@phr) %></h4>
+  <h4><%= link_to 'Ailment Records' , phr_ailments_path(@phr) %></h4>
   </div>
   
   <div class="span8">
-  <h4><%= link_to 'Allergies' , phr_allergies_path(@phr) %></h4>
+  <h4><%= link_to 'Allergy Records' , phr_allergies_path(@phr) %></h4>
   </div>
   
   <div class="span8">
   <h4><%= link_to 'Appointments' , phr_appointments_path(@phr) %></h4>
+  </div>
+
+  <div class="span8">
+  <h4><%= link_to 'Blood Glucose Records' , phr_bglucoses_path(@phr) %></h4>
   </div>
 
   <div class="span8">
@@ -22,14 +26,6 @@
   <div class="span8">
   <h4><%= link_to 'Dental Records' , phr_dentals_path(@phr) %></h4>
   </div>
- 
-  <div class="span8">
-    <h4>Diabetes Records</h4>
-  </div>
-  
-  <div class="span8">
-    <h4><%= link_to 'Optometrist Records' , phr_eyes_path(@phr) %></h4>
-  </div>
 
   <div class="span8">
     <h4><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h4>
@@ -38,13 +34,17 @@
   <div class="span8">
     <h4>Medication</h4>
   </div>
+
+  <div class="span8">
+    <h4><%= link_to 'Optometrist Records' , phr_eyes_path(@phr) %></h4>
+  </div>
   
   <div class="span8">
     <h4>Surgery Records</h4>
   </div>
   
   <div class="span8">
-    <h4><%= link_to 'Test Results' , phr_tests_path(@phr) %></h4>
+    <h4><%= link_to 'Test Results Records' , phr_tests_path(@phr) %></h4>
   </div>
 
   <div class="span8">

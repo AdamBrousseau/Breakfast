@@ -1,0 +1,18 @@
+<% provide(:title, 'Edit Blood Glucose Record') %>
+
+<%= form_for([@phr, @bglucose]) do |f| %>
+<%= render 'shared/phr_info' %>
+  <div class="row">
+      <h2>Update Blood Glucose Record</h2>
+      <hr>
+      <%= render 'shared/error_messages', object: f.object %>
+     
+        <div class="span6">
+          <%= render 'bglucose_form', f: f %>
+        
+          <%= f.submit "Save Changes", class: "btn btn-small btn-secondary" %>
+          <%= link_to 'Cancel', phr_bglucose_path, class: "btn btn-small btn-secondary" %>
+        </div>
+  </div>
+<% end %>
+</div>

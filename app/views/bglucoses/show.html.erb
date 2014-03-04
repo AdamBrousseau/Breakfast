@@ -1,0 +1,38 @@
+<% provide(:title, "Blood Glucose Record " + @bglucose.date.strftime('%B %-d, %Y')) %>
+<%= render 'shared/phr_info' %>
+<section>
+	<div class="span6">
+	<h2>Blood Glucose Record</h1>
+	<hr>
+    <h3><%= @bglucose.date.strftime('%B %-d, %Y') %></h3>
+    
+    <p>
+	    <table class="table table-striped table-bordered table-condensed">
+	      <thead>
+	        <tr>
+	          <th colspan="1">Blood Glucose Level (mg/dL)</th>
+	          <th colspan="1">Fasting or Non-Fasting?</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr>
+	          <td><%= @bglucose.sugar %></td>
+	          <td><%= @bglucose.btype %></td>    
+	        </tr>
+	      </tbody>
+	    </table>
+  	</p>
+	<p>
+	Comments:
+	<%= @bglucose.comments %>
+	</p>
+
+    <p>
+    	<%= link_to "Edit", edit_phr_bglucose_path(@phr, @bglucose), class: "btn btn-small btn-secondary" %>
+    	<%= link_to 'Back', phr_bglucoses_path(@phr), class: "btn btn-small btn-secondary" %>
+    </p>
+</div>
+    
+
+  </section>
+  
