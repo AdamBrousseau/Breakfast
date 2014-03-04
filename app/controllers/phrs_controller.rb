@@ -20,8 +20,6 @@ class PhrsController < ApplicationController
     end
   end
 
-
-
   def new
     @phr = current_user.phrs.build
   end

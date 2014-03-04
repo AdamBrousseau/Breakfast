@@ -7,6 +7,7 @@ class Phr < ActiveRecord::Base
 	has_many :dentals, dependent: :destroy
 	has_many :ailments, dependent: :destroy
 	has_many :tests, dependent: :destroy
+	has_many :bps, dependent: :destroy
 	default_scope -> { order('created_at DESC') }
 	before_save { self.blood_type = blood_type.downcase }
 	validates :first_name, presence: true, length: { maximum: 50 }
@@ -16,6 +17,6 @@ class Phr < ActiveRecord::Base
 	validates :gender, presence: true, format: { with: VALID_GENDER_REGEX }
 	VALID_BLOOD_REGEX = /\A^(A|B|AB|O)[+-]$\z/i
 	validates :blood_type, presence: true, format: { with: VALID_BLOOD_REGEX }
-	validates :health_card_no, presence: true, length: { maximum: 50 }
+	validates :health_card_no, presence: true, length: { maximum: 50 }, uniqueness: true #Each PHR is also Uniquely identified with its Health Card No.
 	validates :user_id, presence: true
 end
