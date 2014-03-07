@@ -19,7 +19,7 @@ FactoryGirl.define do
   factory :user do
     #name
     #email
-    sequence(:name)  { |n| "Person #{n}" }
+    sequence(:name) { |n| "Person #{n}" }
     sequence(:email) { |n| "person_#{n}@webphr.com"}
     #name     "Michael Hartl"
     #email    "michael@example.com"
@@ -29,6 +29,17 @@ FactoryGirl.define do
     factory :admin do
       admin true
     end
+  end
+
+  factory :user1 do
+    #name
+    #email
+    sequence(:name) { |n| "Person #{n}" }
+    sequence(:email) { |n| "p_#{n}@webphr.com"}
+    #name     "Michael Hartl"
+    #email    "michael@example.com"
+    password "foobar"
+    password_confirmation { |u| u.password }
   end
 
   factory :phr do
@@ -41,5 +52,14 @@ FactoryGirl.define do
   	blood_type "A+"
   	health_card_no "1234567890AB"
   	user
+  end
+
+  factory :contact do
+    sequence(:name) { |n| "Person #{n}" }
+    phone1 "1234567890"
+    phone2 "9876543210"
+    email "myemail@test.com"
+    description "My Friend"
+    user
   end
 end

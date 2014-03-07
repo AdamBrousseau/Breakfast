@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:phrs) }
+  it { should respond_to(:contacts) }
 
   it { should be_valid }
 
@@ -134,17 +135,42 @@ describe User do
       FactoryGirl.create(:phr, user: @user, created_at: 1.hour.ago)
     end
 
+    let!(:a_contact) do
+      FactoryGirl.create(:contact, user: @user, name: "Adam")
+    end
+    let!(:b_contact) do
+      FactoryGirl.create(:contact, user: @user, name: "Bob")
+    end
+
+    it "should have the right contacts in the right order" do
+      expect(@user.contacts.to_a).to eq [a_contact, b_contact]
+    end
+    
     it "should have the right phrs in the right order" do
       expect(@user.phrs.to_a).to eq [newer_phr, older_phr]
     end
 
-    it "should destroy associated phrs" do
-      phrs = @user.phrs.to_a
-      @user.destroy
-      expect(phrs).not_to be_empty
-      phrs.each do |phr|
-        expect(Phr.where(id: phr.id)).to be_empty
-      end
-    end
+    #it "should destroy associated" do
+     # contacts = @user.contacts.to_a
+      #phrs = @user.phrs.to_a
+      #@user.destroy
+      #delete :destroy, :id => @user.id
+      
+      #it "contacts" do      
+      #  expect(contacts).not_to be_empty
+      #  contacts.each do |contact|
+      #    expect(Contact.where(id: contact.id)).to be_empty
+      #  end
+      #end
+
+      #it "phrs" do
+       # expect(phrs).not_to be_empty
+        #phrs.each do |phr|
+         # expect(Phr.where(id: phr.id)).to be_empty
+        #end
+      #end
+      
+
+   # end
   end
 end

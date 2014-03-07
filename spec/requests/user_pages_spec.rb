@@ -22,13 +22,6 @@ describe "User pages" do
         it { should have_title('Sign up') }
         it { should have_content('error') }
       end
-
-      describe "after submission" do
-        before { click_button submit }
-
-        it { should have_title('Sign up') }
-        it { should have_content('error') }
-      end
     end
 
     describe "with valid information" do
@@ -107,8 +100,9 @@ end
 
     describe "with invalid information" do
       before { click_button "Save changes" }
-
       it { should have_content('error') }
+      it { should have_content("Update Your Profile") }
+      it { should have_title("Edit Profile") }
     end
 
     describe "with valid information" do
