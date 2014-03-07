@@ -50,7 +50,7 @@ FactoryGirl.define do
   	date_of_birth DateTime.civil(1980, 1, 2)
   	gender "Male"
   	blood_type "A+"
-  	health_card_no "1234567890AB"
+  	sequence(:health_card_no) { |n| "#{n}" }
   	user
   end
 
