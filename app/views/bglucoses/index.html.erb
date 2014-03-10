@@ -1,0 +1,23 @@
+<% provide(:title, "Blood Glucose Records") %>
+
+<div class="row">
+  <%= render 'shared/phr_info' %>
+  <section>
+  <div class="span8">
+  <h2>Blood Glucose Records</h2>
+  <hr>
+  <%= link_to "+New Record", new_phr_bglucose_path, class: "btn btn-small btn-secondary" %>
+  <br>
+  <br>
+    <% if @phr.bglucoses.any? %>
+      <ol class="bglucoses">
+      	<%= render @bglucoses %>
+        <%= will_paginate @bglucoses %>
+      </ol>
+      <% else %>
+      You have no Blood Glucose Records<br><br>
+    <% end %>
+    <%= link_to 'Back', @phr, class: "btn btn-small btn-secondary"%>
+  </div>
+  </section>  
+</div>

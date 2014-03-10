@@ -38,7 +38,7 @@ class AilmentsController < ApplicationController
 			flash[:success] = "Record updated"
 			redirect_to(phr_ailment_path(@ailment.phr, @ailment))
 		else
-			reder 'edit'
+			render 'edit'
 		end
 	end
 
