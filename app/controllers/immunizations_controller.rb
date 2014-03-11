@@ -1,4 +1,6 @@
 class ImmunizationsController < ApplicationController
+  #Function: index
+  #Sets up the user in the immunization controller
   def index
 	  @phr = Phr.find(params[:phr_id])
   end
@@ -16,6 +18,8 @@ class ImmunizationsController < ApplicationController
     end
   end
   
+  #Function delete
+  #Removes an immunization from the database and updates the user view.
   def delete
     @phr = Phr.find(params[:phr_id])
     @immunization = @phr.immunization.find(params[:id])
@@ -23,12 +27,16 @@ class ImmunizationsController < ApplicationController
     redirect_to phr_path(@phr)
   end
 
+  #Function edit
+  #Modifies the database and updates the user view
   def edit
     @immunization = @phr.immunization.find(params[:id])
   end
 
+  #Function update
+  #Updates the immunization record.
   def update
-    @immunization = @phr.immunization..find(params[:id])
+    @immunization = @phr.immunization.find(params[:id])
     if @immunization.update(params[:immunization].permit(:immunization, :date, :expiry))
       redirect_to phr_path(@phr)
     else
