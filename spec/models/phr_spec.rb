@@ -22,6 +22,13 @@ describe Phr do
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
   it { should respond_to(:deleted) }
+  it { should respond_to(:ailments) }
+  it { should respond_to(:allergies) }
+  it { should respond_to(:appointments) }
+  it { should respond_to(:dentals) }
+  it { should respond_to(:eyes) }
+  it { should respond_to(:immunizations) }
+  it { should respond_to(:tests) }
   its(:user) { should eq user }
 
   it { should be_valid }
@@ -71,19 +78,24 @@ describe Phr do
     it { should_not be_valid }
   end
 
-  describe "when gender is too long" do
-    before { @phr.gender = "a" * 11 }
-    it { should_not be_valid }
+  describe "when gender is invalid" do
+    it "should be invalid" do
+      genders = %w[mail feemale MALE FEMALE male female]
+      genders.each do |invalid_gender|
+        @phr.gender = invalid_gender
+        expect(@phr).not_to be_valid
+      end
+    end
   end
 
-  describe "when blood type is too long" do
-    before { @phr.blood_type = "a" * 4 }
-    it { should_not be_valid }
-  end
-
-  describe "when blood type is too short" do
-    before { @phr.blood_type = "a" }
-    it { should_not be_valid }
+  describe "when gender is valid" do
+    it "should be valid" do
+      genders = %w[Male Female]
+      genders.each do |valid_gender|
+        @phr.gender = valid_gender
+        expect(@phr).to be_valid
+      end
+    end
   end
 
   describe "when blood type is invalid" do

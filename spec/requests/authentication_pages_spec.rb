@@ -32,8 +32,9 @@ describe "Authentication" do
   before { sign_in user }
 
   it { should have_title(user.name) }
-  it { should have_link('Profile',     href: user_path(user)) }
-  it { should have_link('Settings',    href: edit_user_path(user)) }
+  it { should have_link('Home',     href: user_path(user)) }
+  it { should have_link('Phonebook',    href: contacts_path) }
+  it { should have_link('Update Profile',    href: edit_user_path(user)) }
   it { should have_link('Sign out',    href: signout_path) }
   it { should_not have_link('Sign in', href: signin_path) }
 end
@@ -54,7 +55,7 @@ describe "authorization" do
       describe "after signing in" do
 
         it "should render the desired protected page" do
-          expect(page).to have_title('Edit user')
+          expect(page).to have_title('Edit Profile')
         end        
       end
     end
@@ -89,6 +90,8 @@ describe "authorization" do
     describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+      let(:phr) { FactoryGirl.create(:phr, user: user) }
+      let(:wrong_phr) { FactoryGirl.create(:phr, user: wrong_user) }
       before { sign_in user, no_capybara: true }
 
       describe "submitting a GET request to the Users#show action" do
@@ -111,7 +114,30 @@ describe "authorization" do
       describe "submitting a DELETE request to the Users#destroy action" do
         before { delete user_path(user) }
         specify { expect(response).to redirect_to(root_url) }
+      end      
+
+      describe "submitting a GET request to the Phrs#show action" do
+        before { get phr_path(wrong_phr) }
+        specify { expect(response.body).not_to match(full_title(wrong_phr.first_name + " " + wrong_phr.last_name)) }
+        specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "submitting a GET request to the Phrs#edit action" do
+        before { get edit_phr_path(wrong_phr) }
+        specify { expect(response.body).not_to match(full_title('Edit PHR')) }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+
+      describe "submitting a PATCH request to the Phrs#update action" do
+        before { patch phr_path(wrong_phr) }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+
+      describe "submitting a DELETE request to the Phrs#destroy action" do
+        before { delete phr_path(phr) }
+        specify { expect(response).to redirect_to(user_path) }
+      end
+
     end
   end
 end
