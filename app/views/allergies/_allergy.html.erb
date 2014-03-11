@@ -1,0 +1,8 @@
+<% unless allergy.deleted %>
+	<li>
+	  <span class="timestamp">
+	    Last updated <%= time_ago_in_words(allergy.updated_at) %> ago.
+	    <%= link_to "Delete", [allergy.phr, allergy], method: :delete, data: { confirm: "Are you sure you want to delete this Allergy Record?" } , title: allergy.date %>
+	  </span>
+	</li>
+<% end %>

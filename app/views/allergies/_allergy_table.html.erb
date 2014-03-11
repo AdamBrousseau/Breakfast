@@ -1,8 +1,0 @@
-<% @phr.allergies.each do |a| %>
-	<tr>
-		<td><%= a.allergy_name %></td>
-		<td><%= a.allergy_description %></td>
-		| <%= link_to 'Edit', phr_allergies_path(@phr) %>
-	</tr>
-	<br>
-<%end%>
