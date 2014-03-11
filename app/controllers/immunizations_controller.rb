@@ -3,6 +3,8 @@ class ImmunizationsController < ApplicationController
 	  @phr = Phr.find(params[:phr_id])
   end
   
+  #Function: create
+  #Creates a new immunization record in the database and updates the user view.
   def create
     @phr = Phr.find(params[:phr_id])
     @immunization = @phr.immunizations.create(params[:immunization].permit(:immunization,:date,:expiry))
