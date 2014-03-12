@@ -5,6 +5,8 @@
 	<span class="timestamp">
 		Created <%= ailment.created_at %><br>
 		Last updated <%= time_ago_in_words(ailment.updated_at) %> ago.
+		<%= link_to 'Delete', [ailment.phr, ailment], method: :delete, data: {confirm: "Are you sure you want to delete this ailment record?"}, title: ailment.ailment_name %>
+		</span>
 	</li>
 
 

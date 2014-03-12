@@ -11,9 +11,9 @@
 			<br>
 			<br>
 			<% if @phr.ailments.where(:deleted => false).any? %>
-			<ol class ="ailments">
-				<%= render @ailments.where(:deleted => false) %>
-				<%= will_paginate @ailments.where(:deleted => false) %>
+				<ol class ="ailments">
+					<%= render @ailments.where(:deleted => false) %>
+					<%= will_paginate @ailments.where(:deleted => false) %>
 				</ol>
 
 			<% else %>
