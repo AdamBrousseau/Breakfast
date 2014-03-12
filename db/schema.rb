@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304035428) do
+ActiveRecord::Schema.define(version: 20140304212242) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -148,6 +148,8 @@ ActiveRecord::Schema.define(version: 20140304035428) do
     t.string   "prescribing_doctor"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleted",            default: false
+    t.integer  "phr_id"
   end
 
   create_table "phrs", force: true do |t|
