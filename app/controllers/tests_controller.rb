@@ -7,7 +7,7 @@ class TestsController < ApplicationController
 
   def new
     @phr = Phr.find(params[:phr_id])
-    @tests = @phr.tests.build
+    @test = @phr.tests.build
   end
 
   def create
@@ -18,7 +18,6 @@ class TestsController < ApplicationController
         flash[:success] = "Test Result Saved"
         redirect_to(phr_tests_path(@phr, @test))
       else
-        flash[:failure] = "Please fill in all fields as required"
         render 'new'
       end
   end

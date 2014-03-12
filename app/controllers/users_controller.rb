@@ -24,10 +24,12 @@ class UsersController < ApplicationController
   end
 
   # Action: create
-  # Purpose: This action saves the instance variable of User to the database.
-  # Functionality: Try to save the User. If there is a problem with the parameters,
-  #                redirect back to the new action, otherwise sign in the user,
-  #                flash a succes message, and redirect to the user's homepage.
+  # Purpose: This action saves the instance variable of User to
+  #          the database.
+  # Functionality: Try to save the User. If there is a problem with the
+  #                parameters, redirect back to the new action, otherwise
+  #                sign in the user, flash a succes message, and redirect
+  #                to the user's homepage.
   def create
     @user = User.new(user_params)
     if @user.save
@@ -41,9 +43,9 @@ class UsersController < ApplicationController
 
   # Action: show
   # Purpose: Render the user's homepage.
-  # Functionality: Fetch the current user from the databse into memory. Fetch the
-  #                PHRs belonging to the current user and display them on the
-  #                user's  homepage.
+  # Functionality: Fetch the current user from the databse into memory.
+  #                Fetch the PHRs belonging to the current user and
+  #                display them on the user's  homepage.
   def show
     @user = User.find(params[:id])
     @phrs = @user.phrs.paginate(page: params[:page], per_page: 5)
@@ -51,9 +53,10 @@ class UsersController < ApplicationController
 
   # Action: update
   # Purpose: Update the User attributes.
-  # Functionality: Try to update the user's details. If there is a problem with
-  #                the parameters, redirect back to the edit page, otherwise
-  #                flash a success message and redirect to the user's homepage.
+  # Functionality: Try to update the user's details. If there is a problem
+  #                with the parameters, redirect back to the edit page,
+  #                otherwise flash a success message and redirect to the
+  #                user's homepage.
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
@@ -65,21 +68,22 @@ class UsersController < ApplicationController
 
   # Action: destroy
   # Purpose: Destroy a User
-  # Functionality: Destroy the user. Flash a success message. Redirect to the
-  #                homepage
+  # Functionality: Destroy the user. Flash a success message. Redirect to
+  #                the homepage
   def destroy
     User.destroy
     flash[:success] = "User account deleted."
     redirect_to(root_url)
   end
 
-  # Private definitions
+  # Private Definitions
   private
 
     # user_params
     # These are the parameters permitted when submitting a request related
-    # to a User record. This protects against malicious HTTP requests trying to
-    # update a User (for example flagging the admin attribute as true).
+    # to a User record. This protects against malicious HTTP requests
+    # trying to update a User (for example flagging the admin attribute
+    # as true).
     def user_params
       params.require(:user).permit( :name,
                                     :email,

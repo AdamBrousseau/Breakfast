@@ -14,7 +14,7 @@ class ImmunizationsController < ApplicationController
       flash[:success] = "Immunization Added!"
       redirect_to phr_path(@phr)
     else
-      rener 'new'
+      render 'new'
     end
   end
   
