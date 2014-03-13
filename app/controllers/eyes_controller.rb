@@ -36,14 +36,14 @@ class EyesController < ApplicationController
 	end
 
 	def update
-    @eye = Eye.find(params[:id])
-    if @eye.update_attributes(eye_params)
-      flash[:success] = "Record updated"
-      redirect_to(phr_eye_path(@eye.phr, @eye))
-    else
-      render 'edit'
-    end
-  end
+	    @eye = Eye.find(params[:id])
+	    if @eye.update_attributes(eye_params)
+	      flash[:success] = "Record updated"
+	      redirect_to(phr_eye_path(@eye.phr, @eye))
+	    else
+	      render 'edit'
+	    end
+  	end
 
 	def destroy
 		@phr = Phr.find(params[:phr_id])

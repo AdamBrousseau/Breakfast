@@ -1,0 +1,25 @@
+<%= provide(:title, "Medication Records") %>
+
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+	<section>
+		<div class="span8">
+			<h2 style = "text-aling: left;">Medications</h2>
+			<hr>
+			<%= link_to "+New Record", new_phr_medication_path, class: "btn btn-small btn-secondary" %>
+			<br>
+			<br>
+			<% if @phr.medications.where(:deleted => false).any? %>
+				<ol class ="medications">
+					<%= render @medications.where(:deleted => false) %>
+					<%= will_paginate @medications.where(:deleted => false) %>
+				</ol>
+			<% else %>
+				You have no medication records<br><br>
+			<% end %>
+
+			<%= link_to 'Back', @phr, class: "btn btn-small btn-secondary" %>
+
+		</div>
+	</section>
+</div>

@@ -12,6 +12,7 @@ class ContactPdf < Prawn::Document
         text "<br>", :inline_format => true
     end  
 
+    #Formatting for printing each contact record
     @contacts=contacts
     @contacts.each do |contact|
     	font "Times-Roman", :size => 13
