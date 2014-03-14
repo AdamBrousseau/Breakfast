@@ -45,11 +45,14 @@ class UsersController < ApplicationController
   # Purpose: Render the user's homepage.
   # Functionality: Fetch the current user from the databse into memory.
   #                Fetch the PHRs belonging to the current user and
-  #                display them on the user's  homepage.
+  #                display them on the user's homepage.
   def show
     @user = User.find(params[:id])
     @phrs = @user.phrs.paginate(page: params[:page], per_page: 5)
   end
+
+  #def edit
+  #end
 
   # Action: update
   # Purpose: Update the User attributes.
