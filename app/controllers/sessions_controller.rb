@@ -1,8 +1,24 @@
 class SessionsController < ApplicationController
 
+	 ############################################################
+    #
+    #   Controller: Sessions
+    #   Associated Model: NA
+    #   Purpose: This controller is responsible for all the
+    #             actions associated with the User Sessions
+    #   Actions: new, create, destroy
+    #
+    ############################################################
+
 	def new
 	end
 
+	# Action: create
+    # Purpose: This action creates the instance of the session.
+    # Functionality: Fetch the current User from the database.
+    # 				 Authenticate the user and sign in, otherwise
+    # 				 flash an error message and render the sign
+    # 				 in page.
 	def create
 		user = User.find_by(email: params[:session][:email].downcase)
   		if user && user.authenticate(params[:session][:password])
@@ -16,6 +32,9 @@ class SessionsController < ApplicationController
 		end
 	end
 
+	# Action: destroy
+	# Purpose: This action is responsible for destroying a user session
+	# Functionality: Sign out the user and redirect to the Homepage.
 	def destroy
 		sign_out
     	redirect_to root_url
