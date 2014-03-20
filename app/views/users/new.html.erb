@@ -6,6 +6,7 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= render 'fields', f: f %>
+      <br>
       <%= f.submit "Create my account", class: "btn btn-small btn-secondary" %>
     <% end %>
   </div>

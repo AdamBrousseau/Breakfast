@@ -77,4 +77,8 @@ WebPHR::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  RECAPTCHA_PUBLIC_KEY= '6LenUvASAAAAAL7Irq-cfVeI00JRnEKh8DyT0AVA'
+  RECAPTCHA_PRIVATE_KEY= '6LenUvASAAAAAJM2FEaoA4509KVMvDcgnQ-ktE9j'
+  
 end

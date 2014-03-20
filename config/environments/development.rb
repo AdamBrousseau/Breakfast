@@ -28,4 +28,7 @@ WebPHR::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  RECAPTCHA_PUBLIC_KEY= '6LenUvASAAAAAL7Irq-cfVeI00JRnEKh8DyT0AVA'
+  RECAPTCHA_PRIVATE_KEY= '6LenUvASAAAAAJM2FEaoA4509KVMvDcgnQ-ktE9j'
 end
