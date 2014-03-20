@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320162040) do
+ActiveRecord::Schema.define(version: 20140320214949) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140320162040) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "phr_id"
+    t.boolean  "deleted",             default: false
+    t.date     "date"
   end
 
   create_table "appointments", force: true do |t|

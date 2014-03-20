@@ -21,7 +21,7 @@ class AllergiesController < ApplicationController
 
     if @allergy.save
         flash[:success] = "Allergy Created"
-        redirect_to phr_path(@phr)
+        redirect_to phr_allergy_path(@allergy.phr, @allergy)
       else
           render 'new'
       end
@@ -31,7 +31,7 @@ class AllergiesController < ApplicationController
 # Function: show
 # Finds ailments that belong to the phr and shows them
     @phr = Phr.find(params[:phr_id])
-    @allergy = @phr.allergies.build
+    @allergy = @phr.allergies.find(params[:id])
   end
 
   def edit
