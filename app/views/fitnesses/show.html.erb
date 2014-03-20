@@ -1,0 +1,25 @@
+<% provide(:title, "Fitness Record: " + @fitness.date.strftime('%B %-d, %Y')) %>
+<%= render 'shared/phr_info' %>
+
+<section>
+	<div class="span6">
+	<h2 style = "text-align: left;">Fitness Record</h2>
+	<hr>
+	<h4><%= @fitness.date %></h4>
+	<table class ="table table-striped table-bordered table-condensed">
+		<tbody>
+			<tr>
+				<td>Height</td>
+				<td><%= @fitness.height %></td>
+			</tr>
+
+			<tr>
+				<td>Weight</td>
+				<td><%= @fitness.weight %></td>
+			</tr>
+		</tbody>
+	</table>	
+
+	<p><%= link_to "Edit", edit_phr_fitness_path(@phr,@fitness), class: "btn btn-small btn-secondary" %>
+	<%= link_to " Back", phr_fitnesses_path(@phr), class: "btn btn-small btn-secondary" %> </p>
+</section>
