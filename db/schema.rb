@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319223935) do
+ActiveRecord::Schema.define(version: 20140320162040) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20140319223935) do
     t.float    "weight"
     t.float    "height"
     t.date     "date"
-    t.boolean  "deleted"
+    t.boolean  "deleted",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "phr_id"
