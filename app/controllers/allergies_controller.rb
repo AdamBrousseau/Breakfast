@@ -61,7 +61,7 @@ class AllergiesController < ApplicationController
     @allergies = @phr.allergies.all
     @allergy = @phr.allergies.find(params[:id])
     @allergy.destroy
-    redirect_to phr_path(@phr)
+    redirect_to phr_allergies_path(@phr)
   end
 
   private
