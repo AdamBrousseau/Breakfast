@@ -1,0 +1,17 @@
+<% provide(:title, "Fitness Records") %>
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+	<section>
+		<div class="span8">
+			<h2 style = "text-align: left;">Fitness Records</h2>
+			<hr>
+			<%= link_to "+New Record", new_phr_fitness_path, class: "btn btn-small btn-secondary" %>
+			
+			
+
+			<%= link_to 'Back', @phr, class: "btn btn-small btn-secondary" %>
+		   	
+		</div>
+		
+	</section>
+</div>
