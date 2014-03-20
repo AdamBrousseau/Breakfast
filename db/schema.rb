@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304212242) do
+ActiveRecord::Schema.define(version: 20140320162040) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -125,6 +125,16 @@ ActiveRecord::Schema.define(version: 20140304212242) do
   end
 
   add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
+
+  create_table "fitnesses", force: true do |t|
+    t.float    "weight"
+    t.float    "height"
+    t.date     "date"
+    t.boolean  "deleted",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "phr_id"
+  end
 
   create_table "immunizations", force: true do |t|
     t.string   "immunization"
