@@ -60,8 +60,12 @@ class AllergiesController < ApplicationController
     @phr = Phr.find(params[:phr_id])
     @allergies = @phr.allergies.all
     @allergy = @phr.allergies.find(params[:id])
-    @allergy.destroy
-    redirect_to phr_allergies_path(@phr)
+    if @allergy.update_attribute(:deleted, true)
+      flash[:success] = "Record Deleted"
+    else
+
+    end
+    redirect_to(phr_allergies_path)
   end
 
   private
