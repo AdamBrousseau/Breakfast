@@ -33,8 +33,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.valid? #ensures we see all errors on the model in the view if the captcha fails
-  if verify_recaptcha(:user => @user, :message => "Please enter the correct captcha!") && @user.save 
+
+    if verify_recaptcha(:user => @user, :message => "Please enter the correct captcha!") && @user.save 
       sign_in @user
+      # Tell the UserMailer to send a welcome Email after save
+      UserMailer.welcome_email(@user).deliver
       flash[:success] = "Welcome to WebPHR"
       redirect_to @user
     else
