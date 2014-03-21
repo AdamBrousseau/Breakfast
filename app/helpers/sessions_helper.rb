@@ -33,8 +33,8 @@ module SessionsHelper
 	end
 
 	def sign_out
-	    #current_user.update_attribute(:remember_token,
-	      #                            User.encrypt(User.new_remember_token))
+	    current_user.update_attribute(:remember_token,
+	                                  User.encrypt(User.new_remember_token))
 	    cookies.delete(:remember_token)
 	    self.current_user = nil
 	end
@@ -58,7 +58,7 @@ module SessionsHelper
 	    }
 	    format.js {
 	      store_location request.referer
-	      render 'sessions/redirect_to_login', :layout=>false
+	      render 'sessions/redirect_to_signin', :layout=>false
 	    }
 	  end
 	end
