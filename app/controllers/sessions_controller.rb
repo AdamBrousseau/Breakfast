@@ -10,6 +10,9 @@ class SessionsController < ApplicationController
     #
     ############################################################
 
+	skip_before_filter :session_expiry
+	skip_before_filter :update_activity_time
+
 	def new
 	end
 
@@ -30,6 +33,16 @@ class SessionsController < ApplicationController
 			flash.now[:error] = 'Invalid email/password combination' # Not quite right!
       		render 'new'
 		end
+	end
+
+	def check_session_alive
+	  get_session_time_left
+	  if @session_time_left > 0
+	    render 'sessions/check_session_alive', :layout=>false
+	  else
+	    sign_out
+	    deny_access 'Your session has timed out. Please log back in.'
+	  end
 	end
 
 	# Action: destroy
