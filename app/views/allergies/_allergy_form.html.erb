@@ -6,3 +6,7 @@
   <%= f.label :allergy_description %>
   <%= f.text_area :allergy_description %>
 </p>
+<p>
+	<%= f.submit "Submit", :class => "btn btn-small btn-secondary" %> 
+	<%= link_to 'Cancel', phr_allergies_path, class: "btn btn-small btn-secondary" %>
+</p>
