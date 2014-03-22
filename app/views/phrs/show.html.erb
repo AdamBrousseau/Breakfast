@@ -3,6 +3,11 @@
   <%= render 'shared/phr_info' %>
   
   <section>
+
+  <div class="span8">
+  <h4><%= link_to 'Fitness Records' , phr_fitnesses_path(@phr) %></h4>
+  </div>
+
   <div class="span8">
   <h4><%= link_to 'Ailment Records' , phr_ailments_path(@phr) %></h4>
   </div>

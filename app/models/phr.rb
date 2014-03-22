@@ -10,6 +10,7 @@ class Phr < ActiveRecord::Base
 	has_many :bps, dependent: :destroy
 	has_many :bglucoses, dependent: :destroy
 	has_many :medications, dependent: :destroy
+	has_many :fitnesses
 	default_scope -> { order('created_at DESC') }
 	before_save { self.blood_type = blood_type.downcase }
 	validates :first_name, presence: true, length: { maximum: 50 }

@@ -14,6 +14,7 @@ WebPHR::Application.routes.draw do
    resources :tests
    resources :bps
    resources :bglucoses
+   resources :fitnesses
   end
   resources :contacts
   resources :activations, only: [:new, :create, :edit]
