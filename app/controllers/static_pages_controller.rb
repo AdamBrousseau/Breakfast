@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+	skip_before_filter :session_expiry
+	skip_before_filter :update_activity_time
+
   def home
   end
 

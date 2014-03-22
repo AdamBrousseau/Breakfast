@@ -1,6 +1,5 @@
 WebPHR::Application.routes.draw do
   
-  get "mediations/index"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :phrs do
