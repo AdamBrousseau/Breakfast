@@ -24,7 +24,7 @@ WebPHR::Application.configure do
   port:                 587,
   domain:               'cryptic-journey-7827.herokuapp.com',
   user_name:            'webphr',
-  password:             'v1NLoWT58%$e*St2PAja9Hc9S',
+  password:             'pdrw namp qwra gmfq',
   authentication:       'plain',
   enable_starttls_auto: true  }
 
