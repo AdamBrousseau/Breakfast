@@ -18,13 +18,14 @@ WebPHR::Application.configure do
 
   # Action mailer setup for gmail
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
-  port:                 465,
+  port:                 587,
   domain:               'cryptic-journey-7827.herokuapp.com',
   user_name:            'webphr',
   password:             'v1NLoWT58%$e*St2PAja9Hc9S',
-  authentication:       'ssl',
+  authentication:       'plain',
   enable_starttls_auto: true  }
 
   # Print deprecation notices to the Rails logger.

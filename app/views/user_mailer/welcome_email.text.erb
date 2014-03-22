@@ -1,8 +1,13 @@
 Welcome to WebPHR.com, <%= @user.name %>
 ===============================================
  
-You have successfully signed up to WebPHR.com.
-Use your email: <%= @user.email %> to sign in to the site.
+You have successfully signed up to WebPHR.com
+You must activate your account by following this link:
+<%= @activate_url %>
+and entering your email:
+<%= @user.email %>
+as well as the following activation code:
+<%= @user.activation_token %>
  
 To login to the site, just follow this link: <%= @url %>.
  
