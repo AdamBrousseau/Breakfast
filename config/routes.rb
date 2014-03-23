@@ -1,6 +1,5 @@
 WebPHR::Application.routes.draw do
   
-  get "mediations/index"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :phrs do
@@ -17,10 +16,15 @@ WebPHR::Application.routes.draw do
    resources :fitnesses
   end
   resources :contacts
+  resources :activations, only: [:new, :create, :edit]
  
   root  'static_pages#home'
  
   match '/signup',  to: 'users#new',            via: 'get'
+
+  match '/activate', to: 'activations#new',     via: 'get'
+  match '/reactivate', to: 'activations#edit',  via: 'get'
+  match '/resend',    to: 'activations#resend', via: 'post'
 
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

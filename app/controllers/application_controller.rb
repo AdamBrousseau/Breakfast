@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :session_expiry, :except => [:signin, :signout, :root]
-  before_filter :update_activity_time, :except => [:signin, :signout, :root]
+  before_filter :session_expiry#, :except => [:signin, :signout]
+  before_filter :update_activity_time#, :except => [:signin, :signout]
 
   include SessionsHelper
 
