@@ -19,6 +19,8 @@ gem 'fullcalendar_engine', '1.0.3'
 gem 'prawn'
 
 gem "paperclip"
+gem "recaptcha", :require => "recaptcha/rails"
+gem "authlogic"
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record

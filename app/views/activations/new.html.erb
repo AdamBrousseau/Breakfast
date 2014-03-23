@@ -1,0 +1,19 @@
+<% provide(:title, "Activation") %>
+<h2>Activate your account</h2>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:activation, url: activations_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :activation_code %>
+      <%= f.password_field :activation_code %>
+
+      <%= f.submit "Activate", class: "btn btn-small btn-secondary" %>
+    <% end %>
+
+    <p>Lost you activation code? <%= link_to "Resend activation code", reactivate_path %></p>
+  </div>
+</div>

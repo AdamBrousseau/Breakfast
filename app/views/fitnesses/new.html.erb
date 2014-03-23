@@ -1,0 +1,21 @@
+<%= provide(:title, 'New Fitness Record') %>
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+	<section>
+		<div class="span8">
+			<h2 style = "text-align: left;">New Fitness Record</h2>
+		<hr>
+
+	<%= form_for([@phr, @fitness]) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<div class="span6">
+			<%= render 'form', f: f %>
+			<%= link_to 'Cancel', phr_fitnesses_path %>
+		
+		</div>
+<% end %>
+		
+
+
+

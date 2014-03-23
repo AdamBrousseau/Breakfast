@@ -9,3 +9,11 @@
 
 <%= f.label :password_confirmation, "Confirm Password" %>
 <%= f.password_field :password_confirmation %>
+
+<%= f.label :captcha %>
+<script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'clean'
+ };
+ </script>
+<%= raw recaptcha_tags %>

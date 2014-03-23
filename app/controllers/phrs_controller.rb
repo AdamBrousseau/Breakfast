@@ -12,7 +12,7 @@ class PhrsController < ApplicationController
   # Before performing any actions, ensure the user is
   # signed_in and the correct_user is requesting the action.
   before_action :signed_in_user
-  before_action :correct_user
+  before_action :correct_user , only: [:show, :destroy, :update]
   
   # Action: show
   # Purpose: Render the PHR.

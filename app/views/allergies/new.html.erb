@@ -1,19 +1,19 @@
-<% provide(:title, 'New Allergy Record') %>
+<%= provide(:title, 'New Allergy Record') %>
+<div class ="row">
+  <%= render 'shared/phr_info' %>
+  <section>
+    <div class="span8">
+      <h2 style = "text-align: left;">New Allergy Record</h2>
+    <hr>
 
-<%= form_for([@phr, @allergy]) do |f| %>
-<%= render 'shared/phr_info' %>
-  <div class="row">
-      <h2>Create New Allergy Record</h2>
-      <hr>
-      <%= render 'shared/error_messages', object: f.object %>     
-        <div class="span6">
-          <%= render 'allergy_form', f: f %>
-        
-          <%= f.submit "Create Record", class: "btn btn-small btn-secondary" %>
-          <%= link_to 'Cancel', phr_bps_path, class: "btn btn-small btn-secondary" %>
-        </div>
+  <%= form_for([@phr, @allergy]) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-
-  </div>  
+    <div class="span6">
+      <%= render 'allergy_form', f: f %> 
+    </div>
 <% end %>
-</div>
+    
+
+
+

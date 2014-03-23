@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304212242) do
+ActiveRecord::Schema.define(version: 20140320214949) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140304212242) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "phr_id"
+    t.boolean  "deleted",             default: false
+    t.date     "date"
   end
 
   create_table "appointments", force: true do |t|
@@ -126,6 +128,16 @@ ActiveRecord::Schema.define(version: 20140304212242) do
 
   add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
 
+  create_table "fitnesses", force: true do |t|
+    t.float    "weight"
+    t.float    "height"
+    t.date     "date"
+    t.boolean  "deleted",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "phr_id"
+  end
+
   create_table "immunizations", force: true do |t|
     t.string   "immunization"
     t.date     "date"
@@ -191,7 +203,9 @@ ActiveRecord::Schema.define(version: 20140304212242) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",            default: false
+    t.boolean  "active",           default: false
+    t.string   "activation_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -14,7 +14,19 @@ WebPHR::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  # Action mailer setup for gmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'cryptic-journey-7827.herokuapp.com',
+  user_name:            'webphr',
+  password:             'pdrw namp qwra gmfq',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -28,4 +40,7 @@ WebPHR::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  RECAPTCHA_PUBLIC_KEY= '6LenUvASAAAAAL7Irq-cfVeI00JRnEKh8DyT0AVA'
+  RECAPTCHA_PRIVATE_KEY= '6LenUvASAAAAAJM2FEaoA4509KVMvDcgnQ-ktE9j'
 end
