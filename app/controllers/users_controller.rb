@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   # that only admin users can delete User records.
   before_action :signed_in_user, only: [:show, :edit, :update]
   before_action :correct_user,   only: [:show, :edit, :update]
+  skip_before_filter :session_expiry
+  skip_before_filter :update_activity_time
   before_action :admin_user,     only: :destroy
 
   # Action: new

@@ -1,5 +1,7 @@
 class ActivationsController < ApplicationController
-	
+	skip_before_filter :session_expiry
+  	skip_before_filter :update_activity_time
+
 	def new
 	end
 
@@ -25,7 +27,8 @@ class ActivationsController < ApplicationController
 		@user = User.find_by(email: params[:activation][:email].downcase)
 		if @user && @user.authenticate(params[:activation][:password])
 			UserMailer.reactivation_email(@user).deliver
-			render 'new'
+			flash[:success] = "Your activation code has been emailed to you."
+			redirect_to activate_path
 		else
 			flash.now[:error] = 'Invalid email/password combination' # Not quite right!
       		render 'edit'
