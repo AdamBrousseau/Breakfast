@@ -13,6 +13,7 @@ class AllergiesController < ApplicationController
     @allergy = @phr.allergies.build
   end
 
+
   def create
 # Function: create
 # Creates a new allergy record in the database and update the user view 
