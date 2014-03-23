@@ -1,7 +1,7 @@
 <%= form_for([@phr, @phr.appointments.build]) do |f| %>
-  <p>
+
     <%= f.label :doctor %>
-    <%= f.text_field :doctor %>
+    <%= f.collection_select(:doctor, @user.contacts.all, :name, :name, :prompt => true) %>
   </p>
   <p>
     <%= f.label :reason %>
