@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
 # Function: index
 # Sets up the user in the appointment controller
     @phr = Phr.find(params[:phr_id])
+    @user = current_user
   end
   
   def create

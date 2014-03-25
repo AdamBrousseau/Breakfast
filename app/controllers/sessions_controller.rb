@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   		if user && user.authenticate(params[:session][:password])
   			if user.active?
 				# Sign the user in and redirect to the user's show page.
-				sign_in user
+				sign_in(user, params[:remember_me])
 	      		redirect_back_or user
 	      	else
 	      		flash[:error] = 'Please activate your account'

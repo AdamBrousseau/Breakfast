@@ -10,4 +10,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: 'WebPHR Activation Code')
   end
+
+  def password_reset(user)
+  	@user = user
+  	mail(to: @user.email, subject: "WebPHR Password Reset")
+  end
 end

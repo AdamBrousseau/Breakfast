@@ -1,5 +1,6 @@
 WebPHR::Application.routes.draw do
   
+  get "password_resets/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :phrs do
@@ -17,6 +18,7 @@ WebPHR::Application.routes.draw do
   end
   resources :contacts
   resources :activations, only: [:new, :create, :edit]
+  resources :password_resets
  
   root  'static_pages#home'
  

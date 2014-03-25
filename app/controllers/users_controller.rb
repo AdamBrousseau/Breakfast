@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   #                otherwise flash a success message and redirect to the
   #                user's homepage.
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(user_params) && verify_recaptcha(:user => @user, :message => "Please enter the correct captcha!")
       flash[:success] = "Profile updated"
       redirect_to @user
     else
