@@ -4,7 +4,7 @@
     <section>
       <h3>
         <%= gravatar_for @user %>
-        <%= link_to @user.name, edit_user_path %>
+        <%= link_to @user.name, edit_user_path, "data-no-turbolink" => true %>
       </h3>
     </section>
     <section>  
