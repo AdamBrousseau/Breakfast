@@ -49,6 +49,7 @@ GEM
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
+    chartkick (1.2.2)
     childprocess (0.5.1)
       ffi (~> 1.0, >= 1.0.11)
     climate_control (0.0.3)
@@ -78,6 +79,8 @@ GEM
     formatador (0.2.4)
     fullcalendar_engine (1.0.3)
       rails (>= 4.0.0)
+    groupdate (2.1.0)
+      activerecord (>= 3.0.0)
     guard (2.4.0)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -246,11 +249,13 @@ DEPENDENCIES
   bootstrap-sass (= 2.3.2.0)
   bootstrap-will_paginate (= 0.0.9)
   capybara
+  chartkick
   childprocess
   coffee-rails (~> 4.0.0)
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
   fullcalendar_engine (= 1.0.3)
+  groupdate
   guard-rspec (= 2.5.0)
   guard-spork
   highcharts-rails (~> 3.0.9)
