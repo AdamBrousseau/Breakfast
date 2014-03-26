@@ -1,4 +1,6 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <% provide(:title, "Fitness Records") %>
+
 <div class ="row">
 	<%= render 'shared/phr_info' %>
 	<section>
@@ -8,30 +10,54 @@
 			<%= link_to "+New Record", new_phr_fitness_path, class: "btn btn-small btn-secondary" %>
 			<br>
 			<br>
-
-			<% if @phr.fitnesses.where(:deleted => false).any? %>
-
-				<table class = "table table-condensed">
-					<thead>
-						<tr>
-						<th style = "width:50%">Height Records</th>
-						<th style = "width:50%">Weight Records</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<%= render @fitnesses.where(:deleted => false) %>
-					</tbody>
-
-				</table>	
-
-			<% else %>
-				You have no Fitness records<br><br>
-			<% end %>	
-			
-
-
-
+			<% result = @fitnesses.where(deleted: false).order(date: :desc) %>
+			<div>
+				<% if result.any? %>
+				<span>
+					<% weight_data = result.select("id","date, weight").where.not(weight: nil).first() %>
+					<p>
+						<b>Weight: </b><%= weight_data.weight %> kg
+						<t style="color: #999999">(<%= weight_data.date.strftime('%m/%d/%Y') %>)</t>
+					</p>
+					
+				</span>
+				<span>
+					<% height_data = result.select("date, height").where.not(height: nil).first() %>
+					<p>
+						<b>Height: </b><%= height_data.height %> cm
+						<t style="color: #999999">(<%= height_data.date.strftime('%m/%d/%Y') %>)</t>
+					</p>
+				</span>
+				<span>
+					<% 
+						#bmi cal for men
+						height = height_data.height / 100.0 #convert to meters
+						weight = weight_data.weight 
+						bmi = height > 0 ? number_with_precision(weight / (height * height), :precision=> 2) : "Enter a height"
+					%>
+					<p>
+						<b>BMI: </b><%= bmi %>
+					</p>
+				</span>
+				<% else %>
+					You have no Fitness records<br><br>
+				<% end %>	
+			</div>
+			<br>
+			<p> 
+			<h3> Weight Summary </h3>			
+			<%= line_chart [
+					{:name => "Weight (kg)", :data => result.group("date").maximum(:weight) }
+					]
+				 %>
+			</p>
+			<p>
+			<h3> Height Summary </h3>
+			<%= line_chart [
+				{:name => "Height (cm)", :data => result.group("date").maximum(:height) }
+				]
+			 %>
+			</p>
 			<%= link_to 'Back', @phr, class: "btn btn-small btn-secondary" %>
 		   	
 		</div>
