@@ -1,4 +1,31 @@
-<p>
-  <strong>Name:</strong>
-  <%= @phr.inspect %>
-</p>
+<% provide(:title, "Immunizations Record: " + @immunization.immunization) %>
+
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+
+	<section>
+		<div class="span8">
+			<h2 style = "text-align: left;">Immunization Record</h2>
+			<hr>
+			<h4><%= @immunization.immunization %></h4>
+			<table class ="table table-striped table-bordered table-condensed">
+				<tbody>
+					<tr>
+						<td col width="20">Date</td>
+						<td><%= @immunization.date %></td>
+					</tr>
+
+					<tr>
+						<td>Expiry Date</td>
+						<td><%= @immunization.expiry %></td>
+					</tr>
+				</tbody>
+			</table>	
+
+			<p>
+				<%= link_to "Edit", edit_phr_immunization_path(@phr,@immunization), class: "btn btn-small btn-secondary" %> 
+				<%= link_to "Done", phr_immunizations_path(@phr), class: "btn btn-small btn-secondary" %> 
+			</p>
+		</div>
+	</section>
+</div>
