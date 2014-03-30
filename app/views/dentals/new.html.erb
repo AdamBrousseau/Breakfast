@@ -1,16 +1,16 @@
-<%= provide(:title, 'New Allergy Record') %>
+<%= provide(:title, 'New Dental Record') %>
 <div class ="row">
   <%= render 'shared/phr_info' %>
   <section>
     <div class="span8">
-      <h2 style = "text-align: left;">New Allergy Record</h2>
+      <h2 style = "text-align: left;">New Dental Record</h2>
     <hr>
 
-  <%= form_for([@phr, @allergy]) do |f| %>
+  <%= form_for([@phr, @dental]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="span6">
-      <%= render 'allergy_form', f: f %> 
+      <%= render 'dental_form', f: f %> 
     </div>
 <% end %>
     

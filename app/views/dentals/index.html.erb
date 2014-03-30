@@ -1,18 +1,39 @@
 <% provide(:title, @phr.first_name) %>
 
+<div class="row">
+  <%= render 'shared/phr_info' %>
+  <section>
+  <div class="span8">
+  <h2 style="text-align:left;">Dental Records</h2>
+  <hr>
+  <%= link_to "+New Record", new_phr_dental_path, class: "btn btn-small btn-secondary" %>
+  <br>
+  <br>
+    <% if @phr.dentals.any? %>
+      	<table class="table table-striped table-bordered table-condensed">
+      		<thead>
+        		<tr>
+        			<th style = "width:24%">Date</th>
+          		<th style = "width:56%">Description</th>
+          		<th style = "width:5%"></th>
+          		<th style = "width:5%"></th>
+        		</tr>
+      		</thead>
+      		<tbody>
+      		  <%= render @dentals.where(:deleted => false) %>
+            <%= will_paginate @dentals.where(:deleted => false) %>
+      		</tbody>
+    	</table>
+    	<table>
+		    <td><%= will_paginate(@contacts) %></td>
+  		</table>
 
-<div class ="row">
-
-<div class="span6 offset3">
-  <h2>Dental Records</h2>
-    <%= render "dental_table" %><br>
-
-
-    <h2>Add a Dental Record</h2> 
-
-    <%= render "form" %>
-
-  <%= link_to 'Back', @phr %>
-
+    <% else %>
+      You have no Dental Records<br><br>
+    <% end %>
+    <%= link_to 'Back', @phr, class: "btn btn-small btn-secondary"%>
+    <br>
+    <br>
   </div>
+  </section>  
 </div>

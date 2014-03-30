@@ -1,1 +1,16 @@
-<% provide(:title, "Edit Dental Record") %>
+<% provide(:title, 'Edit Dental Record') %>
+<div class='row'>
+	<%= render 'shared/phr_info' %>
+
+	<div class="span8">
+	      <h2 style="text-align: left;">Edit Dental Record</h2>
+	      <hr>
+	      <%= form_for([@phr, @dental]) do |f| %>
+	        <%= render 'shared/error_messages', object: f.object %>
+	        <div class="span6">
+	          <%= render 'dental_form', f: f %>
+	        </div>
+		<% end %>
+	</div>	
+</div>
+

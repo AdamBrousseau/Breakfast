@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321061146) do
+ActiveRecord::Schema.define(version: 20140330144140) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140321061146) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.datetime "created_at"
+    t.date     "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",    default: false
   end
@@ -84,11 +84,13 @@ ActiveRecord::Schema.define(version: 20140321061146) do
 
   create_table "dentals", force: true do |t|
     t.string   "dentist"
-    t.date     "last_cleaning"
+    t.date     "last_visit"
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",       default: false
+    t.boolean  "deleted",          default: false
+    t.string   "description"
+    t.string   "additional_notes"
   end
 
   create_table "eyes", force: true do |t|
@@ -208,8 +210,8 @@ ActiveRecord::Schema.define(version: 20140321061146) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",            default: false
-    t.boolean  "active",           default: false
+    t.boolean  "admin",                  default: false
+    t.boolean  "active",                 default: false
     t.string   "activation_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
