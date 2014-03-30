@@ -1,0 +1,19 @@
+<%= provide(:title, 'New Medication Record') %>
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+
+		<div class="span8">
+			<h2 style = "text-align: left;">New Medication Record</h2>
+		<hr>
+
+	<%= form_for([@phr, @medication]) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<div class="span6">
+			<%= render 'form', f: f %>
+		</div>
+<% end %>
+		
+
+
+

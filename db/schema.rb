@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321061146) do
+ActiveRecord::Schema.define(version: 20140330231036) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20140321061146) do
   add_index "immunizations", ["phr_id"], name: "index_immunizations_on_phr_id"
 
   create_table "medications", force: true do |t|
-    t.string   "medication"
+    t.string   "medication_name"
     t.string   "drug"
     t.datetime "begin_date"
     t.integer  "duration"
@@ -208,8 +208,8 @@ ActiveRecord::Schema.define(version: 20140321061146) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",            default: false
-    t.boolean  "active",           default: false
+    t.boolean  "admin",                  default: false
+    t.boolean  "active",                 default: false
     t.string   "activation_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
