@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330144140) do
+ActiveRecord::Schema.define(version: 20140330182641) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20140330144140) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.date     "created_at"
+    t.date     "appointment_date"
     t.datetime "updated_at"
-    t.boolean  "deleted",    default: false
+    t.boolean  "deleted",          default: false
   end
 
   create_table "bglucoses", force: true do |t|
