@@ -10,6 +10,7 @@ class DentalsController < ApplicationController
 # Function: new
 # Builds a new dental record in thr phr
     @phr = Phr.find(params[:phr_id])
+    @user = current_user
     @dental = @phr.dentals.build
   end
 

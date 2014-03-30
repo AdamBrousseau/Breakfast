@@ -1,6 +1,6 @@
 <p>
   <%= f.label :dentist %>
-  <%= f.text_field :dentist %>
+    <%= f.collection_select(:dentist, @user.contacts.all, :name, :name, :prompt => true) %>
 </p>
 <p>
   <%= f.label :last_visit %>
