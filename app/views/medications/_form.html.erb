@@ -1,0 +1,39 @@
+	<p>
+		<%= f.label :medication_name %>
+		<%= f.text_field :medication_name %>
+	</p>
+	<p>
+		<%= f.label :drug %>
+		<%= f.text_field :drug %>
+	</p>		
+	<p>
+		<%= f.label :begin_date %>
+		<%= f.date_select :begin_date, :start_year => 1900, :end_year => Time.now.year %>
+	</p>
+	<p>
+		<%= f.label :duration %>
+		<%= f.text_field :duration %>
+	</p>
+
+	<p>
+		<%= f.label :dosage %>
+		<%= f.text_field :dosage %>
+	</p>
+	<p>
+		<%= f.label :frequency %>
+		<%= f.text_field :frequency %>
+	</p>
+	<p>
+		<%= f.label :ailment %>
+		<%= f.collection_select(:ailment, @phr.ailments.all, :ailment_name, :ailment_name, :prompt => true) %>
+	</p>
+
+	<p>
+    	<%= f.label :prescribing_doctor %>
+    	<%= f.collection_select(:prescribing_doctor, @user.contacts.all, :name, :name, :prompt => true) %>
+  	</p>
+	
+	<p>
+	<%= f.submit "Submit", :class => "btn btn-small btn-secondary" %> <%= link_to 'Cancel', phr_medications_path, class: "btn btn-small btn-secondary" %>
+
+	</p>
