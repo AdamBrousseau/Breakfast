@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140331183037) do
 
-
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
     t.date     "begin_date"
@@ -42,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140331183037) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.date     "appointment_date"
+    t.datetime "appointment_date"
     t.datetime "updated_at"
     t.boolean  "deleted",          default: false
   end
@@ -80,7 +79,6 @@ ActiveRecord::Schema.define(version: 20140331183037) do
     t.datetime "updated_at"
     t.boolean  "deleted",     default: false
     t.string   "honorific"
-
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
@@ -94,7 +92,6 @@ ActiveRecord::Schema.define(version: 20140331183037) do
     t.boolean  "deleted",          default: false
     t.string   "description"
     t.string   "additional_notes"
-
   end
 
   create_table "eyes", force: true do |t|

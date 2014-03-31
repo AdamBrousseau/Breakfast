@@ -1,10 +1,10 @@
 <p>
   <%= f.label :doctor %>
-  <%= f.collection_select(:doctor, @user.contacts.all, :name, :name, :prompt => true) %>
+  <%= f.collection_select(:doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
 </p>
 <p>
   <%= f.label :appointment_date %>
-  <%= f.text_field :appointment_date %>
+  <%= f.date_select :appointment_date %>
 </p>    
 <p>
   <%= f.label :reason %>
