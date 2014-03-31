@@ -13,6 +13,7 @@ class AllergiesController < ApplicationController
     @allergy = @phr.allergies.build
   end
 
+
   def create
 # Function: create
 # Creates a new allergy record in the database and update the user view 
@@ -29,7 +30,7 @@ class AllergiesController < ApplicationController
 
   def show
 # Function: show
-# Finds ailments that belong to the phr and shows them
+# Finds allergy that belong to the phr and shows them
     @phr = Phr.find(params[:phr_id])
     @allergy = @phr.allergies.find(params[:id])
   end
@@ -64,7 +65,7 @@ class AllergiesController < ApplicationController
       flash[:success] = "Record Deleted"
     else
 
-    end
+  end
     redirect_to(phr_allergies_path)
   end
 

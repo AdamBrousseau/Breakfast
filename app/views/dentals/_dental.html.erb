@@ -1,0 +1,9 @@
+<% unless dental.deleted %>
+	<tr>
+		<td><%= dental.created_at.strftime('%B %-d, %Y') %></td>
+		<td><%= link_to dental.description, [dental.phr, dental] %></td>
+		<td><%= link_to "Edit", edit_phr_dental_path(@phr, dental), class: "btn btn-small btn-secondary" %></td>
+		
+		<td><%= link_to 'Delete', [dental.phr, dental], method: :delete, data: {confirm: "Are you sure you want to delete this ailment record?"}, title: dental.dentist, class: "btn btn-small btn-secondary" %></td>
+	</tr>
+<% end %>

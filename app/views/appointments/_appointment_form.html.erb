@@ -1,0 +1,20 @@
+<p>
+  <%= f.label :doctor %>
+  <%= f.collection_select(:doctor, @user.contacts.all, :name, :name, :prompt => true) %>
+</p>
+<p>
+  <%= f.label :appointment_date %>
+  <%= f.text_field :appointment_date %>
+</p>    
+<p>
+  <%= f.label :reason %>
+  <%= f.text_field :reason %>
+</p>    
+<p>
+  <%= f.label :results %>
+  <%= f.text_area :results %>
+</p>
+<p>
+  <%= f.submit "Submit", :class => "btn btn-small btn-secondary" %> 
+  <%= link_to 'Cancel', phr_allergies_path, class: "btn btn-small btn-secondary" %>
+</p>
