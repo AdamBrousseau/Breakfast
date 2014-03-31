@@ -14,7 +14,7 @@
       <tbody>
         <tr>
           <td><%= f.text_field :sugar %></td>
-          <td><%= f.text_field :btype %></td>
+          <td><%= f.select(:btype, ['yes','no'], :prompt => true) %></td>
         </tr>
       </tbody>
     </table>
