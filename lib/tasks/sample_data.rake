@@ -14,7 +14,8 @@ namespace :db do
       User.create!(name: name,
                    email: email,
                    password: password,
-                   password_confirmation: password)
+                   password_confirmation: password,
+                   active: true)
       cur_user = User.last
       # Create Contacts
       10.times do
