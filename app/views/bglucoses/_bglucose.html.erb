@@ -1,6 +1,6 @@
 <% unless bglucose.deleted %>
 	<tr>
-		<td><%= bglucose.date.strftime('%B %-d, %Y') %> </td>
+		<td><%= link_to bglucose.date.strftime('%B %-d, %Y'), [bglucose.phr, bglucose] %> </td>
 		<td><%= bglucose.sugar %></td>
 		<td><%= bglucose.btype %></td>
 		<td><%= link_to "Edit", edit_phr_bglucose_path(@phr, bglucose), class: "btn btn-small btn-secondary" %></td>
