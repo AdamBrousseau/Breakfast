@@ -1,0 +1,31 @@
+
+  <p>
+  <%= f.label :name %>
+  <%= f.select(:honorific, ['Mr', 'Mrs', 'Ms', 'Miss', 'Dr'], :prompt => true)%><%= f.text_field :name %>
+  </p>
+
+  <p>
+  <%= f.label :phone1, 'Primary Phone'%><br>
+  <%= f.text_field :phone1 %>
+  </p>
+
+  <p>
+  <%= f.label :phone2, 'Secondary Phone'%><br>
+  <%= f.text_field :phone2 %>
+  </p>
+
+  <p>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+  </p>
+
+  <p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+  </p>
+
+  <p>
+  <%= f.submit 'Save Contact' %>
+  <br>
+  <%= link_to 'Cancel', contacts_path %>
+  </p>
