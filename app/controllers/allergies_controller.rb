@@ -30,7 +30,7 @@ class AllergiesController < ApplicationController
 
   def show
 # Function: show
-# Finds allergy that belong to the phr and shows them
+# Finds allergies that belong to the phr and shows them
     @phr = Phr.find(params[:phr_id])
     @allergy = @phr.allergies.find(params[:id])
   end
@@ -63,9 +63,7 @@ class AllergiesController < ApplicationController
     @allergy = @phr.allergies.find(params[:id])
     if @allergy.update_attribute(:deleted, true)
       flash[:success] = "Record Deleted"
-    else
-
-  end
+    end
     redirect_to(phr_allergies_path)
   end
 

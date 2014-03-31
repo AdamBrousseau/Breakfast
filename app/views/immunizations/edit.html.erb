@@ -1,2 +1,18 @@
-<h1>Edit Immunization</h1>
-<%= render 'form' %>
+<% provide(:title, "Edit Immunization Record") %>
+<div class='row'>
+	<%= render 'shared/phr_info' %>
+	
+	<div class="span8">
+		<h2 style = "text-align: left;">Edit Immunization Record</h2>
+		<hr>
+
+
+		<%= form_for([@phr, @immunization]) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		
+		<div class="span6">
+			<%= render 'form', f: f %>
+		</div>
+		<% end %>
+	</div>
+</div>

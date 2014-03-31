@@ -3,16 +3,24 @@ class ImmunizationsController < ApplicationController
   #Sets up the user in the immunization controller
   def index
 	  @phr = Phr.find(params[:phr_id])
+	  @immunizations = @phr.immunizations.paginate(page: params[:page], per_page: 5)
+  end
+  
+  # Function: new
+  # Builds a new immunization in thr phr  
+  def new
+    @phr = Phr.find(params[:phr_id])
+    @immunization = @phr.immunizations.build
   end
   
   #Function: create
   #Creates a new immunization record in the database and updates the user view.
   def create
     @phr = Phr.find(params[:phr_id])
-    @immunization = @phr.immunizations.create(params[:immunization].permit(:immunization,:date,:expiry))
+    @immunization = @phr.immunizations.build(immunization_params)
     if @immunization.save
       flash[:success] = "Immunization Added!"
-      redirect_to phr_path(@phr)
+      redirect_to phr_immunization_path(@immunization.phr, @immunization)
     else
       render 'new'
     end
@@ -26,22 +34,48 @@ class ImmunizationsController < ApplicationController
     @immunization.destroy #change to update and change the delete flag 
     redirect_to phr_path(@phr)
   end
-
+ 
+  # Function: show
+  # Finds immunization that belong to the phr and shows them
+  def show
+    @phr = Phr.find(params[:phr_id])
+    @immunization = @phr.immunizations.find(params[:id])
+  end
+  
   #Function edit
   #Modifies the database and updates the user view
   def edit
-    @immunization = @phr.immunization.find(params[:id])
+	@phr = Phr.find(params[:phr_id])
+	@immunization = Immunization.find(params[:id])
   end
 
   #Function update
   #Updates the immunization record.
   def update
-    @immunization = @phr.immunization.find(params[:id])
-    if @immunization.update(params[:immunization].permit(:immunization, :date, :expiry))
-      redirect_to phr_path(@phr)
+    @immunization = Immunization.find(params[:id])
+	
+    if @immunization.update_attributes(immunization_params)
+		flash[:success] = "Record updated"
+		redirect_to phr_immunizations_path(@immunization.phr, @immunization)
     else
       render 'edit'
     end
   end
+  
+  def destroy
+	@phr = Phr.find(params[:phr_id])
+	@immunizations = @phr.immunizations.all
+	@immunization = @phr.immunizations.find(params[:id])
+	if @immunization.update_attribute(:deleted, true)
+		flash[:success] = "Record Deleted"
+	end
+	redirect_to(phr_immunizations_path)
+  end
+  
+  #Permitted parameter for allergies
+  private
+	def immunization_params
+		params.require(:immunization).permit(:immunization, :date, :expiry)
+	end
   
 end

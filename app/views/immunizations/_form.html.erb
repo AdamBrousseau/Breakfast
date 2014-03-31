@@ -1,17 +1,16 @@
-<%= form_for([@phr, @phr.immunizations.build]) do |f| %>
-  <p>
-    <%= f.label :immunization %><br />
-    <%= f.text_field :immunization %>
-  </p>
-  <p>
-	<%= f.label :date %><br>
-	<%= f.date_select :date, :start_year => 1900, :end_year => Time.now.year + 100%>
-  </p>
-  <p>
-	<%= f.label :expiry %><br>
-	<%= f.date_select :expiry, :start_year => 1900, :end_year => Time.now.year + 100%>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+	<p>
+		<%= f.label :immunization %>
+		<%= f.text_field :immunization %>
+	</p>		
+	<p>
+		<%= f.label :date %>
+		<%= f.date_select :date, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+	</p>
+	<p>
+		<%= f.label :expiry %>
+		<%= f.date_select :expiry, :start_year => Time.now.year - 100, :end_year => Time.now.year + 100 %>
+	</p>
+	<p>
+	<%= f.submit "Submit", :class => "btn btn-small btn-secondary" %> <%= link_to 'Cancel', phr_immunizations_path, class: "btn btn-small btn-secondary" %>
+
+	</p>
