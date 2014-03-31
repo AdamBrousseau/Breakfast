@@ -17,31 +17,31 @@
 	<% end %>
 
 	<p>
-	<%= f.label :name %><br>
-	<%= f.text_field :name %>
+	<%= f.label :name %>
+	<%= f.select(:honorific, ['Mr', 'Mrs', 'Ms', 'Miss', 'Dr'], :prompt => true)%><%= f.text_field :name %>
 	</p>
 
 	<p>
-	<%= f.label :phone1, 'Primary Phone' %><br>
+	<%= f.label :phone1, 'Primary Phone' %>
 	<%= f.text_field :phone1 %>
 	</p>
 
 	<p>
-	<%= f.label :phone2, 'Secondary Phone' %><br>
+	<%= f.label :phone2, 'Secondary Phone' %>
 	<%= f.text_field :phone2 %>
 	</p>
 
 	<p>
-	<%= f.label :email %><br>
+	<%= f.label :email %>
 	<%= f.text_field :email %>
 	</p>
 
 	<p>
-	<%= f.label :description %><br>
+	<%= f.label :description %>
 	<%= f.text_area :description %>
 	</p>
 	
-	<%= f.submit 'Save Contact' %><br>
+	<%= f.submit 'Save Contact' %>
 	<%= link_to 'Cancel', contacts_path %>
 <% end %>
 </aside>

@@ -118,7 +118,7 @@ class ContactsController < ApplicationController
     	# to a Contact record. This protects against malicious HTTP requests trying to
     	# update a contact.
 		def contact_params
-			params.require(:contact).permit(:name, :phone1, :phone2, :email, :description)
+			params.require(:contact).permit(:name, :phone1, :phone2, :email, :description, :honorific)
 		end
 
 	# Before Filters

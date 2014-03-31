@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323081905) do
+ActiveRecord::Schema.define(version: 20140331183037) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20140323081905) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.datetime "created_at"
+    t.datetime "appointment_date"
     t.datetime "updated_at"
-    t.boolean  "deleted",    default: false
+    t.boolean  "deleted",          default: false
   end
 
   create_table "bglucoses", force: true do |t|
@@ -78,17 +78,20 @@ ActiveRecord::Schema.define(version: 20140323081905) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",     default: false
+    t.string   "honorific"
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "dentals", force: true do |t|
     t.string   "dentist"
-    t.date     "last_cleaning"
+    t.date     "last_visit"
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",       default: false
+    t.boolean  "deleted",          default: false
+    t.string   "description"
+    t.string   "additional_notes"
   end
 
   create_table "eyes", force: true do |t|
@@ -155,7 +158,7 @@ ActiveRecord::Schema.define(version: 20140323081905) do
   add_index "immunizations", ["phr_id"], name: "index_immunizations_on_phr_id"
 
   create_table "medications", force: true do |t|
-    t.string   "medication"
+    t.string   "medication_name"
     t.string   "drug"
     t.datetime "begin_date"
     t.integer  "duration"

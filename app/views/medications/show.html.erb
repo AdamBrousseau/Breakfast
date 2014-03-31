@@ -1,0 +1,54 @@
+<% provide(:title, "Medication Record: " + @medication.medication_name) %>
+
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+
+	<section>
+		<div class="span8">
+			<h2 style = "text-align: left;">Medication Record</h2>
+			<hr>
+			<h4><%= @medication.medication_name %></h4>
+			<table class ="table table-striped table-bordered table-condensed">
+				<tbody>
+					<tr>
+						<td col width="20">Drug</td>
+						<td><%= @medication.drug %></td>
+					</tr>
+
+					<tr>
+						<td>Start Date</td>
+						<td><%= @medication.begin_date %></td>
+					</tr>
+
+					<tr>
+						<td>Duration</td>
+						<td><%= @medication.duration %></td>
+					</tr>
+
+					<tr>
+						<td>Dosage</td>
+						<td><%= @medication.dosage %></td>
+					</tr>
+					<tr>
+						<td>Frequency</td>
+						<td><%= @medication.frequency %></td>
+					</tr>
+					<tr>
+						<td>Ailment</td>
+						<td><%= @medication.ailment %></td>
+					</tr>
+					<tr>
+						<td>Doctor</td>
+						<td><%= @medication.prescribing_doctor %></td>
+					</tr>
+
+				</tbody>
+			</table>	
+
+			<p>
+				<%= link_to "Edit", edit_phr_medication_path(@phr,@medication), class: "btn btn-small btn-secondary" %> 
+				<%= link_to "Done", phr_medications_path(@phr), class: "btn btn-small btn-secondary" %> 
+			</p>
+		</div>
+	</section>
+</div>
