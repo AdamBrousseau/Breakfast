@@ -39,7 +39,7 @@ class AllergiesController < ApplicationController
 # Function: edit
 # Allows the user to edit an allergy record
     @phr = Phr.find(params[:phr_id])
-    @allergy = @phr.allergies.build
+    @allergy = Allergy.find(params[:id])
   end
 
   def update

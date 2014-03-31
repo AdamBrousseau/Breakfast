@@ -19,6 +19,8 @@ class AppointmentsController < ApplicationController
 # Creates a new appointment in the database and update the user view 
     @phr = Phr.find(params[:phr_id])
     @appointment = @phr.appointments.build(appointment_params)
+    @user = current_user
+
 
     if @appointment.save
         flash[:success] = "Appointment Created"
@@ -40,14 +42,16 @@ class AppointmentsController < ApplicationController
 # Allows the user to edit an appointment
     @phr = Phr.find(params[:phr_id])
     @appointment = @phr.appointments.build
+    @user = current_user
   end
 
   def update
 # Function: update
 # Updates the database record, flashes a success message and redirect the user to their phr
     @phr = Phr.find(params[:phr_id])
-      @appointment = @phr.appointments.find(params[:id])
-      if @appointment.update_attributes(appointment_params)
+    @appointment = @phr.appointments.find(params[:id])
+    @user = current_us      
+    if @appointment.update_attributes(appointment_params)
         flash[:success] = "Record updated"
         redirect_to phr_path(@phr)
       else

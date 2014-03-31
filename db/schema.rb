@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330182641) do
+ActiveRecord::Schema.define(version: 20140331183037) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140330182641) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.date     "appointment_date"
+    t.datetime "appointment_date"
     t.datetime "updated_at"
     t.boolean  "deleted",          default: false
   end
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140330182641) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted",     default: false
+    t.string   "honorific"
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
@@ -157,7 +158,7 @@ ActiveRecord::Schema.define(version: 20140330182641) do
   add_index "immunizations", ["phr_id"], name: "index_immunizations_on_phr_id"
 
   create_table "medications", force: true do |t|
-    t.string   "medication"
+    t.string   "medication_name"
     t.string   "drug"
     t.datetime "begin_date"
     t.integer  "duration"

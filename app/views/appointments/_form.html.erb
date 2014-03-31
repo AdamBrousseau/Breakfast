@@ -1,0 +1,19 @@
+<%= form_for([@phr, @phr.appointments.build]) do |f| %>
+
+    <%= f.label :doctor %>
+    <%= f.collection_select(:doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
+  </p>
+  <p>
+    <%= f.label :reason %>
+    <%= f.text_field :reason %>
+  </p>
+  <p>
+    <%= f.label :results %>
+    <%= f.text_field :results %>
+  </p> 
+  <p>
+  <%= f.submit %>
+  </p>
+
+
+<% end %>
