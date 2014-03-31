@@ -30,7 +30,7 @@
 
 	<p>
     	<%= f.label :prescribing_doctor %>
-    	<%= f.collection_select(:prescribing_doctor, @user.contacts.all, :name, :name, :prompt => true) %>
+    	<%= f.collection_select(:prescribing_doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
   	</p>
 	
 	<p>
