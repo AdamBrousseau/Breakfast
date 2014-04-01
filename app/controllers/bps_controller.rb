@@ -77,7 +77,7 @@ class BpsController < ApplicationController
 	    @bp = @phr.bps.find(params[:id])
 	    if @bp.update_attributes(bp_params)
 	      flash[:success] = "Record updated"
-	      redirect_to(phr_bps_path(@bp.phr, @bp))
+	      redirect_to(phr_bp_path(@bp.phr, @bp))
 	    else
 	      render 'edit'
 	    end
