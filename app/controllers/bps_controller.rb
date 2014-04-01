@@ -43,7 +43,7 @@ class BpsController < ApplicationController
 
 		if @bp.save
 	    	flash[:success] = "Blood Pressure Record Created"
-    		redirect_to(phr_bps_path(@bp.phr, @bp))
+    		redirect_to(phr_bp_path(@bp.phr, @bp))
     	else
     		render 'new'
    		end
