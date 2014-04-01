@@ -32,33 +32,8 @@
         		<% end %>
       		</tbody>
     	</table>
-    	<table>
-		    <td><%= will_paginate(@contacts) %></td>
-  		</table>
-      <div id="bp_chart" style = "width: 560px; height: 300px;"></div>
-      <script type="text/javascript">
-        $(function() {
-          new Highcharts.Chart({
-            chart: {
-              renderTo: "bp_chart"
-            },
-            title: {
-              text: "Blood Pressure Trend"
-            },
-            xAxis: {
-              type: "datetime"
-            },
-            yAxis: {
-              title: {
-                text: "mmHg"
-              }
-            },
-            series: [{
-              data: <%= @bps.each.inspect %>
-            }]
-          });
-        });
-      </script>
+
+      
     <% else %>
       You have no Blood Pressure Records<br><br>
     <% end %>
