@@ -1,10 +1,12 @@
 <% provide(:title, 'Edit Blood Pressure Record') %>
 
-<%= form_for([@phr, @bp]) do |f| %>
-<%= render 'shared/phr_info' %>
-  <div class="row">
-      <h2>Update Blood Pressure Record</h2>
-      <hr>
+<div class = 'row'>
+  <%= render 'shared/phr_info' %>
+  <div class="span8">
+    <h2 style = "text-align: left;">Edit Blood Pressure Record</h2>
+    <hr>
+    
+    <%= form_for([@phr, @bp]) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
      
         <div class="span6">
@@ -13,8 +15,6 @@
           <%= f.submit "Save Changes", class: "btn btn-small btn-secondary" %>
           <%= link_to 'Cancel', phr_bps_path, class: "btn btn-small btn-secondary" %>
         </div>
-
-
+    <% end %>
   </div>
-<% end %>
 </div>

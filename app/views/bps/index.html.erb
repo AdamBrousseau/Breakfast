@@ -4,7 +4,7 @@
   <%= render 'shared/phr_info' %>
   <section>
   <div class="span8">
-  <h2 style="text-align:center;">Blood Pressure Records</h2>
+  <h2 style="text-align:left;">Blood Pressure Records</h2>
   <hr>
   <%= link_to "+New Record", new_phr_bp_path, class: "btn btn-small btn-secondary" %>
   <br>
@@ -13,11 +13,11 @@
       	<table class="table table-striped table-bordered table-condensed">
       		<thead>
         		<tr>
-        			<th colspan="1">Date Reading Taken</th>
-          			<th colspan="1">Systolic (mmHg)</th>
-          			<th colspan="1">Diastolic (mmHg)</th>
-          			<th colspan="1"></th>
-          			<th colspan="1"></th>
+        			<th style = "width:30%%">Date Reading Taken</th>
+          			<th style = "width: 30%">Systolic (mmHg)</th>
+          			<th style = "width: 30%">Diastolic (mmHg)</th>
+          			<th style = "width: 5%"></th>
+          			<th style = "width: 5%"></th>
         		</tr>
       		</thead>
       		<tbody>
@@ -27,38 +27,13 @@
           			<td><%= bp.systolic %></td>
           			<td><%= bp.diastolic %></td>
           			<td><%= link_to "Edit", edit_phr_bp_path(@phr, bp), class: "btn btn-small btn-secondary" %></td>
-          			<td><%= link_to "Delete", [bp.phr, bp], method: :delete, data: { confirm: "Are you sure you want to delete this Blood Pressure Record?" } , title: bp.date %></td>
+          			<td><%= link_to "Delete", [bp.phr, bp], method: :delete, data: { confirm: "Are you sure you want to delete this Blood Pressure Record?" } , title: bp.date, class: "btn btn-small btn-secondary"%></td>
         		</tr>
         		<% end %>
       		</tbody>
     	</table>
-    	<table>
-		    <td><%= will_paginate(@contacts) %></td>
-  		</table>
-      <div id="bp_chart" style = "width: 560px; height: 300px;"></div>
-      <script type="text/javascript">
-        $(function() {
-          new Highcharts.Chart({
-            chart: {
-              renderTo: "bp_chart"
-            },
-            title: {
-              text: "Blood Pressure Trend"
-            },
-            xAxis: {
-              type: "datetime"
-            },
-            yAxis: {
-              title: {
-                text: "mmHg"
-              }
-            },
-            series: [{
-              data: <%= @bps.each.inspect %>
-            }]
-          });
-        });
-      </script>
+
+      
     <% else %>
       You have no Blood Pressure Records<br><br>
     <% end %>

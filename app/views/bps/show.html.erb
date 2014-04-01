@@ -1,2 +1,33 @@
+<% provide(:title, "Blood Pressure Record: " + @bp.date.strftime('%B %-d, %Y')) %>
 
+<div class ="row">
+	<%= render 'shared/phr_info' %>
+
+	<section>
+		<div class="span8">
+			<h2 style = "text-align: left;">Blood Pressure Record</h2>
+			<hr>
+			<h4><%= @bp.date.strftime('%B %-d, %Y') %></h4>
+			<table class ="table table-striped table-bordered table-condensed">
+				<tbody>
+					<tr>
+						<td col width="20">Systolic (mmHg)</td>
+						<td><%= @bp.systolic %></td>
+					</tr>
+
+					<tr>
+						<td>Diastolic (mmHg)</td>
+						<td><%= @bp.diastolic %></td>
+					</tr>
+
+				</tbody>
+			</table>	
+
+			<p>
+				<%= link_to "Edit", edit_phr_bp_path(@phr,@bp), class: "btn btn-small btn-secondary" %> 
+				<%= link_to "Done", phr_bps_path(@phr), class: "btn btn-small btn-secondary" %> 
+			</p>
+		</div>
+	</section>
+</div>
   
