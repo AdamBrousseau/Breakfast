@@ -4,7 +4,7 @@
   </p>
   <p>
     <%= f.label :doctor %><br />
-    <%= f.text_field :doctor %>
+    <%= f.collection_select(:doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
   </p>
   <p>
     Eyeglass Prescription
@@ -113,6 +113,10 @@
   <p>
     <%= f.label :comments %><br />
     <%= f.text_area :comment2 %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit", :class => "btn btn-small btn-secondary" %> <%= link_to 'Cancel', phr_eyes_path, class: "btn btn-small btn-secondary" %>
   </p>
   
     

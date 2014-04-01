@@ -25,6 +25,7 @@ class EyesController < ApplicationController
 	def new
 		@phr = Phr.find(params[:phr_id])
 		@eye = @phr.eyes.build
+		@user = current_user
 	end
 	
 	# Action: create
@@ -62,6 +63,7 @@ class EyesController < ApplicationController
 	def edit
 		@phr = Phr.find(params[:phr_id])
 		@eye = Eye.find(params[:id])
+		@user = current_user
 	end
 
 	# Action: update
