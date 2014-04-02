@@ -8,10 +8,10 @@
 </p>    
 <p>
   <%= f.label :reason %>
-  <%= f.text_field :reason %>
+  <%= f.collection_select(:reason, @phr.ailments.all, :ailment_name, :ailment_name, :prompt => true) %>
 </p>    
 <p>
-  <%= f.label :results %>
+  <%= "Additional Notes" %>
   <%= f.text_area :results %>
 </p>
 <p>
