@@ -89,12 +89,9 @@ class BpsController < ApplicationController
   	#                index view for bp records
 	def destroy
 		@phr = Phr.find(params[:phr_id])
-		@bps = @phr.bps.all
 		@bp = @phr.bps.find(params[:id])
 		@bp.destroy
 	    redirect_to(phr_bps_path)
-	    
-
  	end
 
  	#Private definitions

@@ -88,7 +88,6 @@ class EyesController < ApplicationController
     #                the Eyes Index Page
 	def destroy
 		@phr = Phr.find(params[:phr_id])
-		@eyes = @phr.eyes.all
 		@eye = @phr.eyes.find(params[:id])
 		if @eye.update_attribute(:deleted, true)
 	      flash[:success] = "Record Deleted."

@@ -59,7 +59,6 @@ class AllergiesController < ApplicationController
 # Function: destory
 # Updates the delted column of the allergy record, shows success message and redirects user to their phr
     @phr = Phr.find(params[:phr_id])
-    @allergies = @phr.allergies.all
     @allergy = @phr.allergies.find(params[:id])
     if @allergy.update_attribute(:deleted, true)
       flash[:success] = "Record Deleted"

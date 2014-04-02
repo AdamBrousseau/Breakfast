@@ -1,6 +1,6 @@
 <% unless appointment.deleted %>
 	<tr>
-		<td><%= appointment.appointment_date %></td>
+		<td><%= appointment.appointment_date.strftime('%B %-d, %Y') %></td>
 		<td><%= link_to appointment.reason, [appointment.phr, appointment] %></td>
 		<td><%= link_to "Edit", edit_phr_appointment_path(@phr, appointment), class: "btn btn-small btn-secondary" %></td>
 		
