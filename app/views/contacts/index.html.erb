@@ -26,7 +26,7 @@
    
     <% @contacts.each do |contact| %>
       <tr>
-        <td height = "35"><%= contact.name %></td>
+        <td height = "35"><%= contact.honorific %> <%= contact.name %></td>
         <td><%= contact.phone1 %></td>
         <td><%= link_to 'View Contact', contact, class: "btn btn-small btn-secondary" %></td>
         <td><%= link_to 'Delete', contact_path(contact), class: "btn btn-small btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td>

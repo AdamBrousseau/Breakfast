@@ -24,15 +24,17 @@ namespace :db do
         name = first_name + " " + last_name
         email = first_name+"."+last_name+"@webphr.org"
         phone = Faker::PhoneNumber.phone_number
+        honorific = (rand(0..1) == 1) ? 'Dr' : 'Mr'
         cur_user.contacts.create!(name: name,
                                   phone1: phone,
-                                  email: email)
+                                  email: email,
+                                  honorific: honorific)
       end
       # Create PHRs
       8.times do
         first_name = Faker::Name.first_name
         last_name = Faker::Name.last_name
-        date_of_birth = DateTime.new(rand(1900..2013), rand(1..12), rand(1..28))
+        date_of_birth = DateTime.new(rand(1980..1991), rand(1..12), rand(1..28))
         gender = (rand(0..1) == 1) ? 'Male' : 'Female'
         blood_type = (rand(0..1) == 1) ? 'A+' : 'B+'
         health_card_no = rand(1000000000..9999999999 )
@@ -44,6 +46,18 @@ namespace :db do
                           blood_type: blood_type,
                           health_card_no: health_card_no)
         cur_phr = Phr.first
+
+        #Create Fitness Records
+        4.times do |x|
+        weight = rand(50..70)
+        height = "#{x+150}"
+        date = DateTime.new(2014, 3, rand(1..31))
+
+        cur_phr.fitnesses.create!(weight: weight,
+                                    height: height,
+                                    date: date)
+        end
+
         # Create Eyes
         8.times do
           date = DateTime.new(rand(1900..2013), rand(1..12), rand(1..28))
