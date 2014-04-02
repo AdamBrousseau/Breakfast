@@ -1,24 +1,26 @@
 <% provide(:title, 'New Test Results Record') %>
 
-<%= form_for([@phr, @test]) do |f| %>
-<%= render 'shared/phr_info' %>
+
   <div class="row">
-
-
+    <%= render 'shared/phr_info' %>
+    <div class = "span8"> 
       <h2 style="text-align:left;">Create New Test Results Record</h2>
       <hr>
+    </div>
+      
+    <%= form_for([@phr, @test]) do |f| %>
+
       <%= render 'shared/error_messages', object: f.object %>
-     
         <div class="span6">
           <%= render 'test_form', f: f %>
         
           <%= f.submit "Create Record" %><br>
           <%= link_to 'Cancel', phr_tests_path %>
         </div>
+    <% end %>
 
 
   </div>
   
-<% end %>
 </div>
 

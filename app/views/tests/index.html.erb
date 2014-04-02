@@ -4,23 +4,37 @@
   <%= render 'shared/phr_info' %>
   
   <section>
-  <div class="span8">
-  <h2 style="text-align:left;">Test Results</h2>
-  <hr>
-  <%= link_to "+New Test Result", new_phr_test_path, class: "btn btn-small btn-secondary" %>
-  <br>
-  <br>
+    <div class="span8">
+      <h2 style="text-align:left;">Test Results</h2>
+      <hr>
+      <%= link_to "+New Test Result", new_phr_test_path, class: "btn btn-small btn-secondary" %>
+      <br>
+      <br>
 
-    <% if @phr.tests.where(:deleted => false).any? %>
-      <ol class="eyes">
-      	<%= render @tests.where(:deleted => false) %>
-        <%= will_paginate @tests.where(:deleted => false) %>
-      </ol>
+      <% if @phr.tests.where(:deleted => false).any? %>
+        <table class = "table table-striped table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th style = "width: 24%">Date</th>
+            <th style = "width: 56%">Test</th>
+            <th style = "width: 5%"></th>
+            <th style = "width: 5%"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render @tests.where(:deleted => false) %>
+          <%= will_paginate @tests.where(:deleted => false) %>
+        </tbody>
+
+        </table>
+
       <% else %>
-      You have no Test Results<br><br>
-    <% end %>
-    <%= link_to 'Back', @phr, class: "btn btn-small btn-secondary" %>
-  </div>
+        You have no Test Results<br><br>
+      <% end %>
+      
+      <%= link_to 'Back', @phr, class: "btn btn-small btn-secondary" %>
+    </div>
   </section>
 
   
