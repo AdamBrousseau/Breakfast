@@ -113,6 +113,7 @@ class TestsController < ApplicationController
                         :doctor,
                         :name,
                         :test,
-                        :comments)
+                        :comments,
+                        :reason)
         end
 end

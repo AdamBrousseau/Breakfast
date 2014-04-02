@@ -4,6 +4,11 @@
 </p>
 
 <p>
+<%= "Related to:" %>
+<%= f.collection_select(:reason, @phr.ailments.all, :ailment_name, :ailment_name, :prompt => true) %>
+</p>
+
+<p>
 	<%= f.label :doctor, 'Test Requested by (Doctor):' %>
     <%= f.collection_select(:doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
 </p>
