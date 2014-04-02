@@ -5,7 +5,7 @@
 
 <p>
 	<%= f.label :doctor, 'Test Requested by (Doctor):' %>
-    <%= f.text_area :doctor %>
+    <%= f.collection_select(:doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
 </p>
 
 <p>

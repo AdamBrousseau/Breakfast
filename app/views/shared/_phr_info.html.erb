@@ -1,7 +1,7 @@
 <aside class="span4">
   <section>
     <h3>
-      <%= @phr.first_name %> <%= @phr.last_name %>        
+      <%= link_to @phr.first_name, phr_path(@phr) %> <%= link_to @phr.last_name , phr_path(@phr)%>        
     </h3>
   <hr width="75%">
     <h4>Gender:</h4> <%= @phr.gender %>
