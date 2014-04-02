@@ -8,7 +8,5 @@ class Test < ActiveRecord::Base
 	validates :phr_id, presence: true
 	validates :name, presence: true, length: { maximum: 30 }
 	validates :comments, length: { maximum: 1000 }
-	validates :test, :attachment_presence => true
-	validates_with AttachmentPresenceValidator, :attributes => :test
 	validates_attachment_content_type :test, :content_type => /\Aimage\/.*\Z/
 end

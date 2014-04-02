@@ -39,6 +39,7 @@ class TestsController < ApplicationController
     #                message, and redirect to the newly saved record.
     def create
         @phr = Phr.find(params[:phr_id])
+        @user = current_user
         @test = @phr.tests.create(test_params)
 
         if @test.save
@@ -76,6 +77,7 @@ class TestsController < ApplicationController
     #                flash a success message and redirect to the current record's page.
     def update
         @test = Test.find(params[:id])
+        @user = current_user
         if @test.update_attributes(test_params)
           flash[:success] = "Record updated"
           redirect_to(phr_tests_path(@test.phr, @test))
