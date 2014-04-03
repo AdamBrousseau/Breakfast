@@ -1,5 +1,5 @@
 <p>
-    <%= f.label :name, 'Test Type (eg. Blood Test, X-Ray, etc.):' %>
+    <%= f.label :name, 'Test Type:' %>
     <%= f.text_area :name %>
 </p>
 
@@ -9,7 +9,7 @@
 </p>
 
 <p>
-	<%= f.label :doctor, 'Test Requested by (Doctor):' %>
+	<%= f.label :doctor, 'Test Requested by:' %>
     <%= f.collection_select(:doctor, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
 </p>
 
