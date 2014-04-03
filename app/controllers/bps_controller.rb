@@ -43,7 +43,7 @@ class BpsController < ApplicationController
 
 		if @bp.save
 	    	flash[:success] = "Blood Pressure Record Created"
-    		redirect_to(phr_bps_path(@bp.phr, @bp))
+    		redirect_to(phr_bp_path(@bp.phr, @bp))
     	else
     		render 'new'
    		end
@@ -77,7 +77,7 @@ class BpsController < ApplicationController
 	    @bp = @phr.bps.find(params[:id])
 	    if @bp.update_attributes(bp_params)
 	      flash[:success] = "Record updated"
-	      redirect_to(phr_bps_path(@bp.phr, @bp))
+	      redirect_to(phr_bp_path(@bp.phr, @bp))
 	    else
 	      render 'edit'
 	    end
@@ -89,12 +89,9 @@ class BpsController < ApplicationController
   	#                index view for bp records
 	def destroy
 		@phr = Phr.find(params[:phr_id])
-		@bps = @phr.bps.all
 		@bp = @phr.bps.find(params[:id])
 		@bp.destroy
 	    redirect_to(phr_bps_path)
-	    
-
  	end
 
  	#Private definitions

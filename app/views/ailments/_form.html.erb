@@ -6,10 +6,7 @@
 		<%= f.label :begin_date %>
 		<%= f.date_select :begin_date, :start_year => 1900, :end_year => Time.now.year %>
 	</p>
-	<p>
-		<%= f.label :end_date %>
-		<%= f.date_select :end_date, :start_year => 1900, :end_year => Time.now.year %>
-	</p>
+
 	<p>
 		<%= f.label :ailment_description %>
 		<%= f.text_area :ailment_description %>

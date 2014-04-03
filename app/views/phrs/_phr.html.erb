@@ -2,7 +2,7 @@
 	<li>
 	  <span class="first_name"><%= link_to (phr.first_name + ' ' + phr.last_name), phr %></span>
 	  <span class="timestamp">
-	    Created <%= phr.created_at %>.
+	    Created <%= phr.created_at.strftime('%B %-d, %Y') %>.
 	    Last updated <%= time_ago_in_words(phr.updated_at) %> ago.
 	    <%= link_to "Delete", phr, method: :delete, data: { confirm: "Are you sure you want to delete this PHR?" } , title: phr.first_name%>
 	  </span>

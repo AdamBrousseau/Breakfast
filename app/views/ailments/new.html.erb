@@ -2,9 +2,10 @@
 <div class ="row">
 	<%= render 'shared/phr_info' %>
 
-		<div class="span8">
-			<h2 style = "text-align: left;">New Ailment Record</h2>
+	<div class="span8">
+		<h2 style = "text-align: left;">New Ailment Record</h2>
 		<hr>
+	</div>
 
 	<%= form_for([@phr, @ailment]) do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
@@ -12,7 +13,9 @@
 		<div class="span6">
 			<%= render 'form', f: f %>
 		</div>
-<% end %>
+	<% end %>
+	
+</div>
 		
 
 

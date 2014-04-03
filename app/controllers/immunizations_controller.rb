@@ -64,7 +64,6 @@ class ImmunizationsController < ApplicationController
   
   def destroy
 	@phr = Phr.find(params[:phr_id])
-	@immunizations = @phr.immunizations.all
 	@immunization = @phr.immunizations.find(params[:id])
 	if @immunization.update_attribute(:deleted, true)
 		flash[:success] = "Record Deleted"

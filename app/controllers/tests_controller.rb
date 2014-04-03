@@ -28,6 +28,7 @@ class TestsController < ApplicationController
     def new
         @phr = Phr.find(params[:phr_id])
         @test = @phr.tests.build
+        @user = current_user
     end
 
     # Action: create
@@ -38,6 +39,7 @@ class TestsController < ApplicationController
     #                message, and redirect to the newly saved record.
     def create
         @phr = Phr.find(params[:phr_id])
+        @user = current_user
         @test = @phr.tests.create(test_params)
 
         if @test.save
@@ -65,6 +67,7 @@ class TestsController < ApplicationController
     def edit
         @phr = Phr.find(params[:phr_id])
         @test = Test.find(params[:id])
+        @user = current_user
     end
 
     # Action: update
@@ -74,6 +77,7 @@ class TestsController < ApplicationController
     #                flash a success message and redirect to the current record's page.
     def update
         @test = Test.find(params[:id])
+        @user = current_user
         if @test.update_attributes(test_params)
           flash[:success] = "Record updated"
           redirect_to(phr_tests_path(@test.phr, @test))
@@ -88,7 +92,6 @@ class TestsController < ApplicationController
     #                Redirect to the index view for test records
     def destroy
         @phr = Phr.find(params[:phr_id])
-        @tests = @phr.tests.all
         @test = @phr.tests.find(params[:id])
         if @test.update_attribute(:deleted, true)
             flash[:success] = "Record Deleted."
@@ -110,6 +113,7 @@ class TestsController < ApplicationController
                         :doctor,
                         :name,
                         :test,
-                        :comments)
+                        :comments,
+                        :reason)
         end
 end

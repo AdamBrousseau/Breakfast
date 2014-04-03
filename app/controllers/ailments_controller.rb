@@ -59,7 +59,6 @@ class AilmentsController < ApplicationController
 	#flashes success messages, redirects
 	def destroy
 		@phr = Phr.find(params[:phr_id])
-		@ailments = @phr.ailments.all
 		@ailment = @phr.ailments.find(params[:id])
 		if @ailment.update_attribute(:deleted, true)
 			flash[:success] = "Record Deleted"

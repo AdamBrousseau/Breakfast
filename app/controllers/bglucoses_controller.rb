@@ -89,7 +89,6 @@ class BglucosesController < ApplicationController
   	#                Redirect to the index view for bglucose records
 	def destroy
 		@phr = Phr.find(params[:phr_id])
-		@bglucoses = @phr.bglucoses.all
 		@bglucose = @phr.bglucoses.find(params[:id])
 		if @bglucose.update_attribute(:deleted, true)
 	      flash[:success] = "Record Deleted."

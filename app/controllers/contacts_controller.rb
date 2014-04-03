@@ -93,7 +93,7 @@ class ContactsController < ApplicationController
 	def update
 		@contact = current_user.contacts.find(params[:id])
 
-		if @contact.update(params[:contact].permit(:name, :phone1, :phone2, :email, :description))
+		if @contact.update(contact_params)
 			redirect_to @contact
 		else
 			render 'edit'

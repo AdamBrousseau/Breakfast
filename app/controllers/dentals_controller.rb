@@ -60,7 +60,6 @@ class DentalsController < ApplicationController
 # Function: destory
 # Updates the delted column of the dental record, shows success message and redirects user to their phr
     @phr = Phr.find(params[:phr_id])
-    @dentals = @phr.dentals.all
     @dental = @phr.dentals.find(params[:id])
     if @dental.update_attribute(:deleted, true)
       flash[:success] = "Record Deleted"
