@@ -46,6 +46,10 @@ class PhrsController < ApplicationController
     @phr = current_user.phrs.build
   end
 
+  def edit
+    @phr = current_user.phrs.find(params[:id])
+  end
+
   # Action: update
   # Purpose: Update the Phr attributes.
   # Functionality: Try to update the Phr's details. If there is a problem
