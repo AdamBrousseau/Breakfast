@@ -73,7 +73,7 @@ class DentalsController < ApplicationController
     def dental_params
 # Permitted parameters for dentals
       params.require(:dental).permit(:dentist,
-                                     :last_visit,
+                                     :date,
                                      :description,
                                      :additional_notes)
     end

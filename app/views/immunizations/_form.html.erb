@@ -3,11 +3,11 @@
 		<%= f.text_field :immunization %>
 	</p>		
 	<p>
-		<%= f.label :date %>
+		<%= f.label :date, 'Date Immunization Acquired' %>
 		<%= f.date_select :date, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
 	</p>
 	<p>
-		<%= f.label :expiry %>
+		<%= f.label :expiry, 'Immunization Expiry Date' %>
 		<%= f.date_select :expiry, :start_year => Time.now.year - 100, :end_year => Time.now.year + 100 %>
 	</p>
 	<p>

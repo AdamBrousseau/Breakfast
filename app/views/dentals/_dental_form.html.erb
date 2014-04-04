@@ -3,8 +3,8 @@
     <%= f.collection_select(:dentist, @user.contacts.where(:honorific => 'Dr'), :name, :name, :prompt => true) %>
 </p>
 <p>
-  <%= f.label :last_visit %>
-  <%= f.text_field :last_visit %>
+  <%= f.label :date %>
+  <%= f.date_select :date %>
 </p>
 <p>
   <%= f.label :description %>

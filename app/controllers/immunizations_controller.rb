@@ -52,8 +52,8 @@ class ImmunizationsController < ApplicationController
   #Function update
   #Updates the immunization record.
   def update
-    @immunization = Immunization.find(params[:id])
-	
+    @phr = Phr.find(params[:phr_id])
+    @immunization = @phr.immunizations.find(params[:id])
     if @immunization.update_attributes(immunization_params)
 		flash[:success] = "Record updated"
 		redirect_to phr_immunizations_path(@immunization.phr, @immunization)
