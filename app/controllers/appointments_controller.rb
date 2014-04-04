@@ -69,6 +69,10 @@ class AppointmentsController < ApplicationController
     redirect_to(phr_appointments_path)
   end
 
+  def calendar_view
+    @appointments = Appointment.all
+  end
+
   private
     def appointment_params
 # Permitted parameters for appointments
