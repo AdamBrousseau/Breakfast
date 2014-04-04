@@ -23,6 +23,8 @@ gem "paperclip"
 gem "recaptcha", :require => "recaptcha/rails"
 gem "authlogic"
 
+gem "simple_calendar"
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
