@@ -45,8 +45,9 @@ class AilmentsController < ApplicationController
 	#Function: update
 	#updates the database record, flashes a success message, and redirects the user to view the updated record.
 	def update
-		@ailment = Ailment.find(params[:id])
-		if @ailment.update_attributes(ailment_params)
+		@phr = Phr.find(params[:phr_id])
+		@ailment = @phr.ailments.find(params[:id])
+      		if @ailment.update_attributes(ailment_params)
 			flash[:success] = "Record updated"
 			redirect_to(phr_ailment_path(@ailment.phr, @ailment))
 		else

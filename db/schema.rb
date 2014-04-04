@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.datetime "appointment_date"
+    t.date     "appointment_date"
     t.datetime "updated_at"
     t.boolean  "deleted",          default: false
   end

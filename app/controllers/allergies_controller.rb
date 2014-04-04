@@ -49,7 +49,7 @@ class AllergiesController < ApplicationController
       @allergy = @phr.allergies.find(params[:id])
       if @allergy.update_attributes(allergy_params)
         flash[:success] = "Record updated"
-        redirect_to phr_path(@phr)
+        redirect_to phr_allergy_path(@allergy.phr, @allergy)
       else
         render 'edit'
       end
