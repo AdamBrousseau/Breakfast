@@ -7,7 +7,7 @@
 								</thead>
 
 								<tbody>
-									<% result = @fitnesses.select("date, weight").where(deleted: false).where.not(height: nil).order(date: :desc).first() %>
+									<% result = @fitnesses.select("date, weight").where.not(height: nil).order(date: :desc).first() %>
 									<td><%= result.date.strftime('%m/%d/%Y') %></td>
 									<td><%= result.weight %></td>
 								</tbody>

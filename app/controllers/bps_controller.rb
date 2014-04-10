@@ -90,7 +90,11 @@ class BpsController < ApplicationController
 	def destroy
 		@phr = Phr.find(params[:phr_id])
 		@bp = @phr.bps.find(params[:id])
-		@bp.destroy
+		if @bp.destroy
+			flash[:success] = "Record Deleted"
+		else
+			flash[:error] = "Error Deleting Record"
+		end
 	    redirect_to(phr_bps_path)
  	end
 

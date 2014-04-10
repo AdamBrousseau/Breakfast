@@ -93,12 +93,12 @@ class TestsController < ApplicationController
     def destroy
         @phr = Phr.find(params[:phr_id])
         @test = @phr.tests.find(params[:id])
-        if @test.update_attribute(:deleted, true)
+        if @test.destroy
             flash[:success] = "Record Deleted."
-          else
-          
-          end
-          redirect_to(phr_tests_path)
+        else
+            flash[:error] = "Error Deleting Record"    
+        end
+        redirect_to(phr_tests_path)
     end
 
     # Private definition

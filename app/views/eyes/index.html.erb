@@ -9,7 +9,7 @@
   <%= link_to "+New Record", new_phr_eye_path, class: "btn btn-small btn-secondary" %>
   <br>
   <br>
-    <% if @phr.eyes.where(:deleted => false).any? %>
+    <% if @phr.eyes.any? %>
       <table class ="table table-striped table-bordered table-condensed">
         <thead>
           <tr>
@@ -20,8 +20,8 @@
           </tr>
         </thead>
         <tbody>
-      	  <%= render @eyes.where(:deleted => false) %>
-          <%= will_paginate @eyes.where(:deleted => false) %>
+      	  <%= render @eyes %>
+          <%= will_paginate @eyes %>
         </tbody>
       </table>
       <% else %>

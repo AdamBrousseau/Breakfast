@@ -13,11 +13,11 @@
   </aside>
   <div class="span8">
   	<h2 style="text-align:left;">Personal Health Records</h2>
-    <% if @user.phrs.where(:deleted => false).any? %>
+    <% if @user.phrs.any? %>
       <ol class="phrs">
-        <%= render @phrs.where(:deleted => false) %>
+        <%= render @phrs %>
       </ol>
-      <%= will_paginate @phrs.where(:deleted => false) %>
+      <%= will_paginate @phrs %>
       <% else %>
       You have not created any Personal Health Records yet.
     <% end %>

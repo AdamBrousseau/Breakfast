@@ -10,7 +10,7 @@
 			<br>
 			<br>
 			
-			<% if @phr.ailments.where(:deleted => false).any? %>
+			<% if @phr.ailments.any? %>
 				<table class ="table table-striped table-bordered table-condensed">
 				<thead>
 					<tr>
@@ -22,8 +22,8 @@
 				</thead>
 				<tbody>
 					
-					<%= render @ailments.where(:deleted => false) %>
-					<%= will_paginate @ailments.where(:deleted => false) %>
+					<%= render @ailments %>
+					<%= will_paginate @ailments %>
 				</tbody>
 
 			</table>

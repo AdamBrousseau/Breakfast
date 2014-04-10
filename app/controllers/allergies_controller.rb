@@ -60,8 +60,10 @@ class AllergiesController < ApplicationController
 # Updates the delted column of the allergy record, shows success message and redirects user to their phr
     @phr = Phr.find(params[:phr_id])
     @allergy = @phr.allergies.find(params[:id])
-    if @allergy.update_attribute(:deleted, true)
+    if @allergy.destroy
       flash[:success] = "Record Deleted"
+    else
+      flash[:error] = "Error Deleting Record"
     end
     redirect_to(phr_allergies_path)
   end

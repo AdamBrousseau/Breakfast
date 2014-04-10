@@ -20,8 +20,8 @@
         		</tr>
       		</thead>
       		<tbody>
-      		  <%= render @allergies.where(:deleted => false) %>
-            <%= will_paginate @allergies.where(:deleted => false) %>
+      		  <%= render @allergies %>
+            <%= will_paginate @allergies %>
       		</tbody>
     	</table>
     	<table>

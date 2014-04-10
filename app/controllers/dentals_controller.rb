@@ -61,10 +61,10 @@ class DentalsController < ApplicationController
 # Updates the delted column of the dental record, shows success message and redirects user to their phr
     @phr = Phr.find(params[:phr_id])
     @dental = @phr.dentals.find(params[:id])
-    if @dental.update_attribute(:deleted, true)
+    if @dental.destroy
       flash[:success] = "Record Deleted"
     else
-
+      flash[:error] = "Error Deleting Record"
     end
     redirect_to(phr_dentals_path)
   end

@@ -71,10 +71,10 @@ class PhrsController < ApplicationController
   # Functionality: Destroy the Phr. Flash a success message. Redirect to
   #                the homepage
   def destroy
-    if @phr.update_attribute(:deleted, true)
+    if @phr.destroy
       flash[:success] = "PHR deleted."
     else
-      
+      flash[:error] = "Error Deleting Record"
     end
     redirect_to(current_user)
   end

@@ -106,8 +106,11 @@ class ContactsController < ApplicationController
   	#                index view for contacts
 	def destroy
 		@contact = current_user.contacts.find(params[:id])
-		@contact.destroy
-		flash[:success] = "Contact Deleted"
+		if @contact.destroy
+			flash[:success] = "Contact Deleted"
+		else
+			flash[:error] = "Error Deleting Record"
+		end
 		redirect_to contacts_path
 	end
 

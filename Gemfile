@@ -22,6 +22,8 @@ gem 'prawn'
 gem "paperclip"
 gem "recaptcha", :require => "recaptcha/rails"
 gem "authlogic"
+gem 'paranoia', '~> 2.0'
+
 
 gem "simple_calendar"
 

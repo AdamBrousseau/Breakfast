@@ -1,4 +1,5 @@
 class Appointment < ActiveRecord::Base
+	acts_as_paranoid
 	belongs_to :phr
 
 	validates :doctor, presence: true

@@ -90,13 +90,13 @@ class BglucosesController < ApplicationController
 	def destroy
 		@phr = Phr.find(params[:phr_id])
 		@bglucose = @phr.bglucoses.find(params[:id])
-		if @bglucose.update_attribute(:deleted, true)
-	      flash[:success] = "Record Deleted."
-	    else
-      
-	    end
-	    redirect_to(phr_bglucoses_path)
-  	end
+		if @bglucose.destroy
+	    flash[:success] = "Record Deleted"
+	  else
+      flash[:error] = "Error Deleting Record"
+	  end
+	  redirect_to(phr_bglucoses_path)
+  end
 
   	# Private definitions
 	private

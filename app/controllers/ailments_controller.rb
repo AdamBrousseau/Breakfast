@@ -61,10 +61,10 @@ class AilmentsController < ApplicationController
 	def destroy
 		@phr = Phr.find(params[:phr_id])
 		@ailment = @phr.ailments.find(params[:id])
-		if @ailment.update_attribute(:deleted, true)
+		if @ailment.destroy
 			flash[:success] = "Record Deleted"
 		else
-
+			flash[:error] = "Error Deleting Record"
 		end
 		redirect_to(phr_ailments_path)
 	end

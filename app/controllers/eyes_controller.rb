@@ -23,9 +23,9 @@ class EyesController < ApplicationController
   	# Purpose: This action creates an instance variable of the Eye model.
   	# Functionality: Create instance variable of the Eye model.
 	def new
-		@phr = Phr.find(params[:phr_id])
-		@eye = @phr.eyes.build
 		@user = current_user
+		@phr = Phr.find(params[:phr_id])
+		@eye = @phr.eyes.build		
 	end
 	
 	# Action: create
@@ -43,6 +43,7 @@ class EyesController < ApplicationController
 	    	flash[:success] = "Optometrist Record Created"
     		redirect_to(phr_eye_path(@eye.phr, @eye))
     	else
+    		@user = current_user
     		render 'new'
    		end
 	end
@@ -89,14 +90,14 @@ class EyesController < ApplicationController
 	def destroy
 		@phr = Phr.find(params[:phr_id])
 		@eye = @phr.eyes.find(params[:id])
-		if @eye.update_attribute(:deleted, true)
+		if @eye.destroy
 	      flash[:success] = "Record Deleted."
 	    else
-      
+      		flash[:error] = "Error Deleting Record"
 	    end
 	    redirect_to(phr_eyes_path)
 
-  end
+  	end
 
  	# Private Definitions
 	private

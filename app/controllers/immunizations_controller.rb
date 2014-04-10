@@ -26,15 +26,6 @@ class ImmunizationsController < ApplicationController
     end
   end
   
-  #Function delete
-  #Removes an immunization from the database and updates the user view.
-  def delete
-    @phr = Phr.find(params[:phr_id])
-    @immunization = @phr.immunization.find(params[:id])
-    @immunization.destroy #change to update and change the delete flag 
-    redirect_to phr_path(@phr)
-  end
- 
   # Function: show
   # Finds immunization that belong to the phr and shows them
   def show
@@ -62,13 +53,17 @@ class ImmunizationsController < ApplicationController
     end
   end
   
+  #Function destroy
+  #Removes an immunization from the database and updates the user view.
   def destroy
-	@phr = Phr.find(params[:phr_id])
-	@immunization = @phr.immunizations.find(params[:id])
-	if @immunization.update_attribute(:deleted, true)
-		flash[:success] = "Record Deleted"
-	end
-	redirect_to(phr_immunizations_path)
+  	@phr = Phr.find(params[:phr_id])
+  	@immunization = @phr.immunizations.find(params[:id])
+  	if @immunization.destroy
+  		flash[:success] = "Record Deleted"
+    else
+      flash[:error] = "Error Deleting Record"
+  	end
+  	redirect_to(phr_immunizations_path)
   end
   
   #Permitted parameter for allergies

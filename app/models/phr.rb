@@ -1,4 +1,5 @@
 class Phr < ActiveRecord::Base
+	acts_as_paranoid
 	belongs_to :user
 	has_many :eyes, dependent: :destroy
 	has_many :immunizations, dependent: :destroy

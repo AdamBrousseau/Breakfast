@@ -20,8 +20,8 @@
         		</tr>
       		</thead>
       		<tbody>
-      		  <%= render @dentals.where(:deleted => false) %>
-            <%= will_paginate @dentals.where(:deleted => false) %>
+      		  <%= render @dentals %>
+            <%= will_paginate @dentals %>
       		</tbody>
     	</table>
     	<table>

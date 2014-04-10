@@ -1,9 +1,7 @@
-<% unless bglucose.deleted %>
-	<tr>
+<tr>
 		<td><%= link_to bglucose.date.strftime('%B %-d, %Y'), [bglucose.phr, bglucose] %> </td>
 		<td><%= bglucose.sugar %></td>
 		<td><%= bglucose.btype %></td>
 		<td><%= link_to "Edit", edit_phr_bglucose_path(@phr, bglucose), class: "btn btn-small btn-secondary" %></td>
 		<td><%= link_to 'Delete', [bglucose.phr, bglucose], method: :delete, data: {confirm: "Are you sure you want to delete this blood glucose record?"}, title: bglucose.date, class: "btn btn-small btn-secondary" %></td>
-	</tr>
-<% end %>
+</tr>

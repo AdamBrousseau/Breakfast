@@ -61,11 +61,11 @@ class AppointmentsController < ApplicationController
 # Updates the delted column of the appointment record, shows success message and redirects user to their phr
     @phr = Phr.find(params[:phr_id])
     @appointment = @phr.appointments.find(params[:id])
-    if @appointment.update_attribute(:deleted, true)
+    if @appointment.destroy
       flash[:success] = "Record Deleted"
     else
-
-  end
+      flash[:error] = "Error Deleting Record"
+    end
     redirect_to(phr_appointments_path)
   end
 

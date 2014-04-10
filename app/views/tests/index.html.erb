@@ -11,7 +11,7 @@
       <br>
       <br>
 
-      <% if @phr.tests.where(:deleted => false).any? %>
+      <% if @phr.tests.any? %>
         <table class = "table table-striped table-bordered table-condensed">
         <thead>
           <tr>
@@ -23,8 +23,8 @@
         </thead>
 
         <tbody>
-          <%= render @tests.where(:deleted => false) %>
-          <%= will_paginate @tests.where(:deleted => false) %>
+          <%= render @tests %>
+          <%= will_paginate @tests %>
         </tbody>
 
         </table>

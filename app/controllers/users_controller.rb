@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   # that only admin users can delete User records.
   before_action :signed_in_user, only: [:show, :edit, :update]
   before_action :correct_user,   only: [:show, :edit, :update]
-  skip_before_filter :session_expiry
-  skip_before_filter :update_activity_time
+  skip_before_filter :session_expiry, except: [:show, :update]
+  skip_before_filter :update_activity_time, except: [:show, :update]
   before_action :admin_user,     only: :destroy
 
   # Action: new
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   # Functionality: Destroy the user. Flash a success message. Redirect to
   #                the homepage
   def destroy
-    User.destroy
+    User.find(params[:id]).destroy
     flash[:success] = "User account deleted."
     redirect_to(root_url)
   end

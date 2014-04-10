@@ -1,4 +1,5 @@
 class Test < ActiveRecord::Base
+	acts_as_paranoid
 	belongs_to :phr
 	default_scope -> { order('created_at DESC') }
 	#specify that test is a paperclip file attachment

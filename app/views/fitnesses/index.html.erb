@@ -10,7 +10,7 @@
 			<%= link_to "+New Record", new_phr_fitness_path, class: "btn btn-small btn-secondary" %>
 			<br>
 			<br>
-			<% result = @fitnesses.where(deleted: false).order(date: :desc) %>
+			<% result = @fitnesses.order(date: :desc) %>
 			<div>
 				<% if result.any? %>
 				<span>

@@ -10,7 +10,7 @@
   <br>
   <br>
     <% if @phr.appointments.any? %>
-    <%= calendar @appointments.where(:deleted => false) do |appointment| %>
+    <%= calendar @appointments do |appointment| %>
       <%= link_to appointment.doctor, [appointment.phr, appointment] %>
     <% end %>
 
@@ -25,8 +25,8 @@
         		</tr>
       		</thead>
       		<tbody>
-      		  <%= render @appointments.where(:deleted => false) %>
-            <%= will_paginate @appointments.where(:deleted => false) %>
+      		  <%= render @appointments %>
+            <%= will_paginate @appointments %>
       		</tbody>
     	</table>
     	<table>

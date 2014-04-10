@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-
+	acts_as_paranoid
 	default_scope -> { order('name ASC') }
 	belongs_to :user
 	before_save { email.downcase! }

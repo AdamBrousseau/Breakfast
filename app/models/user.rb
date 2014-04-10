@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	#acts_as_authlogic
 	has_secure_password
+	acts_as_paranoid
 	has_many :phrs, dependent: :destroy
 	has_many :contacts, dependent: :destroy
 	before_save { email.downcase! }
