@@ -20,6 +20,22 @@ WebPHR::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = false
+
+  # Action mailer setup for gmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'cryptic-journey-7827.herokuapp.com',
+  user_name:            'webphr',
+  password:             'pdrw namp qwra gmfq',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
+
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
 
@@ -36,4 +52,9 @@ WebPHR::Application.configure do
 
   # Speed up tests by lowering bcrypt's cost function.
   ActiveModel::SecurePassword.min_cost = true
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  RECAPTCHA_PUBLIC_KEY= '6LenUvASAAAAAL7Irq-cfVeI00JRnEKh8DyT0AVA'
+  RECAPTCHA_PRIVATE_KEY= '6LenUvASAAAAAJM2FEaoA4509KVMvDcgnQ-ktE9j'
 end

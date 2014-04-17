@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
   			if user.active?
 				# Sign the user in and redirect to the user's show page.
 				sign_in user
-	      		redirect_back_or user
+				redirect_back_or user
 	      	else
 	      		flash[:error] = 'Please activate your account'
 	      		redirect_to activate_path

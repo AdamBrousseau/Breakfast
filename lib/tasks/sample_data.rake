@@ -5,9 +5,26 @@ namespace :db do
                  email: "example@webphr.org",
                  password: "foobar",
                  password_confirmation: "foobar",
+                 active: true,
                  admin: true)
+    
+    # Create Admin Users
+    6.times do |s|
+      first_name = Faker::Name.first_name
+      last_name = Faker::Name.last_name
+      name = first_name + " " + last_name
+      email = "exampleadmin-#{s+1}@webphr.org"
+      password  = "password"
+      User.create!(name: name,
+                   email: email,
+                   password: password,
+                   password_confirmation: password,
+                   admin: true,
+                   active: true)
+    end
+
     # Create Users
-    2.times do |n|
+    6.times do |n|
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       name = first_name + " " + last_name

@@ -1,25 +1,33 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="span4">
-    <section>
-      <h3>
-        <%= gravatar_for @user %>
-        <%= link_to @user.name, edit_user_path, "data-no-turbolink" => true %>
-      </h3>
-    </section>
-    <section>  
-      	<%= link_to "New PHR", createphr_path, class: "btn btn-large btn-secondary" %>
-    </section>
+    <%= render 'userPane' %>
   </aside>
   <div class="span8">
-  	<h2 style="text-align:left;">Personal Health Records</h2>
-    <% if @user.phrs.any? %>
-      <ol class="phrs">
-        <%= render @phrs %>
-      </ol>
-      <%= will_paginate @phrs %>
-      <% else %>
-      You have not created any Personal Health Records yet.
-    <% end %>
+    <% if @user.admin? %>
+    	<h2 style="text-align:left;">Admin Users</h2>
+        <ol class="users">
+          <%= render @users_admin %>
+        </ol>
+        <br>
+      <h2 style="text-align:left;">Non-Admin Users</h2>
+      <% if @users_nonadmin.any? %>
+        <ol class="users">
+          <%= render @users_nonadmin %>
+        </ol>
+        <% else %>
+        No Users have registered yet.
+        <% end %>      
+    <% else %>
+      <h2 style="text-align:left;">My Personal Health Records</h2>
+      <% if @user.phrs.any? %>
+        <ol class="phrs">
+          <%= render @phrs %>
+        </ol>
+        <%= will_paginate @phrs %>
+        <% else %>
+        You have not created any Personal Health Records yet.
+        <% end %>
+      <% end %>
   </div>
 </div>

@@ -55,11 +55,13 @@ class UsersController < ApplicationController
   #                display them on the user's homepage.
   def show
     @user = User.find(params[:id])
+    @users_nonadmin = User.all.where(admin: false)
+    @users_admin = User.all.where(admin: true).where.not(id: params[:id])
     @phrs = @user.phrs.paginate(page: params[:page], per_page: 5)
   end
 
-  #def edit
-  #end
+  def edit
+  end
 
   # Action: update
   # Purpose: Update the User attributes.
@@ -83,7 +85,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User account deleted."
-    redirect_to(root_url)
+    redirect_to current_user
   end
 
   # Private Definitions

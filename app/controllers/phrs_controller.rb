@@ -12,7 +12,7 @@ class PhrsController < ApplicationController
   # Before performing any actions, ensure the user is
   # signed_in and the correct_user is requesting the action.
   before_action :signed_in_user
-  before_action :correct_user , only: [:show, :destroy, :update]
+  before_action :correct_user , only: [:show, :destroy, :update, :edit]
   
   # Action: show
   # Purpose: Render the PHR.
@@ -106,7 +106,7 @@ class PhrsController < ApplicationController
 
     def correct_user
       @phr = current_user.phrs.find_by(id: params[:id])
-      redirect_to root_url if @phr.nil?
+      redirect_to root_url if @phr.nil? unless  current_user.admin?
     end
     
 end
