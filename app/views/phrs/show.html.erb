@@ -5,50 +5,55 @@
   <section>
 
   <div class="span8">
-  <h4><%= link_to 'Ailment Records' , phr_ailments_path(@phr) %></h4>
-  </div>
-  
-  <div class="span8">
-  <h4><%= link_to 'Allergy Records' , phr_allergies_path(@phr) %></h4>
-  </div>
-  
-  <div class="span8">
-  <h4><%= link_to 'Appointments' , phr_appointments_path(@phr) %></h4>
-  </div>
 
-  <div class="span8">
-  <h4><%= link_to 'Blood Glucose Records' , phr_bglucoses_path(@phr) %></h4>
-  </div>
+    <table>
+      <tbody>
+        <tr>
+          <td width = "150", height = "150">
+            <%= link_to (image_tag("ailments.png", size: "100x100", alt: "Ailment records")) , phr_ailments_path(@phr) %>
+          </td>
+          <td width = "150", height = "150">
+            <%= link_to (image_tag("allergies.png", size: "100x100", alt: "Allergy records")) , phr_allergies_path(@phr) %>
+          </td>
+          <td width = "150", height = "150">
+            <%= link_to (image_tag("appointments.png", size: "100x100", alt: "Appointment records")), phr_appointments_path(@phr) %>
+          </td>
+          <td width = "150", height = "150">
+            <%= link_to (image_tag("blood_sugar.png", size: "100x100", alt: "Blood Glucose records")) , phr_bglucoses_path(@phr) %>
+          </td>
+        </tr>
+        <tr>
+          <td width = "150", height = "150">
+            <%= link_to (image_tag("blood_pressure.png", size: "100x100", alt: "Blood Pressure records")) , phr_bps_path(@phr) %>
+          </td>
+          <td>
+            <%= link_to (image_tag("dental.png", size: "100x100", alt: "Dental records")) , phr_dentals_path(@phr) %>
+          </td>
+          <td>
+            <%= link_to (image_tag("fitness.png", size: "100x100", alt: "Fitness records")) , phr_fitnesses_path(@phr) %>
+          </td>
+          <td>
+            <%= link_to (image_tag("immunizations.png", size: "100x100", alt: "Immunization records")), phr_immunizations_path(@phr) %>
+          </td>
+        </tr>
+        <tr>
+          <td width = "150", height = "150">
+            <%= link_to (image_tag("medications.png", size: "100x100", alt: "Medication records")) , phr_medications_path(@phr) %>
+          </td>
+          <td>
+            <%= link_to (image_tag("eyes.png", size: "100x100", alt: "Optometrist records")) , phr_eyes_path(@phr) %>
+          </td>
+          <td>
+            <%= link_to (image_tag("test_results.png", size: "100x100", alt: "Test Result records")) , phr_tests_path(@phr) %>
+          </td>
+          <td>
 
-  <div class="span8">
-  <h4><%= link_to 'Blood Pressure Records' , phr_bps_path(@phr) %></h4>
-  </div>
-  
-  <div class="span8">
-  <h4><%= link_to 'Dental Records' , phr_dentals_path(@phr) %></h4>
-  </div>
+          </td>
+        </tr>
+      </tbody>
+    </table> 
 
-  <div class="span8">
-  <h4><%= link_to 'Fitness Records' , phr_fitnesses_path(@phr) %></h4>
-  </div>
-
-  <div class="span8">
-    <h4><%= link_to 'Immunization Records', phr_immunizations_path(@phr) %></h4>
-  </div>
-  
-  <div class="span8">
-    <h4> <h4><%= link_to 'Medication Records' , phr_medications_path(@phr) %></h4></h4>
-  </div>
-
-  <div class="span8">
-    <h4><%= link_to 'Optometrist Records' , phr_eyes_path(@phr) %></h4>
-  </div>
-  
-  <div class="span8">
-    <h4><%= link_to 'Test Results Records' , phr_tests_path(@phr) %></h4>
-  </div>
-
-  <div class="span8">
+<br>
     <%= link_to 'Back', current_user, class: "btn btn-small btn-secondary" %>
   </div>
   </section>
