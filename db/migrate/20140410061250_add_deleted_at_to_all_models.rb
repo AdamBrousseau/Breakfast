@@ -3,7 +3,7 @@ class AddDeletedAtToAllModels < ActiveRecord::Migration
     add_column :users, :deleted_at, :datetime
     
     add_column :ailments, :deleted_at, :datetime
-    remove_column :ailments, :deleted
+    #remove_column :ailments, :deleted
     
     add_column :allergies, :deleted_at, :datetime
     remove_column :ailments, :deleted
