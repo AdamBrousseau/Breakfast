@@ -8,7 +8,7 @@
 	</p>
 	<p>
 		<%= f.label :expiry, 'Immunization Expiry Date' %>
-		<%= f.date_select :expiry, :start_year => Time.now.year - 100, :end_year => Time.now.year + 100 %>
+		<%= f.date_select :expiry, :start_year => Time.now.year - 100, :end_year => Time.now.year + 100, :include_blank => true, :default => nil %>
 	</p>
 	<p>
 	<%= f.submit "Submit", :class => "btn btn-small btn-secondary" %> <%= link_to 'Cancel', phr_immunizations_path, class: "btn btn-small btn-secondary" %>

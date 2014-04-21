@@ -11,7 +11,7 @@
   <%= f.collection_select(:reason, @phr.ailments.all, :ailment_name, :ailment_name, :prompt => true) %>
 </p>    
 <p>
-  <%= "Additional Notes" %>
+  <%= f.label :results %>
   <%= f.text_area :results %>
 </p>
 <p>
