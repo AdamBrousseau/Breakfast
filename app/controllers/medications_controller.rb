@@ -52,6 +52,18 @@ class MedicationsController < ApplicationController
 		end	
 	end
 
+	def destroy
+		@phr = Phr.find(params[:phr_id])
+		@medication = @phr.medications.find(params[:id])
+		if @medication.destroy
+	      flash[:success] = "Record Deleted."
+	    else
+      		flash[:error] = "Error Deleting Record"
+	    end
+	    redirect_to(phr_medications_path)
+
+  	end
+
 	private
 		def medication_params
 			params.require(:medication).permit(:medication_name,
