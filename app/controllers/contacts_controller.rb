@@ -26,13 +26,13 @@ class ContactsController < ApplicationController
   	# 				generate PDF document for all the available contacts.
 	def index
 		if params[:search]
-    		@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5).find(:all, :conditions => ['name Like ?', "%#{params[:search]}%"])
+    		@contacts = current_user.contacts.paginate(page: params[:page], per_page: 10).find(:all, :conditions => ['name Like ?', "%#{params[:search]}%"])
     		if !@contacts.any?
     			flash[:failure] = "Contact Not Found"
-    			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+    			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 10)
     		end
   		else
-  			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+  			@contacts = current_user.contacts.paginate(page: params[:page], per_page: 10)
   			respond_to do |format|
 	     		format.html
 	     		format.pdf do
