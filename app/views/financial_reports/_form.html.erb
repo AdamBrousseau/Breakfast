@@ -1,0 +1,33 @@
+<%= form_for(@financial_report) do |f| %>
+  <% if @financial_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@financial_report.errors.count, "error") %> prohibited this financial_report from being saved:</h2>
+
+      <ul>
+      <% @financial_report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :school_name %><br>
+    <%= f.text_field :school_name %>
+  </p>
+  <p>
+    <%= f.label :month_of_report %><br>
+    <%= f.select :month_of_report, ['January','February','March','April','May','June','July','August','September','October','November','December'] %>
+  </p>
+  <p>
+    <%= f.label :total_spent %><br>
+    <%= f.number_field :total_spent, :class => 'text_field', :step => '.01' %>
+  </p>
+  <p>
+    <%= f.label :if_amount_spent_is_0_explain %><br>
+    <%= f.text_field :comments %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

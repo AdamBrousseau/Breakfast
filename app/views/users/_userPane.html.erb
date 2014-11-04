@@ -4,8 +4,3 @@
     <%= link_to @user.name, edit_user_path, "data-no-turbolink" => true %>
   </h3>
 </section>
-<% if @user.admin? == false %>
-  <section>      
-   	<%= link_to "New PHR", createphr_path, class: "btn btn-large btn-secondary" %><br><br>
-  </section>
-<% end %>

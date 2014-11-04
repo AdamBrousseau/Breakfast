@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users_nonadmin = User.all.where(admin: false)
     @users_admin = User.all.where(admin: true).where.not(id: params[:id])
-    @phrs = @user.phrs.paginate(page: params[:page], per_page: 5)
+  #  @phrs = @user.phrs.paginate(page: params[:page], per_page: 5)
   end
 
   def edit

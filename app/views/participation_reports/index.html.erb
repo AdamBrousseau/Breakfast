@@ -1,0 +1,25 @@
+<h1>Listing participation_reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participation_reports.each do |participation_report| %>
+      <tr>
+        <td><%= link_to 'Show', participation_report %></td>
+        <td><%= link_to 'Edit', edit_participation_report_path(participation_report) %></td>
+        <td><%= link_to 'Destroy', participation_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Participation report', new_participation_report_path %>

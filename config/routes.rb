@@ -1,24 +1,16 @@
 WebPHR::Application.routes.draw do
   
+  resources :financial_reports
+
+  resources :participation_reports
+
   get "password_resets/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :phrs do
-	 resources :immunizations
-   resources :allergies
-   resources :appointments
-   resources :ailments
-   resources :dentals
-   resources :medications
-   resources :eyes
-   resources :tests
-   resources :bps
-   resources :bglucoses
-   resources :fitnesses
-  end
-  resources :contacts
   resources :activations, only: [:new, :create, :edit]
   resources :password_resets
+  resources :participation_reports, only: [:new, :create]
+  resources :financial_reports, only: [:new, :create]
  
   root  'static_pages#home'
  
@@ -31,7 +23,7 @@ WebPHR::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  match '/createphr', to: 'phrs#new',            via: 'get'
+  #match '/createphr', to: 'phrs#new',            via: 'get'
 
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

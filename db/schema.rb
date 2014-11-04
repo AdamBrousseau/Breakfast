@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402152205) do
+ActiveRecord::Schema.define(version: 20141104071403) do
 
   create_table "ailments", force: true do |t|
     t.string   "ailment_name"
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",             default: false
+    t.datetime "deleted_at"
+    t.string   "comments"
   end
 
   add_index "ailments", ["phr_id"], name: "index_ailments_on_phr_id"
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.integer  "phr_id"
     t.boolean  "deleted",             default: false
     t.date     "date"
+    t.datetime "deleted_at"
   end
 
   create_table "appointments", force: true do |t|
@@ -41,9 +43,9 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.string   "reason"
     t.string   "results"
     t.integer  "phr_id"
-    t.date     "appointment_date"
+    t.datetime "appointment_date"
     t.datetime "updated_at"
-    t.boolean  "deleted",          default: false
+    t.datetime "deleted_at"
   end
 
   create_table "bglucoses", force: true do |t|
@@ -54,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",    default: false
+    t.datetime "deleted_at"
   end
 
   create_table "bps", force: true do |t|
@@ -63,9 +65,9 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.string   "condition"
     t.integer  "phr_id"
     t.datetime "date"
-    t.boolean  "deleted",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "contacts", force: true do |t|
@@ -77,8 +79,8 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",     default: false
     t.string   "honorific"
+    t.datetime "deleted_at"
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
@@ -89,9 +91,9 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",          default: false
     t.string   "description"
     t.string   "additional_notes"
+    t.datetime "deleted_at"
   end
 
   create_table "eyes", force: true do |t|
@@ -128,21 +130,33 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",        default: false
     t.string   "comment2"
     t.string   "doctor"
+    t.datetime "deleted_at"
   end
 
   add_index "eyes", ["phr_id", "date"], name: "index_eyes_on_phr_id_and_date"
+
+  create_table "financial_reports", force: true do |t|
+    t.string   "school_name"
+    t.datetime "month_of_report"
+    t.decimal  "total_spent"
+    t.string   "comments"
+    t.integer  "user_id"
+    t.boolean  "deleted",         default: false
+    t.boolean  "boolean",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fitnesses", force: true do |t|
     t.float    "weight"
     t.float    "height"
     t.date     "date"
-    t.boolean  "deleted",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "phr_id"
+    t.datetime "deleted_at"
   end
 
   create_table "immunizations", force: true do |t|
@@ -152,7 +166,7 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.integer  "phr_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",      default: false
+    t.datetime "deleted_at"
   end
 
   add_index "immunizations", ["phr_id"], name: "index_immunizations_on_phr_id"
@@ -168,8 +182,31 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.string   "prescribing_doctor"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",            default: false
     t.integer  "phr_id"
+    t.datetime "deleted_at"
+  end
+
+  create_table "participation_reports", force: true do |t|
+    t.string   "school_name"
+    t.integer  "school_population"
+    t.string   "principal_name"
+    t.string   "staff_name"
+    t.integer  "no_served_students_breakfast"
+    t.integer  "no_served_students_snack"
+    t.datetime "reporting_period_start"
+    t.datetime "reporting_period_end"
+    t.datetime "program_start_date"
+    t.integer  "no_volunteer_staff"
+    t.integer  "no_volunteer_students"
+    t.integer  "no_volunteer_community"
+    t.integer  "no_volunteer_parents"
+    t.string   "food_donation_source"
+    t.string   "financial_donation_source"
+    t.integer  "user_id"
+    t.boolean  "deleted",                      default: false
+    t.boolean  "boolean",                      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "phrs", force: true do |t|
@@ -182,7 +219,7 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "deleted",        default: false
+    t.datetime "deleted_at"
   end
 
   add_index "phrs", ["user_id"], name: "index_phrs_on_user_id"
@@ -198,9 +235,9 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.datetime "test_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",           default: false
     t.string   "doctor"
     t.string   "reason"
+    t.datetime "deleted_at"
   end
 
   add_index "tests", ["phr_id", "date"], name: "index_tests_on_phr_id_and_date"
@@ -217,6 +254,7 @@ ActiveRecord::Schema.define(version: 20140402152205) do
     t.string   "activation_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

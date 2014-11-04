@@ -19,15 +19,12 @@
         No Users have registered yet.
         <% end %>      
     <% else %>
-      <h2 style="text-align:left;">My Personal Health Records</h2>
-      <% if @user.phrs.any? %>
-        <ol class="phrs">
-          <%= render @phrs %>
-        </ol>
-        <%= will_paginate @phrs %>
-        <% else %>
-        You have not created any Personal Health Records yet.
-        <% end %>
-      <% end %>
+      <section>      
+        <%= link_to "Create Monthly Participiation Report", new_participation_report_path, class: "btn btn-large btn-secondary" %><br><br>
+      </section>
+      <section>      
+        <%= link_to "Create Monthly Financial Report", new_financial_report_path, class: "btn btn-large btn-secondary" %><br><br>
+      </section>
+    <% end %>
   </div>
 </div>

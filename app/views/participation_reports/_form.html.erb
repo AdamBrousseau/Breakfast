@@ -1,0 +1,77 @@
+<%= form_for(@participation_report) do |f| %>
+  <% if @participation_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participation_report.errors.count, "error") %> prohibited this participation_report from being saved:</h2>
+
+      <ul>
+      <% @participation_report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :reporting_period %><br>
+    <%= f.date_select :reporting_period_start, :start_year => 2000, :end_year => Time.now.year%>
+    <%= f.label :to %><br>
+    <%= f.date_select :reporting_period_end, :start_year => 2000, :end_year => Time.now.year%>
+  </p>
+  <p>
+    <%= f.label :school_name %><br>
+    <%= f.text_field :school_name %>
+  </p>
+  <p>
+    <%= f.label :school_population %><br>
+        <%= f.number_field :school_population, :class => 'text_field', :step => 'any' %>
+
+  </p>
+  <p>
+    <%= f.label :principal_name %><br>
+    <%= f.text_field :principal_name %>
+  </p>
+  <p>
+    <%= f.label :staff_coordinator_name %><br>
+    <%= f.text_field :staff_name %>
+  </p>
+  <p>
+    <%= f.label :average_number_of_students_served_per_day %><br>
+    <%= f.label :breakfast %><br>
+    <%= f.number_field :no_served_students_breakfast, :class => 'text_field', :step => 'any' %>
+  </p>
+  <p>
+    <%= f.label :average_number_of_students_served_per_day %><br>
+    <%= f.label :morning_snack %><br>
+    <%= f.number_field :no_served_students_snack, :class => 'text_field', :step => 'any' %>
+  </p>
+  <p>
+    <%= f.label :program_start_date %><br>
+    <%= f.date_select :program_start_date, :start_year => 2000, :end_year => Time.now.year+1%>
+  </p>
+  <p>
+    <%= f.label :average_number_of_volunteer_staff_per_day %><br>
+    <%= f.label :staff %><br>
+    <%= f.number_field :no_volunteer_staff, :class => 'text_field', :step => 'any' %>
+    <%= f.label :students %><br>
+    <%= f.number_field :no_volunteer_students, :class => 'text_field', :step => 'any' %>
+    <%= f.label :community_members %><br>
+    <%= f.number_field :no_volunteer_community, :class => 'text_field', :step => 'any' %>
+    <%= f.label :parents %><br>
+    <%= f.number_field :no_volunteer_parents, :class => 'text_field', :step => 'any' %>
+  </p>
+  <p>
+    <%= f.label :food_donations_from_other_sources_that_are_used_by_your_breakfast_program %><br>
+    <%= f.label :list_all_that_apply %><br>
+    <%= f.label :example_local_grocery_store_parents_restaurant_bakery_other %><br>
+    <%= f.text_field :food_donation_source %>
+  </p>
+  <p>
+    <%= f.label :financial_contributions_from_other_sources_that_are_used_by_your_breakfast_program %><br>
+    <%= f.label :this_information_is_for_ministry_reporting_only_and_will_not_impact_the_funding_you_receive %><br>
+    <%= f.label :list_all_that_apply %><br>
+    <%= f.label :example_parents_churches_community_groups_other %><br>
+    <%= f.text_field :financial_donation_source %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

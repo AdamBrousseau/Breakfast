@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
 	#acts_as_authlogic
 	has_secure_password
 	acts_as_paranoid
-	has_many :phrs, dependent: :destroy
-	has_many :contacts, dependent: :destroy
+	has_many :participation_reports
+	has_many :financial_reports
+	#has_many :contacts, dependent: :destroy
 	before_save { email.downcase! }
 	#before_create :create_remember_token
 	#before_create :create_activation_token
